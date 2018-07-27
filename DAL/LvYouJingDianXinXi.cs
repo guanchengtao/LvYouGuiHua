@@ -53,7 +53,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@JDMingCheng", SqlDbType.NVarChar,50),
-					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,200),
+					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,3900),
 					new SqlParameter("@JDWeiZhi", SqlDbType.NVarChar,50),
 					new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
 					new SqlParameter("@WeiDu", SqlDbType.NVarChar,10),
@@ -98,7 +98,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("BeiZhu=@BeiZhu");
 			strSql.Append(" where JDBianHao=@JDBianHao");
 			SqlParameter[] parameters = {
-					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,200),
+					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,3900),
 					new SqlParameter("@JDWeiZhi", SqlDbType.NVarChar,50),
 					new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
 					new SqlParameter("@WeiDu", SqlDbType.NVarChar,10),
@@ -293,10 +293,22 @@ namespace SDAU.ZHCZ.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
-		/// <summary>
-		/// 获得前几行数据
-		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+        public DataSet GetList1(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select JDBianHao,JDMingCheng,JDJieShao,JDWeiZhi,JingDu,WeiDu,TuPian,LiuLanCiShu,FBShiJian,BeiZhu ");
+            strSql.Append(" FROM LvYouJingDianXinXi order by FBShiJian desc  ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        /// <summary>
+        /// 获得前几行数据
+        /// </summary>
+        public DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ");

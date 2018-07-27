@@ -37,6 +37,15 @@
                     $("#p" + j + "").find('td').eq(2).text(ConvertTime(data[i].FaBuShiJian));
                     i++; j++;
                 }  
+            });   
+               $.getJSON("../Admin/ashx/LvYouGuiHuaList.ashx", {}, function (data) {
+                var i = 0;
+                var j = 1;
+                while (i < 6) {
+                    $("#lygh" + j + "").find("a").text(data[i].GHXMMingCheng).attr("href", "gkxx.html?id=" + data[i].GHXMBianHao).attr("target","_blank");
+                    $("#lygh" + j + "").find('td').eq(2).text(ConvertTime(data[i].GuiHuaShiJian));
+                    i++; j++;
+                }  
             });     
             //转化时间格式
                 function formatDate(dt) {
@@ -60,12 +69,12 @@
                 最新动态
             </div>
             <div class="n1-2">
-                <div id="banner">
-         
+                <div id="banner" >        
                     <div class="pic">          
-                        <a href="#" style="display:block"><img width="560" height="400" src="" /></a>
-                        <a href="#"><img width="560" height="400" src="" /></a>
-                        <a href="#"><img width="560" height="400" src="" /></a>
+                        <a href="#" style="display:block"><img style="width:540px;height:350px"  src="../wodetupian/1.jpg" /></a>
+                        <a href="#"><img
+                           style="width:540px;height:350px" src="../wodetupian/2.jpg" /></a>
+                        <a href="#"><img   style="width:540px;height:350px" src="../wodetupian/4.jpg" /></a>
                     </div>
                     <div class="btn">
                         <ul>
@@ -81,7 +90,7 @@
             <iframe allowtransparency="true" frameborder="0" width="530" height="100" scrolling="no" 
                 src="http://tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=385&h=96&align=center"></iframe>
             <div class="n2-1">公开信息<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = 'gkxxList.html'" /></div>
-           <div style="height:180px;width:625px; margin-bottom:10px" >
+           <div style="height:180px;width:550px; margin-bottom:10px" >
                <table id="gkxx">
                    <tr id="p1">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
@@ -119,31 +128,31 @@
            </div>
             <div class="n2-2">旅游规划<input type="button" class="btn-info" value="更多>>" />
             </div>
-            <div style="height:180px;width:625px; margin-bottom:10px"><table>
-
-                    <tr>
+            <div style="height:180px;width:550px; margin-bottom:10px">
+                   <table id="lygh" style="width:530px"> 
+                <tr id="lygh1">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:500px"></td>
+                            <td style="text-align:left;width:440px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr>
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:500px"></td>
+                   <tr id="lygh2">
+                      <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr>
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:500px"></td>
+                   <tr id="lygh3">
+                      <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr>
+                     <tr id="lygh4">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:500px"></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr>
+                   <tr id="lygh5">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:500px"></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
                </table></div>

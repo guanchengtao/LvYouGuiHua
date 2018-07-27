@@ -6,13 +6,13 @@
 
 .n1 {
     height: 470px;
-    width: 550px;
+    width: 540px;
     float: left;
     background-color: #ffffff;
 }
 
 .n1-1 {
-    width: 562px;
+    width: 540px;
     height: 30px;
     background-image: url('../wodetupian/b1.jpg');
     background-size: 100% 100%;
@@ -21,7 +21,7 @@
 
 .n1-2 {
     height: 440px;
-    width: 562px;
+    width: 540px;
     background-color: #ffffff;
 }
 
@@ -49,7 +49,6 @@
     background-size: 100% 100%;
     color: #ffffff;
 }
-
 .n3 {
     width: 1200px;
     height: 300px;
@@ -57,7 +56,6 @@
     float: left;
     margin: 6px auto;
 }
-
 .n3-1 {
     height: 300px;
     width: 358px;
@@ -65,7 +63,6 @@
     margin: 0px 0px 0px 5px;
     background-color: #ffffff;
 }
-
 .n3-2 {
     height: 300px;
     width: 358px;
@@ -73,7 +70,6 @@
     margin: 0px 0px 0px 10px;
     background-color: #ffffff;
 }
-
 .n3-3 {
     height: 300px;
     width: 358px;
@@ -81,7 +77,6 @@
     margin: 0px 0px 0px 10px;
     background-color: #ffffff;
 }
-
 .n3-1-1 {
     height: 30px;
     width: 358px;
@@ -90,7 +85,6 @@
     background-size: 100% 100%;
     color: #ffffff;
 }
-
 .n3-2-1 {
     height: 30px;
     width: 358px;
@@ -99,7 +93,6 @@
     background-size: 100% 100%;
     color: #ffffff;
 }
-
 .n3-3-1 {
     height: 30px;
     width: 358px;
@@ -116,7 +109,6 @@
     margin: 0px 0px 0px 0px;
     background-color: #ffffff;
 }
-
 .n7 {
     height: 30px;
     width: 1100px;
@@ -129,8 +121,8 @@
 }
 
 #banner {
-    width: 420px;
-    height: 454px;
+    width: 550px;
+    height: 470px;
     position: relative; /*相对定位,相对于.btn按钮*/
     text-align: left;
 }
@@ -157,6 +149,7 @@
     position: absolute; /*绝对定位相对于banner div*/
     bottom: 40px;
     right: 0px;
+    margin-right:10px;
 }
 
     .btn ul li {

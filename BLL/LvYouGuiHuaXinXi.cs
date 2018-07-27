@@ -106,7 +106,7 @@ namespace SDAU.ZHCZ.BLL
 		/// </summary>
 		public List<SDAU.ZHCZ.Model.LvYouGuiHuaXinXi> GetModelList(string strWhere)
 		{
-			DataSet ds = dal.GetList(strWhere);
+			DataSet ds = dal.GetList1(strWhere);
 			return DataTableToList(ds.Tables[0]);
 		}
 		/// <summary>

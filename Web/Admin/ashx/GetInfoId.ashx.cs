@@ -27,6 +27,10 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
                     BLL.GongKaiXinXi gongKaiXinXi = new BLL.GongKaiXinXi();
                     Dt = gongKaiXinXi.GetList1("");
                     break;
+                case "jingdian":
+                    BLL.LvYouJingDianXinXi tt = new BLL.LvYouJingDianXinXi();
+                    Dt = tt.GetList1("");
+                    break;
                     //可拓展
                     //。。。。。
 

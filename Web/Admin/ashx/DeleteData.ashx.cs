@@ -33,6 +33,10 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
                     BLL.GongKaiXinXi gongKaiXinXi = new BLL.GongKaiXinXi();
                     gongKaiXinXi.DeleteList(str);
                     break;
+                case "jingdian":
+                    BLL.LvYouJingDianXinXi LvYouJingDianXinXi = new BLL.LvYouJingDianXinXi();
+                    LvYouJingDianXinXi.DeleteList(str);
+                    break;
             }
 
             context.Response.Write("ok");

@@ -10,7 +10,7 @@
 namespace SDAU.ZHCZ.Web.Admin.aspx {
     
     
-    public partial class LvYouJingDian_List {
+    public partial class LvYouJingDian_Add {
         
         /// <summary>
         /// form1 控件。
@@ -22,48 +22,39 @@ namespace SDAU.ZHCZ.Web.Admin.aspx {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Add 控件。
+        /// mingcheng 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Add;
+        protected global::System.Web.UI.WebControls.TextBox mingcheng;
         
         /// <summary>
-        /// select2 控件。
+        /// RequiredFieldValidator1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect select2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Serachwithcondition 控件。
+        /// txtEditorContents 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Serachwithcondition;
+        protected global::System.Web.UI.WebControls.TextBox txtEditorContents;
         
         /// <summary>
-        /// filein 控件。
+        /// btnSub 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button filein;
-        
-        /// <summary>
-        /// FileUpload1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.Button btnSub;
     }
 }

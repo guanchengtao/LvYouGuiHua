@@ -95,13 +95,14 @@
     <Content Include="Admin\aspx\LvYouGuiHua_Edit.aspx" />
     <Content Include="Admin\aspx\LvYouGuiHua_List.aspx" />
     <Content Include="Admin\aspx\LvYouGuiHua_View.aspx" />
+    <Content Include="Admin\aspx\LvYouJingDian_Add.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_List.aspx" />
+    <Content Include="Admin\aspx\LvYouJingDian_View.aspx" />
     <Content Include="Admin\aspx\Text.aspx" />
     <Content Include="Admin\aspx\VerifyCode.aspx" />
     <Content Include="Admin\html\Fail.html" />
     <Content Include="Admin\html\Fail2.html" />
     <Content Include="Admin\html\HomePage.html" />
-    <Content Include="Admin\html\Login.html" />
     <Content Include="Admin\html\Success.html" />
     <Content Include="assets\build.xml" />
     <Content Include="assets\css\bui-min.css" />
@@ -1114,12 +1115,16 @@
     <Content Include="webctrl_client\1_0\TreeImages\Tplus.gif" />
     <Content Include="webctrl_client\1_0\TreeImages\white.gif" />
     <Content Include="webctrl_client\1_0\treeview.htc" />
+    <Content Include="wodetupian\1.jpg" />
+    <Content Include="wodetupian\2.jpg" />
     <Content Include="wodetupian\b1.jpg" />
     <Content Include="wodetupian\b6.jpg" />
     <Content Include="wodetupian\Cache_3f1d4f749a217333..jpg" />
     <Content Include="wodetupian\foot.gif" />
     <Content Include="wodetupian\timg.jpg" />
-    <Content Include="wodetupian\u=3550319117,4157811296&amp;fm=200&amp;gp=0.jpg" />
+    <Content Include="wodetupian\timg1.jpg" />
+    <Content Include="wodetupian\3.jpg" />
+    <Content Include="wodetupian\4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\ashx\DeleteData.ashx.cs">
@@ -1145,6 +1150,9 @@
     </Compile>
     <Compile Include="Admin\ashx\LoginProcess.ashx.cs">
       <DependentUpon>LoginProcess.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ashx\LvYouGuiHuaList.ashx.cs">
+      <DependentUpon>LvYouGuiHuaList.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\aspx\GongKaiXinXi_Add.aspx.cs">
       <DependentUpon>GongKaiXinXi_Add.aspx</DependentUpon>
@@ -1216,12 +1224,26 @@
     <Compile Include="Admin\aspx\LvYouGuiHua_View.aspx.designer.cs">
       <DependentUpon>LvYouGuiHua_View.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDian_Add.aspx.cs">
+      <DependentUpon>LvYouJingDian_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDian_Add.aspx.designer.cs">
+      <DependentUpon>LvYouJingDian_Add.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\aspx\LvYouJingDian_List.aspx.cs">
       <DependentUpon>LvYouJingDian_List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\aspx\LvYouJingDian_List.aspx.designer.cs">
       <DependentUpon>LvYouJingDian_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDian_View.aspx.cs">
+      <DependentUpon>LvYouJingDian_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDian_View.aspx.designer.cs">
+      <DependentUpon>LvYouJingDian_View.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\aspx\Text.aspx.cs">
       <DependentUpon>Text.aspx</DependentUpon>
@@ -1411,6 +1433,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ashx\ghidIsexist.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\LvYouGuiHuaList.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

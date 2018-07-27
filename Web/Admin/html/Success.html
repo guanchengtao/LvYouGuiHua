@@ -1,67 +1,74 @@
 ﻿<!DOCTYPE HTML>
 <html>
- <head>
-  <title> 页面操作快捷方式</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+<head>
+    <title>页面操作快捷方式</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />  
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
     <script src="../../js/jquery-1.10.2.js"></script>
-     <script>
-         $(function () {
-             var name = window.location.href.split('=')[1];
-             var xinxi = $("#xinxi");
-             var list = $("#list");
-             var add = $("#add");
-             switch (name) {
-                 case "guihua": xinxi.attr("href", "../aspx/LvYouGuiHua_View.aspx");
-                     list.attr("href", "../aspx/LvYouGuiHua_List.aspx");
-                     add.attr("href", "../aspx/LvYouGuiHua_Add.aspx");
-                     break;
-                 case "gongkaixinxi":
-                     xinxi.attr("href", "../aspx/GongKaiXinXi_View.aspx");
-                     list.attr("href", "../aspx/GongKaiXinXi_List.aspx");
-                     add.attr("href", "../aspx/GongKaiXinXi_Add.aspx");
-                     break;
-                 //可拓展
-                 //=======
-             }
-             $.post("../ashx/GetInfoId.ashx", { type: name }, function (data) {
-                 $("#xinxi").attr("href", $("#xinxi").attr("href")+"?id=" + data);
-             })
-         })
-     </script>
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span10">
-        <div class="tips tips-large tips-success">
-          <span class="x-icon x-icon-success"><i class="icon icon-ok icon-white"></i></span>
-          <div class="tips-content">
-            <h2>成功信息</h2>
-            <p class="auxiliary-text">
-              你可以继续操作以下内容：
-            </p>
-            <p>
-              <a class="page-action" data-type="setTitle" id="xinxi"   href="#">查看信息</a>
-              <a class="page-action" data-type="setTitle" id="list" href="#">返回信息列表</a>
-              <a class="page-action" data-type="setTitle" id="add" href="#">继续添加</a>
-            </p>
-          </div>
+    <script>
+        $(function () {
+            var name = window.location.href.split('=')[1];
+            var xinxi = $("#xinxi1");
+            var list = $("#list");
+            var add = $("#add");
+            switch (name) {
+                case "guihua":
+                    xinxi.attr("href", "../aspx/LvYouGuiHua_View.aspx");
+                    list.attr("href", "../aspx/LvYouGuiHua_List.aspx");
+                    add.attr("href", "../aspx/LvYouGuiHua_Add.aspx");
+                    break;
+                case "gongkaixinxi":
+                    xinxi.attr("href", "../aspx/GongKaiXinXi_View.aspx");
+                    list.attr("href", "../aspx/GongKaiXinXi_List.aspx");
+                    add.attr("href", "../aspx/GongKaiXinXi_Add.aspx");
+                    break;
+                case "jingdian":
+                    xinxi.attr("href", "../aspx/LvYouJingDian_View.aspx");
+                    list.attr("href", "../aspx/LvYouJingDian_List.aspx");
+                    add.attr("href", "../aspx/LvYouJingDian_Add.aspx");
+                    break;
+                //jingdian
+                //可拓展
+                //=======
+            }
+            $.post("../ashx/GetInfoId.ashx", { type: name }, function (data) {
+                $("#xinxi1").attr("href", $("#xinxi1").attr("href") + "?id=" + data);
+            })
+        })
+    </script>
+    <style type="text/css">
+        code {
+            padding: 0px 4px;
+            color: #d14;
+            background-color: #f7f7f9;
+            border: 1px solid #e1e1e8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="span10">
+                <div class="tips tips-large tips-success">
+                    <span class="x-icon x-icon-success"><i class="icon icon-ok icon-white"></i></span>
+                    <div class="tips-content">
+                        <h2>成功信息</h2>
+                        <p class="auxiliary-text">
+                            你可以继续操作以下内容：
+                        </p>
+                        <p>
+                            <a class="page-action" data-type="setTitle" id="xinxi1" href="#">查看信息</a>
+                            <a class="page-action" data-type="setTitle" id="list" href="#">返回信息列表</a>
+                            <a class="page-action" data-type="setTitle" id="add" href="#">继续添加</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div> 
     </div>
-  </div>
 </body>
-</html>  
+</html>
