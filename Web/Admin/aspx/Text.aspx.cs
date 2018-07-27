@@ -11,11 +11,16 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+            //for (int i = 10; i < 20; i++)
+            //{
+            //    Model.LiuYanBan liuYanBan = new Model.LiuYanBan()
+            //    {
+            //        NeiRong = "我是内容"+i,
+            //        BiaoTi = "标题"+i,
+            //        LiuYanShiJian = DateTime.Now
+            //    };
+            //    new BLL.LiuYanBan().Add(liuYanBan);
+            //}         
         }
     }
 }

@@ -24,7 +24,8 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
                 WeiDu = Request["weidu"],
                 JDJieShao = Request["JDJieShao"],
                 FBShiJian = DateTime.Now.ToLocalTime(),
-                LiuLanCiShu = 0
+                LiuLanCiShu = 0,
+                BeiZhu=""
             };
             JingDianXinXi.Add(model);
                 Context.Response.Redirect("/Admin/html/Success.html?id=jingdian");

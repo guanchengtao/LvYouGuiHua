@@ -84,7 +84,6 @@
                     <td class="biaotou">项目编号:</td>
                     <td>
                         <asp:TextBox ID="xiangmubianhao" runat="server"></asp:TextBox>
-                    <%--    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="xiangmubianhao" runat="server" ErrorMessage="*项目编号不能为空"></asp:RequiredFieldValidator>--%>
                     </td>
                     <td class="biaotou">项目名称:</td>
                     <td>

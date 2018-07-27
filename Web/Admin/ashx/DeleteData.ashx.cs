@@ -37,6 +37,11 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
                     BLL.LvYouJingDianXinXi LvYouJingDianXinXi = new BLL.LvYouJingDianXinXi();
                     LvYouJingDianXinXi.DeleteList(str);
                     break;
+                case "liuyan":
+                    BLL.LiuYanBan liuYanBan = new BLL.LiuYanBan();
+                    liuYanBan.DeleteList(str);
+                    break;
+       
             }
 
             context.Response.Write("ok");

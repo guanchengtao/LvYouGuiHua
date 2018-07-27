@@ -297,7 +297,7 @@ namespace SDAU.ZHCZ.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select JDBianHao,JDMingCheng,JDJieShao,JDWeiZhi,JingDu,WeiDu,TuPian,LiuLanCiShu,FBShiJian,BeiZhu ");
-            strSql.Append(" FROM LvYouJingDianXinXi order by FBShiJian desc  ");
+            strSql.Append(" FROM LvYouJingDianXinXi order by FBShiJian asc  ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -333,20 +333,28 @@ namespace SDAU.ZHCZ.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) FROM LvYouJingDianXinXi ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			object obj = DbHelperSQL.GetSingle(strSql.ToString());
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                string strtype = strWhere.Split('|')[0];
+                string strdate = strWhere.Split('|')[1];
+                switch (strtype)
+                {
+                    case "景点名称": strtype = "JDMingCheng"; break;
+                    case "位置": strtype = "JDWeiZhi"; break;
+
+                }
+                strSql.Append(" where " + strtype + " like '%" + strdate + "%' ");
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
@@ -364,14 +372,28 @@ namespace SDAU.ZHCZ.DAL
 				strSql.Append("order by T.JDBianHao desc");
 			}
 			strSql.Append(")AS Row, T.*  from LvYouJingDianXinXi T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
-			strSql.Append(" ) TT");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                string firsttype = strWhere.Split('|')[0];
+                string secondtype = strWhere.Split('|')[1];
+                switch (firsttype)
+                {
+                    case "景点名称": firsttype = "JDMingCheng"; break;
+                    case "位置": firsttype = "JDWeiZhi"; break;
+                }
+
+                strSql.Append(" where " + firsttype + " like '%" + secondtype + "%' ");
+                strSql.Append(" ) TT");
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+                return DbHelperSQL.Query(strSql.ToString());
+            }
+            else   //strWhere==null Query all data
+            {
+                strSql.Append(" ) TT");
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+                return DbHelperSQL.Query(strSql.ToString());
+            }
+        }
 
 		/*
 		/// <summary>

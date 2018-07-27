@@ -181,6 +181,76 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
                     #endregion
                     break;
                 case "jingdian":
+                    #region 景点信息
+                    string dir2 = "/ExcelFile/FileOut/" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/";
+                    Directory.CreateDirectory(Path.GetDirectoryName(context.Server.MapPath(dir2)));
+                    savepath = dir2 + "旅游景点信息.xls";
+                    using (SqlDataReader reader = DAL.DBUtility.SqlHelper.ExecuteReader(System.Configuration.ConfigurationManager.AppSettings["ConnectionString"], CommandType.Text, "select * from LvYouJingDianXinXi", null))
+                    {                     
+                        if (reader.HasRows)
+                        {
+                            IWorkbook wk = new HSSFWorkbook();
+                            ISheet sheet = wk.CreateSheet();
+                            sheet.SetColumnWidth(0, 12 * 256);
+                            sheet.SetColumnWidth(1, 20 * 256);
+                            sheet.SetColumnWidth(3, 20 * 256);
+                            int rowindex = 0;
+                            IRow row;
+                            row = sheet.CreateRow(rowindex);
+                            #region 设置表头
+                            row.CreateCell(0).SetCellValue("景点编号");
+                            row.CreateCell(1).SetCellValue("景点名称");
+                            row.CreateCell(2).SetCellValue("景点介绍");
+                            row.CreateCell(3).SetCellValue("位置");
+                            row.CreateCell(4).SetCellValue("经度");
+                            row.CreateCell(5).SetCellValue("纬度");
+                            row.CreateCell(6).SetCellValue("浏览次数"); row.CreateCell(7).SetCellValue("发布时间");
+                            row.CreateCell(8).SetCellValue("备注"); 
+                            #endregion
+
+                            rowindex++;
+                            //读取每一条数据
+                            while (reader.Read())
+                            {
+
+                                int JDBianHao = reader.GetInt32(0);
+                                string JDMingCheng = reader.GetString(1);
+                                string JDJieShao = reader.GetString(2);
+                                string JDWeiZhi = reader.GetString(3);
+                                string JingDu = reader.GetString(4);
+                                string WeiDu = reader.GetString(5);
+                                int LiuLanCiShu = reader.GetInt32(6);
+                                DateTime FBShiJian = reader.GetDateTime(7);
+                                string BeiZhu = reader.GetString(8) ?? "无";
+                                //JDBianHao, JDMingCheng, JDJieShao, JDWeiZhi, JingDu, WeiDu, LiuLanCiShu, FBShiJian, BeiZhu, TuPiani
+                                row = sheet.CreateRow(rowindex);
+                                rowindex++;
+                                row.CreateCell(0).SetCellValue(JDBianHao);
+                                row.CreateCell(1).SetCellValue(JDMingCheng);
+                                row.CreateCell(2).SetCellValue(JDJieShao ?? " ");
+                                row.CreateCell(3).SetCellValue(JDWeiZhi ?? " ");
+                                row.CreateCell(4).SetCellValue(JingDu ?? " ");
+                                row.CreateCell(5).SetCellValue(WeiDu ?? " ");
+                                row.CreateCell(6).SetCellValue(LiuLanCiShu);
+                                ICell shijian = row.CreateCell(7);
+                                //如果单元格为空，插入空白值
+
+                                //日期单独设置格式
+                                shijian.SetCellValue(FBShiJian);
+                                //创建一个单元格格式对象
+                                ICellStyle cellStyle = wk.CreateCellStyle();
+                                cellStyle.DataFormat = HSSFDataFormat.GetBuiltinFormat("m/d/yy h:mm");
+                                shijian.CellStyle = cellStyle;
+                                row.CreateCell(8).SetCellValue(BeiZhu ?? " ");
+
+                            }
+                            using (FileStream Fwrite = File.OpenWrite(HttpContext.Current.Server.MapPath(savepath)))
+                            {
+                                wk.Write(Fwrite);
+                            }
+                        }
+                    } 
+                    #endregion
                     break;
             }
 

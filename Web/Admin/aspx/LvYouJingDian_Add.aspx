@@ -26,7 +26,7 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="margin:10px 0 0 10px">
         <table>
             <tr>
                 <td>

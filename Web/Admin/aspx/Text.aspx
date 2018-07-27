@@ -18,8 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-          
-         <asp:TextBox ID="txtEditorContents" name="txtEditorContents" runat="server" TextMode="MultiLine" Width="900px" ClientIDMode="Static" ></asp:TextBox>
+        
     </form>
 </body>
 </html>

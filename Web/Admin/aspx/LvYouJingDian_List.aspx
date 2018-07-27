@@ -105,8 +105,8 @@
                                 <input type="checkbox" value="" id="cheakalldata" /></th>
                             <th>景点名称</th>
                             <th>位置</th>
-                            <th>经度</th>
-                            <th>纬度</th>
+                              <th>纬度</th>  
+                                <th>经度</th>
                             <th>浏览次数</th>
                             <th>发布时间</th>
                             <th>操作</th>
@@ -125,14 +125,14 @@
                             </td>
                             <td><%=item.JDMingCheng %></td>
                             <td><%=item.JDWeiZhi %></td>
-                                  <td><%=item.JingDu %></td>
-                            <td><%=item.WeiDu %></td>
+                                 <td><%=item.WeiDu %></td>    
+                            <td><%=item.JingDu %></td>                       
                             <td><%=item.LiuLanCiShu %></td>
-                            <td><%=item.FBShiJian %></td>
+                            <td><%=item.FBShiJian.ToString().Substring(0,item.FBShiJian.ToString().Length-9)%></td>
 
-                            <td><a href="LvYouGuiHua_View.aspx?id=<%=item.JDBianHao %>">查看</a>
-                                &nbsp;&nbsp;<span style="color: cornflowerblue">|</span>&nbsp;&nbsp;<a href="LvYouGuiHua_Edit.aspx?id=<%=item.JDBianHao %>">编辑</a>
-                                &nbsp;&nbsp;<span style="color: cornflowerblue">|</span>&nbsp;&nbsp;<a class="deletesingledate" href="LvYouGuiHua_Delete.aspx?id=<%=item.JDBianHao %>">删除</a>
+                            <td><a href="LvYouJingDian_View.aspx?id=<%=item.JDBianHao %>">查看</a>
+                                &nbsp;&nbsp;<span style="color: cornflowerblue">|</span>&nbsp;&nbsp;<a href="LvYouJingDian_Edit.aspx?id=<%=item.JDBianHao %>">编辑</a>
+                                &nbsp;&nbsp;<span style="color: cornflowerblue">|</span>&nbsp;&nbsp;<a class="deletesingledate" href="LvYouJingDian_Delete.aspx?id=<%=item.JDBianHao %>">删除</a>
                             </td>
                         </tr>
                         <% } %>
