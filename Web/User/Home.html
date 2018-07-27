@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/yangshi.css" rel="stylesheet" />
+    <link href="../css/daohang.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/top.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>王打卦镇旅游</title>
+    <style type="text/css">
+        table td{
+            color:#636363;
+        }
+        .top1 ul{
+            text-align:center;
+        }
+        a:link{
+            text-decoration:none;
+         
+        }
+       a{
+           color:#636363;
+       }
+        a:hover{
+            color:orangered;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON("../Admin/ashx/GongKaiXinXiList.ashx", {}, function (data) {
+                var i = 0;
+                var j = 1;
+                while (i < 6) {
+                    $("#p" + j + "").find("a").text(data[i].BiaoTi).attr("href", "gkxx.html?id=" + data[i].BianHao).attr("target","_blank");
+                    $("#p" + j + "").find('td').eq(2).text(ConvertTime(data[i].FaBuShiJian));
+                    i++; j++;
+                }  
+            });     
+            //转化时间格式
+                function formatDate(dt) {
+                    var year = dt.getFullYear();
+                    var month = dt.getMonth() + 1;
+                    var date = dt.getDate();
+                    return year + "-" + month + "-" + date;
+                }  
+                function ConvertTime(time) {
+                var t = time.slice(6, 19)
+                var NewDtime = new Date(parseInt(t));
+                return formatDate(NewDtime);
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="neirong" style="height:auto">
+        <div class="n1">
+            <div class="n1-1">
+                最新动态
+            </div>
+            <div class="n1-2">
+                <div id="banner">
+         
+                    <div class="pic">          
+                        <a href="#" style="display:block"><img width="560" height="400" src="" /></a>
+                        <a href="#"><img width="560" height="400" src="" /></a>
+                        <a href="#"><img width="560" height="400" src="" /></a>
+                    </div>
+                    <div class="btn">
+                        <ul>
+                            <li class="one">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="n2">
+            <iframe allowtransparency="true" frameborder="0" width="530" height="100" scrolling="no" 
+                src="http://tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=385&h=96&align=center"></iframe>
+            <div class="n2-1">公开信息<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = 'gkxxList.html'" /></div>
+           <div style="height:180px;width:625px; margin-bottom:10px" >
+               <table id="gkxx">
+                   <tr id="p1">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:450px;"><a href="#">content</a></td>
+            
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr id="p2">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                
+                            <td style="width:30px"></td>
+                   </tr >
+                    <tr id="p3">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr id="p4">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr id="p5">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr id="p6">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                            <td style="width:30px"></td>
+                   </tr>
+               </table>
+           </div>
+            <div class="n2-2">旅游规划<input type="button" class="btn-info" value="更多>>" />
+            </div>
+            <div style="height:180px;width:625px; margin-bottom:10px"><table>
+
+                    <tr>
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:500px"></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr>
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:500px"></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr>
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:500px"></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr>
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:500px"></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                    <tr>
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:500px"></td>
+                            <td style="width:30px"></td>
+                   </tr>
+               </table></div>
+            </div>
+        <div class="n3">
+            <div class="n3-1">
+                <div class="n3-1-1">
+                    旅游景点 <input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='http://localhost:53657/MenHu/Yemian44'"/>
+                </div>
+            </div>
+            <div class="n3-2">
+                <div class="n3-2-1">
+                    留言板<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='http://localhost:53657/MenHu/Yemian61'" />
+                </div>
+            </div>
+            <div class="n3-3">
+                <div class="n3-3-1">
+                    便民服务<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='#'" />
+                </div>
+            </div>
+        </div>
+     
+
+       <div class="n6"></div>
+        <div class="n7" style="padding-top:10px">Copyright &copy; 山东农业大学智慧农业重点实验室 2018
+<br>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#all li").mouseover(function () {//鼠标进入离开事件
+                $(this).css("background-color", "#ff00ff").siblings().css("background-color", "white");
+                $(this).css({ "background-color": "red", "font-size": "9px" }).siblings().hide();
+            });
+
+            $(window).scroll(function () {//鼠标滚动事件
+                var _top = $(window).scrollTop();//获得鼠标滚动的距离
+            });
+
+            //手动播放图片
+            $(".btn ul li").hover(function () {
+
+                $(this).addClass("one").siblings().removeClass("one");
+                index = $(this).index();
+                i = index;
+                $(".pic a").eq(index).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
+            });
+
+            //自动播放图片
+            var i = 0;
+            var t = setInterval(autoplay, 2000);
+            function autoplay() {
+                i++;
+                if (i > 2) i = 0;
+                $(".btn ul li").eq(i).addClass("one").siblings().removeClass("one");
+                $(".pic a").eq(i).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
+            }
+
+            $("#banner").hover(function () {
+                clearInterval(t);
+            }, function () {
+                t = setInterval(autoplay, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

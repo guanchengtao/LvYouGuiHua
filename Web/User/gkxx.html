@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>信息公开</title>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/yangshi.css" rel="stylesheet" />
+    <link href="../css/daohang.css" rel="stylesheet" />
+    <link href="../css/gkxxview.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <script src="../js/top.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var pid = window.location.href.split("=")[1];
+            if (typeof (pid) == "undefined") {
+                window.location.href = "gkxxList.html";
+            }
+            else {
+                $.getJSON("../Admin/ashx/GetgkxxInfo.ashx", { id: pid }, function (data) {
+                    $("#Infotitle").text(data.BiaoTi);
+                    $("#zuozhe").text(data.ZuoZe);
+                    $("#fabudanwei").text(data.FaBuDanWei);
+                    $("#fabushijian").text(ConvertTime(data.FaBuShiJian));
+                    $("#neirong").html(unescape(data.NeiRong));
+                    $("title").text(data.BiaoTi);
+                })
+            }
+            //转化时间格式
+            function formatDate(dt) {
+                var year = dt.getFullYear();
+                var month = dt.getMonth() + 1;
+                var date = dt.getDate();
+                return year + "-" + month + "-" + date;
+            }
+            function ConvertTime(time) {
+                var t = time.slice(6, 19)
+                var NewDtime = new Date(parseInt(t));
+                return formatDate(NewDtime);
+            }
+        })
+    </script>
+   
+</head>
+   
+<body>
+    <div id="content">
+
+        <div id="c1"><span>您所在的位置：</span><a href="Home.html">首页|</a><a href="gkxxList.html">信息公开</a></div>
+        <div id="margin"></div>
+           <div id="title"> 
+               <span id="Infotitle"></span>
+           <div id="titlesplit"></div>
+        </div>
+        <div id="author">
+        <span id="">作者</span>:<span id="zuozhe"></span>&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;<span id="">出处</span>:<span id="fabudanwei"></span>
+          &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp; <span>日期</span>:<span id="fabushijian"></span>
+        </div>
+        
+     <div id="mainneirong">
+         <div id="neirong">
+
+        </div>
+     </div>
+        <div style="text-align:center;"> 
+            <a href="javascript:window.opener=null;window.close();" 
+                style="text-decoration:none;color:#0094ff;">关闭窗口
+            </a></div>
+     
+        <div class="neirong" style="margin-left:0px;height:auto">  
+            <div class="n7" style="padding-top:10px">
+                Copyright &copy; 山东农业大学智慧农业重点实验室 2018
+<br>
+        </div>
+
+        </div>
+
+        </div>
+</body>
+</html>

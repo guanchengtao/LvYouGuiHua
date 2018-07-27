@@ -1,0 +1,186 @@
+﻿ .neirong {
+    width: 1100px;
+    height: 1355px;
+    margin-left:215px;
+}
+
+.n1 {
+    height: 470px;
+    width: 550px;
+    float: left;
+    background-color: #ffffff;
+}
+
+.n1-1 {
+    width: 562px;
+    height: 30px;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+
+.n1-2 {
+    height: 440px;
+    width: 562px;
+    background-color: #ffffff;
+}
+
+.n2 {
+    width: 550px;
+    height: 470px;
+    float: right;
+    background-color: #ffffff;
+}
+
+.n2-1 {
+    height: 30px;
+    width: 550px;
+    float: left;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+
+.n2-2 {
+    height: 30px;
+    width: 550px;
+    float: left;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+
+.n3 {
+    width: 1200px;
+    height: 300px;
+    position: relative;
+    float: left;
+    margin: 6px auto;
+}
+
+.n3-1 {
+    height: 300px;
+    width: 358px;
+    float: left;
+    margin: 0px 0px 0px 5px;
+    background-color: #ffffff;
+}
+
+.n3-2 {
+    height: 300px;
+    width: 358px;
+    float: left;
+    margin: 0px 0px 0px 10px;
+    background-color: #ffffff;
+}
+
+.n3-3 {
+    height: 300px;
+    width: 358px;
+    float: left;
+    margin: 0px 0px 0px 10px;
+    background-color: #ffffff;
+}
+
+.n3-1-1 {
+    height: 30px;
+    width: 358px;
+    float: left;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+
+.n3-2-1 {
+    height: 30px;
+    width: 358px;
+    float: left;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+
+.n3-3-1 {
+    height: 30px;
+    width: 358px;
+    float: left;
+    background-image: url('../wodetupian/b1.jpg');
+    background-size: 100% 100%;
+    color: #ffffff;
+}
+.n6 {
+    height: 100px;
+    width: 1100px;
+    /*border: 1px solid red;*/
+    float: left;
+    margin: 0px 0px 0px 0px;
+    background-color: #ffffff;
+}
+
+.n7 {
+    height: 30px;
+    width: 1100px;
+    float: left;
+    text-align: center;
+    background-image: url('../wodetupian/foot.gif');
+    padding-top: 13px;
+    padding-bottom: 3px;
+    color: white;
+}
+
+#banner {
+    width: 420px;
+    height: 454px;
+    position: relative; /*相对定位,相对于.btn按钮*/
+    text-align: left;
+}
+
+.pic image {
+    display: block; /*默认有图片不显示*/
+    position: absolute; /*绝对定位.对应的是.pic这个div*/
+    top: 0px;
+    left: 0px;
+}
+
+.pic a {
+    display: none;
+    float: left;
+}
+
+.pic { /*专门显现图片区*/
+    position: relative; /*相对定位.对应.pic img*/
+}
+
+.btn {
+    width: 150px;
+    height: 18px;
+    position: absolute; /*绝对定位相对于banner div*/
+    bottom: 40px;
+    right: 0px;
+}
+
+    .btn ul li {
+        background-color: #000000; /*黑色*/
+        color: #ffffff;
+        list-style-type: none;
+        width: 18px;
+        height: 18px;
+        float: left;
+        border-radius: 9px; /*变成圆的*/
+        text-align: center;
+        line-height: 18px;
+        cursor: pointer; /*鼠标移动变手指状态*/
+        margin-left: 5px;
+    }
+
+        .btn ul li.one {
+            background-color: #ff9966;
+        }
+
+.btn-info {
+    float: right;
+}
+
+body {
+    background-color: #eaeaea;
+}

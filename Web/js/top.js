@@ -1,0 +1,15 @@
+﻿document.writeln("   <div class=\"top\">");
+document.writeln("");
+document.writeln("    </div>");
+document.writeln("    <div class=\"top1\" style=\"height:34px\">");
+document.writeln("        <ul class=\"nav nav-pills\">");
+document.writeln("          ");
+document.writeln("            <li><a href=\"Home.html\">首页</a></li>");
+document.writeln("             <li><a href=\"gkxxList.html\">信息公开</a></li>");
+document.writeln("            <li><a href=\"lygh.html\">旅游规划</a></li>");
+document.writeln("            <li><a href=\"lyjd.html\">旅游景点</a></li>");
+document.writeln("            <li><a href=\"hdjl.html\">互动交流</a></li>                   ");
+document.writeln("            <li><a href=\"wjxz.html\">文件下载 </a></li>");
+document.writeln("                 <li><a href=\"https://baike.baidu.com/item/%E7%8E%8B%E6%89%93%E5%8D%A6%E4%B9%A1/367631?fr=aladdin\" target=\"_blank\">村镇概况</a></li>");
+document.writeln("        </ul>");
+document.writeln("    </div>");

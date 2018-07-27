@@ -1,0 +1,36 @@
+﻿/*清除层浮动*/
+.clearFloat {
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    overflow: hidden;
+}
+#iframeDiv {
+    margin: 0;
+    padding: 0;
+}
+
+.iframeTitle1 {
+    height: 40px;
+    width: 800px;
+    float: left;
+    font-size: 20px;
+    color: #9b1ae0;
+}
+
+.iframeTitle2 {
+    padding: 10px;
+    height: 40px;
+    float: right;
+     font-size: 15px;
+}
+ul {
+    /*去除默认的li的样式*/
+    list-style: none;
+}
+ul li a {
+    color:#2f74e0;
+    /*去除默认的下划线*/
+    text-decoration:none;
+
+}

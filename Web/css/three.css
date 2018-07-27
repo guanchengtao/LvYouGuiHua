@@ -1,0 +1,26 @@
+﻿#threeDiv {
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    background-color: white;
+}
+
+.threeTittle1 {
+    height: 40px;
+    width: 1000px;
+    float: left;
+    font-size:20px;
+}
+
+.threeTittle2 {
+    height: 40px;
+    float: right;
+}
+.threeTittle {
+    text-align:center;
+    color:#2460dd;
+}
+.threeContent {
+    font-size:15px;
+    text-align:center;
+}

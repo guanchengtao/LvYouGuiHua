@@ -1,0 +1,21 @@
+.top {
+    height: 250px;
+    width: 1100px;
+    margin-left: 215px;
+    background-color: #ffffff;
+    background-image: url('../wodetupian/Cache_3f1d4f749a217333..jpg');
+    background-size: 100% 100%;
+}
+.top1 {
+    width: 1100px;
+    height: 42px;
+    margin-left: 215px;
+    border: 1px solid #0094ff;
+    border-radius: 6px 6px 6px 6px;
+    background-color: #ffffff;
+}
+
+    .top1 li {
+        width: 148px;
+        background-color: #ffffff;
+    }

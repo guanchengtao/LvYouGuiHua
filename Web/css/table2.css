@@ -1,0 +1,22 @@
+﻿      td {
+            border: solid #add9c0;
+            border-width: 0px 1px 1px 0px;
+        }
+
+        table {
+            border-left: 1px solid #add9c0;
+    border-right: 0px solid #add9c0;
+    border-top: 1px solid #add9c0;
+    border-bottom: 0px solid #add9c0;
+    width: 596px;
+}
+         .auto-style4 {
+             width: 155px;
+         }
+         .auto-style5 {
+             height: 26px;
+         }
+         .auto-style6 {
+             width: 155px;
+             height: 26px;
+         }

@@ -1,0 +1,21 @@
+﻿
+#acc ul {
+    list-style-type: none;
+    font-size: large;
+    font-family: "楷体";
+    margin: auto;
+    padding: 0px 10px;
+}
+
+    #acc ul li {
+        margin-bottom: 20px;
+    }
+
+        #acc ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #acc ul li:hover {
+            background-color: antiquewhite;
+        }

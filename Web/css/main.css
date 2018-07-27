@@ -1,0 +1,58 @@
+@charset "gb2312";
+/* CSS Document */
+
+body,ul,div,img,h4,p,span{ margin:0; padding:0}
+a:link, a:visited {text-decoration: none; } 
+h4{ font-size:14px}
+body{font-size:12px;background: url(../images/bg.jpg) repeat-x;color:#666}
+/*body{font-size:12px;background-color:white;color:#666}*/
+.container{ width:1000px; margin:auto; background:#FFF; clear:both}
+.header{ display:inline; }
+.f_left{ float:left; width:345px; padding-left:5px; padding-top:5px;}
+.f_right a{color:#666}
+.f_right a:hover{ color: #036}
+.f_right{ float:right; width:120px;padding-top:5px; }
+.banner { margin:auto;display:block; clear:both; text-align:center }
+
+.blank{ height:8px; width:100%; clear:both; overflow:hidden}
+.blank05{ height:30px; width:990px;; clear:both; overflow:hidden; background:#FFF; margin:auto}
+.sideleft{ width:260px; float:left;background:#FFF; padding:10px}
+.sideleft p{ background:url(../images/left_bg.jpg) no-repeat; color:#FFF; line-height:22px; padding:5px 0px 0px 25px; font-size:14px; clear:both}
+.sideleft p span{ color:#FFF; font-size:12px; padding-left:130px; }
+.sideleft ul{list-style-type:none; padding:8px 0px; font-size:12px;}
+.sideleft ul li { background:url(../images/li.jpg) no-repeat 8px 7px; padding-left:20px; position:relative;height:22px; padding-top:5px;}
+.sideleft ul li a,.news ul li a{ color:#666}
+.sideleft ul li a:hover,.sideright ul li a:hover{ color: #06C}
+.left_news{border:#dfdfdf 1px solid; margin-bottom:8px;}
+.sideright{ width:720px; background:#FFF; float:right;padding:10px 0px;}
+#KinSlideshow{visibility:hidden; width:350px; float:left; height:240px;   }
+.pic{ border:#dfdfdf 1px solid; width:710px;}
+.pic P{ background:url(../images/pic.jpg) no-repeat; color:#FFF;line-height:27px; padding:5px 0px 0px 10px; font-size:14px; clear:both ;}
+.pic p span{ color:#FFF; font-size:12px; padding-left:295px; }
+#demo{ overflow:hidden; width:98%; margin:5px;}
+.travel{border:#dfdfdf 1px solid; width:980px; margin:auto; clear:both}
+.travel img{ padding:0px; }
+.tra_imgs img{ border:#e3e3e3 4px solid; margin:10px;}
+.zhuanti img{ padding:3px 0px}
+.news{ width:348px; float:right;position:relative; margin-right:10px;border:#dfdfdf 1px solid; display:inline}
+.newstime{position:absolute;left: 274px;width:65px;color:#999}/*position属性属性width*/
+.news ul{list-style-type:none; margin-top:10px; }/* ul中list-style-type:none */
+.news ul li{ background:url(../images/li.jpg) no-repeat 8px 7px; padding-left:20px; position:relative;height:22px; padding-top:5px;}/*设置height*/
+.news P{ background:url(../images/news.jpg) no-repeat; color:#FFF;line-height:27px; padding:5px 0px 0px 10px; font-size:14px; clear:both ; }
+.more{position:absolute;left: 292px;top: 12px;}
+.more a,.sideleft p span a{ color:#3083ad;}
+.more a:hover,.sideleft p span a:hover{ color:#666}
+
+.footnav{ background-color:#64ade4; text-align:center; width:984px; margin:auto}
+.footnav ul{ list-style-type:none}
+.footnav ul li{ display: inline; line-height:25px; color:#FFF;}
+.footnav ul li a{ color: #FFF}
+.footnav ul li a:hover{ color: #CCF}
+.link{ margin:auto;width:98%; text-align:center;border:#dfdfdf 1px solid; margin-top:5px; margin-bottom:5px; padding-top:3px;}
+.link li{ display:inline;}
+#footer{ text-align:center; line-height:28px; background:url(../images/link_bg.gif) repeat-x; padding:50px 0px 0px 0px; color:#505962; width:98%; margin:auto}
+#footer a{ color:#039;}
+#footer a:hover{ color: #900;}
+
+
+

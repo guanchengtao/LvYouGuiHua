@@ -1,0 +1,78 @@
+﻿table td {
+    color: #636363;
+}
+
+.top1 ul {
+    text-align: center;
+}
+
+#content {
+    height: auto;
+    width: 1100px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: white;
+}
+
+#c1 a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#c1 {
+    float: right;
+    margin: 15px;
+}
+
+#margin {
+    height: 50px;
+    width: 100%;
+}
+#titlesplit {
+    border: 1px solid #808080;
+    width: 1050px;
+    margin: auto;
+margin-bottom:1px;
+    margin-top:13px;
+}
+#title {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    font-weight:bold;
+    text-align: center;
+    font-size: 32px;
+    color: #636363;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+#author {
+    background-color: white;
+    height: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: small;
+    color:#636363;
+}
+
+#neirong {
+    width: 900px;
+    margin: auto;
+}
+
+#mainneirong {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    font-size: 18px;
+}
+
+.bottom {
+    height: 30px;
+    width: 1050px;
+    text-align: center;
+    background-color: #ffffff;
+    background-color: #03a4fd;
+    margin: auto;
+}

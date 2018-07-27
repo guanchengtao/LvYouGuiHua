@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>王打卦镇旅游与管理系统</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+   <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+ </head>
+ <body>
+  <div class="header">
+    
+      <div class="dl-title">
+        <a href="#" title="" target="_blank">
+          <span class="lp-title-port">王打卦镇旅游与管理系统</span><span class="dl-title-text"></span>
+        </a>
+      </div>
+    <div class="dl-log">欢迎您，<span class="dl-log-user">Admin</span>
+        <a data-toggle="modal" data-target="#myModal1" href="#" title="退出系统" class="dl-log-quit">[退出]</a>
+        </div>
+  </div>
+   <div class="content">
+    <div class="dl-main-nav">
+      <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
+      <ul id="J_Nav"  class="nav-list ks-clear" style="margin-left:auto;">
+        <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
+      </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten" style="margin-left:1px;">
+    </ul>
+   </div>
+  <script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="./assets/js/bui.js"></script>
+  <script type="text/javascript" src="./assets/js/config.js"></script>
+  <script>
+    BUI.use('common/main',function(){
+      var config = [{
+          id:'menu', 
+          homePage: 'index',
+          menu:[{
+              text:'导航',
+              items: [
+                {id: 'index', text: '首页', href: 'Admin/html/HomePage.html', closeable: false },
+                { id: 'gkxx', text: '公开信息', href:'Admin/aspx/GongKaiXinXi_List.aspx'},
+                { id: 'lygh', text: '旅游规划', href:'Admin/aspx/LvYouGuiHua_List.aspx'},
+                { id: 'lyjd', text: '旅游景点', href:'Admin/aspx/LvYouJingDian_List.aspx'},
+                { id: 'lyb', text: '留言板', href:'Admin/aspx/LiuYanBan_List.aspx'}
+              ]
+              }] 
+          }];
+      new PageUtil.MainPage({
+        modulesConfig : config
+      });
+    });
+  </script>
+     <script>
+         $(function () {
+             $("#confirmloginout").click(function () {
+                 window.location.href = "Login.html";
+             })
+         })
+     </script>
+     <!--退出系统模态框-->
+     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel1">
+					提示
+				</h4>
+			</div>
+			<div class="modal-body">
+			您确认要退出系统吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal" id="closeloginout">不好意思，手抖了
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmloginout">
+					确认退出
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+ </body>
+</html>
