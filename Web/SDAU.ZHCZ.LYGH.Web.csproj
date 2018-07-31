@@ -2726,6 +2726,9 @@
     <Compile Include="Admin\ashx\LvYouGuiHuaList.ashx.cs">
       <DependentUpon>LvYouGuiHuaList.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ashx\LvYouJingDianList.ashx.cs">
+      <DependentUpon>LvYouJingDianList.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\aspx\GongKaiXinXi_Add.aspx.cs">
       <DependentUpon>GongKaiXinXi_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3052,6 +3055,9 @@
     <Content Include="ExcelFile\FileOutTemp\公开信息模板.xls" />
     <Content Include="ExcelFile\FileOutTemp\旅游景点信息模板.xls" />
     <Content Include="ExcelFile\FileOutTemp\旅游规划信息模板.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\LvYouJingDianList.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

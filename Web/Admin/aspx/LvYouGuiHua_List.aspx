@@ -51,7 +51,8 @@
                 ck.each(function () {
                     if ($(this).is(':checked')) {
                         //拼接ID 
-                        deletestr += $(this).val() + ",";
+                        //注意：此处传的ID必须打上双引号，因为规划项目编号并不是整数类型
+                        deletestr += "'"+$(this).val().trim() + "',";
                     }
                 })
                 $.post("../ashx/DeleteData.ashx", { str: deletestr, action: "guihua" }, function (date) {

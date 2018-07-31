@@ -28,38 +28,50 @@
         }
     </style>
     <script type="text/javascript">
-        $(function () {
-            $.getJSON("../Admin/ashx/GongKaiXinXiList.ashx", {}, function (data) {
-                var i = 0;
-                var j = 1;
-                while (i < 6) {
-                    $("#p" + j + "").find("a").text(data[i].BiaoTi).attr("href", "gkxx.html?id=" + data[i].BianHao).attr("target","_blank");
-                    $("#p" + j + "").find('td').eq(2).text(ConvertTime(data[i].FaBuShiJian));
-                    i++; j++;
-                }  
-            });   
-               $.getJSON("../Admin/ashx/LvYouGuiHuaList.ashx", {}, function (data) {
-                var i = 0;
-                var j = 1;
-                while (i < 6) {
-                    $("#lygh" + j + "").find("a").text(data[i].GHXMMingCheng).attr("href", "gkxx.html?id=" + data[i].GHXMBianHao).attr("target","_blank");
-                    $("#lygh" + j + "").find('td').eq(2).text(ConvertTime(data[i].GuiHuaShiJian));
-                    i++; j++;
-                }  
-            });     
-            //转化时间格式
-                function formatDate(dt) {
-                    var year = dt.getFullYear();
-                    var month = dt.getMonth() + 1;
-                    var date = dt.getDate();
-                    return year + "-" + month + "-" + date;
-                }  
-                function ConvertTime(time) {
-                var t = time.slice(6, 19)
-                var NewDtime = new Date(parseInt(t));
-                return formatDate(NewDtime);
+    $(function () {
+        $.getJSON("../Admin/ashx/GongKaiXinXiList.ashx", {}, function (data) {
+            var i = 0;
+            var j = 1;
+            while (i < 10) {
+                $("#p" + j + "").find("a").text(data[i].BiaoTi).attr("href", "gkxx.html?id=" + data[i].BianHao).attr("target", "_blank");
+                $("#p" + j + "").find('td').eq(2).text(ConvertTime(data[i].FaBuShiJian));
+                i++; j++;
             }
-        })
+        });
+        $.getJSON("../Admin/ashx/LvYouGuiHuaList.ashx", {}, function (data) {
+            var i = 0;
+            var j = 1;
+            while (i < 6) {
+                $("#lygh" + j + "").find("a").text(data[i].GHXMMingCheng).attr("href", "gkxx.html?id=" + data[i].GHXMBianHao).attr("target", "_blank");
+                $("#lygh" + j + "").find('td').eq(2).text(ConvertTime(data[i].GuiHuaShiJian));
+                i++; j++;
+            }
+
+        });
+        $.getJSON("../Admin/ashx/LvYouJingDianList.ashx", {}, function (data) {
+            var i = 0;
+            var j = 1;
+            while (i < 6) {
+                $("#lyjd" + j + "").find("a").text(data[i].JDMingCheng).attr("href", "gkxx.html?id=" + data[i].JDBianHao).attr("target","_blank");
+                $("#lyjd" + j + "").find('td').eq(2).text(ConvertTime(data[i].FBShiJian));
+                i++; j++;
+                }
+                alert($("#lyjd" + j + "").find("a").text());
+
+        });
+        //转化时间格式
+        function formatDate(dt) {
+            var year = dt.getFullYear();
+            var month = dt.getMonth() + 1;
+            var date = dt.getDate();
+            return year + "-" + month + "-" + date;
+        }
+        function ConvertTime(time) {
+            var t = time.slice(6, 19)
+            var NewDtime = new Date(parseInt(t));
+            return formatDate(NewDtime);
+        }
+    })
     </script>
 </head>
 <body>
@@ -89,37 +101,37 @@
         <div class="n2">
             <iframe allowtransparency="true" frameborder="0" width="530" height="100" scrolling="no" 
                 src="http://tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=385&h=96&align=center"></iframe>
-            <div class="n2-1">公开信息<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = 'gkxxList.html'" /></div>
+            <div class="n2-1">旅游景点<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = ''" /></div>
            <div style="height:180px;width:550px; margin-bottom:10px" >
-               <table id="gkxx">
-                   <tr id="p1">
+               <table id="lyjd">
+                   <tr id="lyjd1">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:450px;"><a href="#">content</a></td>
             
                             <td style="width:30px"></td>
                    </tr>
-                    <tr id="p2">
+                    <tr id="lyjd2">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                 
                             <td style="width:30px"></td>
                    </tr >
-                    <tr id="p3">
+                    <tr id="lyjd3">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr id="p4">
+                    <tr id="lyjd4">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr id="p5">
+                    <tr id="lyjd5">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                    <tr id="p6">
+                    <tr id="lyjd6">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
@@ -128,49 +140,96 @@
            </div>
             <div class="n2-2">旅游规划<input type="button" class="btn-info" value="更多>>" />
             </div>
-            <div style="height:180px;width:550px; margin-bottom:10px">
-                   <table id="lygh" style="width:530px"> 
-                <tr id="lygh1">
+            <div style="height:180px;width:550px; margin-bottom:10px" >
+               <table id="lygh">
+                   <tr id="lygh1">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:440px"><a href="#">content</a></td>
+                            <td style="text-align:left;width:450px;"><a href="#">content</a></td>
+            
                             <td style="width:30px"></td>
                    </tr>
-                   <tr id="lygh2">
-                      <td><img src="../bootstrap/img/button1.gif" /></td>
+                    <tr id="lygh2">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                
                             <td style="width:30px"></td>
-                   </tr>
-                   <tr id="lygh3">
-                      <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
-                     <tr id="lygh4">
+                   </tr >
+                    <tr id="lygh3">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-                   <tr id="lygh5">
+                    <tr id="lygh4">
                        <td><img src="../bootstrap/img/button1.gif" /></td>
                             <td style="text-align:left;width:400px"><a href="#">content</a></td>
                             <td style="width:30px"></td>
                    </tr>
-               </table></div>
+                    <tr id="lygh5">
+                       <td><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                            <td style="width:30px"></td>
+                   </tr>
+                  
+               </table>
+           </div>
             </div>
         <div class="n3">
             <div class="n3-1">
                 <div class="n3-1-1">
-                    旅游景点 <input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='http://localhost:53657/MenHu/Yemian44'"/>
+                    公开信息 <input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt: window.location.href = ''"/>
                 </div>
+                <div style="height:290px;width:350px; margin-bottom:10px;">
+                   <table id="gkxx" style="width:350px"> 
+                <tr id="p1">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                     <tr id="p2">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                            <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                          <tr id="p3">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                             <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                               <tr id="p4">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                           <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                                    <tr id="p5">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                             <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                                         <tr id="p6">
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                           <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                                                 <tr id="p7"  >
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                           <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>         <tr id="p8" >
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                             <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                                                                 <tr id="p9" >
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                             <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+                                                                                                                  <tr id="p10" >
+                       <td style="width:24px"><img src="../bootstrap/img/button1.gif" /></td>
+                           <td style="text-align:left;"><a href="#">暂无数据</a></td>
+                            <td style="width:45px" >暂无数据</td>
+               </tr>
+               </table></div>
             </div>
             <div class="n3-2">
                 <div class="n3-2-1">
-                    留言板<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='http://localhost:53657/MenHu/Yemian61'" />
+                    留言板<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt: window.location.href = 'http://localhost:53657/MenHu/Yemian61'" />
                 </div>
             </div>
             <div class="n3-3">
                 <div class="n3-3-1">
-                    便民服务<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt:window.location.href='#'" />
+                    便民服务<input type="button" class="btn-info" value="更多>>"  onclick="javascrtpt: window.location.href = '#'" />
                 </div>
             </div>
         </div>
@@ -183,41 +242,41 @@
     </div>
 
     <script>
-        $(function () {
-            $("#all li").mouseover(function () {//鼠标进入离开事件
-                $(this).css("background-color", "#ff00ff").siblings().css("background-color", "white");
-                $(this).css({ "background-color": "red", "font-size": "9px" }).siblings().hide();
-            });
-
-            $(window).scroll(function () {//鼠标滚动事件
-                var _top = $(window).scrollTop();//获得鼠标滚动的距离
-            });
-
-            //手动播放图片
-            $(".btn ul li").hover(function () {
-
-                $(this).addClass("one").siblings().removeClass("one");
-                index = $(this).index();
-                i = index;
-                $(".pic a").eq(index).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
-            });
-
-            //自动播放图片
-            var i = 0;
-            var t = setInterval(autoplay, 2000);
-            function autoplay() {
-                i++;
-                if (i > 2) i = 0;
-                $(".btn ul li").eq(i).addClass("one").siblings().removeClass("one");
-                $(".pic a").eq(i).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
-            }
-
-            $("#banner").hover(function () {
-                clearInterval(t);
-            }, function () {
-                t = setInterval(autoplay, 2000);
-            });
+    $(function () {
+        $("#all li").mouseover(function () {//鼠标进入离开事件
+            $(this).css("background-color", "#ff00ff").siblings().css("background-color", "white");
+            $(this).css({ "background-color": "red", "font-size": "9px" }).siblings().hide();
         });
+
+        $(window).scroll(function () {//鼠标滚动事件
+            var _top = $(window).scrollTop();//获得鼠标滚动的距离
+        });
+
+        //手动播放图片
+        $(".btn ul li").hover(function () {
+
+            $(this).addClass("one").siblings().removeClass("one");
+            index = $(this).index();
+            i = index;
+            $(".pic a").eq(index).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
+        });
+
+        //自动播放图片
+        var i = 0;
+        var t = setInterval(autoplay, 2000);
+        function autoplay() {
+            i++;
+            if (i > 2) i = 0;
+            $(".btn ul li").eq(i).addClass("one").siblings().removeClass("one");
+            $(".pic a").eq(i).stop().fadeIn(1000).show().siblings().stop().fadeIn(1000).hide();
+        }
+
+        $("#banner").hover(function () {
+            clearInterval(t);
+        }, function () {
+            t = setInterval(autoplay, 2000);
+        });
+    });
     </script>
 </body>
 </html>
