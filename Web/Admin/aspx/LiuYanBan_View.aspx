@@ -6,13 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-  <%--  <script src="../../js/jquery-1.10.2.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            var neirong = $("#mytext").val();
-            $("#spNeiRong").html(neirong);
-        })
-    </script>--%>
+
 </head>
     
 <body>

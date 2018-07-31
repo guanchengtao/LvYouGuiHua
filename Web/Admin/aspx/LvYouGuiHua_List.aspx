@@ -97,7 +97,8 @@
                         &nbsp; &nbsp; &nbsp;  
                        <a class="btn btn-primary btn-lg" id="out" href="#"  onclick="FileOut()">导出</a> 
                     <asp:Button ID="filein" runat="server" Text="导入" class="btn btn-primary btn-lg"  style="margin-left:10px" OnClick="filein_Click" /> 
-                <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" BorderColor="Aqua" BorderStyle="Solid" BorderWidth="1px" />    
+                <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" BorderColor="Aqua" BorderStyle="Solid" BorderWidth="1px" /> 
+                    <a href="../../ExcelFile/FileOutTemp/旅游规划信息模板.xls">模板下载</a>
                 </div>
                 <table class="table table-bordered  table-striped">
                     <thead id="thead">

@@ -2364,6 +2364,11 @@
     <Content Include="upload\image\20180720\6366770379278094473380710.png" />
     <Content Include="upload\image\20180720\6366770408243612069021971.png" />
     <Content Include="upload\image\20180720\6366772211069222886129628.png" />
+    <Content Include="upload\image\20180721\6366776279338673165201172.png" />
+    <Content Include="upload\image\20180721\6366776367457644024461009.png" />
+    <Content Include="upload\image\20180721\6366776367959996558829393.png" />
+    <Content Include="upload\image\20180727\6366828298741187083375529.jpg" />
+    <Content Include="upload\image\20180727\6366831929286987495034320.jpg" />
     <Content Include="User\gkxxList.html" />
     <Content Include="User\Home.html" />
     <Content Include="User\gkxx.html" />
@@ -3042,6 +3047,11 @@
   <ItemGroup>
     <Content Include="themes\bootstrap\images\Thumbs.db" />
     <Content Include="themes\icon\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExcelFile\FileOutTemp\公开信息模板.xls" />
+    <Content Include="ExcelFile\FileOutTemp\旅游景点信息模板.xls" />
+    <Content Include="ExcelFile\FileOutTemp\旅游规划信息模板.xls" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

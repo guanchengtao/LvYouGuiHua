@@ -87,8 +87,10 @@
                   <asp:Button ID="Serachwithcondition" class="btn btn-success" runat="server" Text="搜索" OnClick="Serachwithcondition_Click"   /> &nbsp;  <span>共找到<%=DataCount %>条数据</span>   
              &nbsp; &nbsp; &nbsp; 
             <a class="btn btn-primary btn-lg" id="out" href="#"  onclick="FileOut()">导出</a>  
+
                 <asp:Button ID="filein" runat="server" Text="导入" class="btn btn-primary btn-lg"  style="margin-left:10px" OnClick="filein_Click"/> 
-                <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" BorderColor="Aqua" BorderStyle="Solid" BorderWidth="1px" />    
+                <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" BorderColor="Aqua" BorderStyle="Solid" BorderWidth="1px" />   
+                <a href="../../ExcelFile/FileOutTemp/公开信息模板.xls">模板下载</a>
             </div>
            
             <table class="table table-bordered  table-striped" >

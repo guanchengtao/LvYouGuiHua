@@ -348,20 +348,22 @@ namespace SDAU.ZHCZ.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) FROM LiuYanBan ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			object obj = DbHelperSQL.GetSingle(strSql.ToString());
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                string strdate = strWhere;
+           
+                strSql.Append(" where NeiRong like '%" + strdate + "%' ");
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
@@ -379,16 +381,23 @@ namespace SDAU.ZHCZ.DAL
 				strSql.Append("order by T.BianHao desc");
 			}
 			strSql.Append(")AS Row, T.*  from LiuYanBan T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
-			strSql.Append(" ) TT");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" where NeiRong like '%" + strWhere + "%' ");
+                strSql.Append(" ) TT");
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+                return DbHelperSQL.Query(strSql.ToString());
+            }
+            else   //strWhere==null Query all data
+            {
+                strSql.Append(" ) TT");
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+                return DbHelperSQL.Query(strSql.ToString());
+            }
 
-		/*
+        }
+
+        /*
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
@@ -413,10 +422,10 @@ namespace SDAU.ZHCZ.DAL
 			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
 		}*/
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+        #endregion  BasicMethod
+        #region  ExtensionMethod
 
-		#endregion  ExtensionMethod
-	}
+        #endregion  ExtensionMethod
+    }
 }
 

@@ -69,19 +69,17 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="margin:10px 0 0 10px">
         <div>
             <div class="form-group" style="margin-top: 15px;">
 
                 <input type="button" name="name" value="批量删除" class="btn btn-primary btn-lg" id="delete" data-toggle="modal" data-target="#myModal" />
                 &nbsp;&nbsp;&nbsp;        
              
-                <input style="margin-top: 11px" type="text" name="condition" value="<%=PreSerach %>" />
-                <asp:Button ID="Serachwithcondition" class="btn btn-success" runat="server" Text="搜索" />
+                <input style="margin-top: 11px" type="text" name="condition" value="<%=PreSerach %>" placeholder="根据内容查询" />
+                <asp:Button ID="Serachwithcondition" class="btn btn-success" runat="server" Text="搜索" OnClick="Serachwithcondition_Click"/>
                 &nbsp;  <span>共找到<%=DataCount %>条数据</span>
-                &nbsp; &nbsp; &nbsp; 
-         
-               
+                &nbsp; &nbsp; &nbsp;              
             </div>
 
             <table class="table table-bordered  table-striped">
@@ -90,8 +88,8 @@
                         <th style="width: 35px;">序号</th>
                         <th style="width: 27px;">
                             <input type="checkbox" value="" id="cheakalldata" /></th>
-                        <th style="width: 250px;">标题</th>
-                        <th>内容</th>
+                        <th style="width: 100px;">标题</th>
+                        <th style="width:500px">内容</th>
                         <th>评论时间</th>
                         <th style="width: 400px">操作</th>
                     </tr>
