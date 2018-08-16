@@ -108,7 +108,9 @@
     <Content Include="Admin\html\Fail.html" />
     <Content Include="Admin\html\Fail2.html" />
     <Content Include="Admin\html\Home.html" />
+    <Content Include="Admin\html\Map_JingDian.html" />
     <Content Include="Admin\html\Success.html" />
+    <Content Include="Admin\html\text.html" />
     <Content Include="assets\build.xml" />
     <Content Include="assets\css\bui-min.css" />
     <Content Include="assets\css\build.xml" />
@@ -323,6 +325,7 @@
     <Content Include="js\gkxx.js" />
     <Content Include="js\init.js" />
     <Content Include="js\jquery-1.10.2.js" />
+    <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery-easyui-1.4.3\easyloader.js" />
     <Content Include="js\jquery-easyui-1.4.3\jquery.easyui.min.js" />
     <Content Include="js\jquery-easyui-1.4.3\jquery.easyui.mobile.js" />

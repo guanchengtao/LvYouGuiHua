@@ -40,6 +40,7 @@
                </div>
                 <span class="label label-info">景点介绍：</span>
   <hr style="height: 1px; color: skyblue;" />
+
             <div id="spNeiRong" style="border: 1px skyblue solid; width: 80%; margin: 0 auto">
             </div>
            <div class="input-group">

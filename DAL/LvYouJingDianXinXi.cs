@@ -53,7 +53,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@JDMingCheng", SqlDbType.NVarChar,50),
-					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,3900),
+					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,50000),
 					new SqlParameter("@JDWeiZhi", SqlDbType.NVarChar,50),
 					new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
 					new SqlParameter("@WeiDu", SqlDbType.NVarChar,10),
@@ -98,7 +98,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("BeiZhu=@BeiZhu");
 			strSql.Append(" where JDBianHao=@JDBianHao");
 			SqlParameter[] parameters = {
-					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,3900),
+					new SqlParameter("@JDJieShao", SqlDbType.NVarChar,50000),
 					new SqlParameter("@JDWeiZhi", SqlDbType.NVarChar,50),
 					new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
 					new SqlParameter("@WeiDu", SqlDbType.NVarChar,10),

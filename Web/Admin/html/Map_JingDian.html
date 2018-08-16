@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        #allmap {
+            height: 60%;
+            width: 60%;
+        }
+
+        <style type="text/css" >
+        body {
+            font-family: "Microsoft YaHei" !important;
+        }
+        /*灰色遮罩层*/
+        .fade {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 99;
+        }
+        /*弹出层*/
+        .succ-pop {
+            width: 900px;
+            height: 900px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            border-radius: 8px;
+        }
+
+            .succ-pop h3.title {
+                text-align: center;
+                font-size: 22px;
+                color: rgba(0, 0, 0, 0.5);
+            }
+    </style>
+    </style>
+    <link href="../../js/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../../js/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.10.2.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IFiIC3WAxhVibbv4QC7BueDep037yHyL"></script>
+    <script src="../../js/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="../../js/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+    <title>地图展示</title>
+    <script type="text/javascript">
+        $(function () {
+            $("#ShowDialogDiv").css("display", "none");
+            $("#ShowDiv").css("display", "none");
+            
+        });
+        function show() {
+
+  
+            $("#ShowDiv").css("display", "block");
+            $("#fadeDiv").addClass("fade");
+             $("#showiframe").attr("src", "../aspx/LvYouJingDian_View.aspx?id=12");
+            //$("#ShowDialogDiv").dialog({
+            //    title: "景点详情",
+            //    modal: true,
+            //    width: 800,
+            //    height: 800,
+            //    collapsible: true,
+            //    minimizable: true,
+            //    maximizable: true,
+            //    resizable: true,
+            //    buttons: [{
+            //        id: 'btnCancel',
+            //        text: '取消',
+            //        iconCls: 'icon-cancel',
+            //        handler: function () {
+            //            $("#ShowDialogDiv").dialog("close");
+            //        }
+            //    }]
+            //});
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="fadeDiv"></div>
+    <div class="succ-pop" id="ShowDiv"  style=" overflow-y:auto; overflow-x:auto;">
+        <h3 class="title">
+            中间填写内容
+        </h3>
+        <iframe id="showiframe" src="javascript:void(0)" frameborder="0" width="100%" height="100%" scrolling="no"></iframe>
+
+    </div>
+    <div id="allmap"></div>
+    <div id="ShowDialogDiv">
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    map = new BMap.Map("allmap", { mapType: BMAP_NORMAL_MAP });
+    map.enableScrollWheelZoom(false);   //放大缩小
+    // map.disableDragging();     //禁止拖拽
+
+    //设置地图中心点和级别
+    map.centerAndZoom(new BMap.Point(116.342268, 37.175545), 15);
+    var data_info = [
+        [116.342268, 37.175545, "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>测试字段</h4>" +
+            "<img style='float:right;margin:3px' id='imgDemo' src='../../wodetupian/2.jpg' width='140' height='110' title=''/><p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>测试1</p><a onclick='show()' href='#'>查看详情</a>"]
+    ];
+    var opts = {
+        width: 350,
+        height: 160,
+        title: "", // 信息窗口标题
+        enableMessage: true//设置允许信息窗发送短息
+    };
+    for (var i = 0; i < data_info.length; i++) {
+        var marker = new BMap.Marker(new BMap.Point(data_info[i][0], data_info[i][1]));  // 创建标注
+        var content = data_info[i][2];
+        map.addOverlay(marker);// 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+        addClickHandler(content, marker);
+    }
+    function addClickHandler(content, marker) {
+        marker.addEventListener("click", function (e) {
+            openInfo(content, e)
+        }
+        );
+
+    }
+    function openInfo(content, e) {
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+
+    }
+
+
+</script>

@@ -287,7 +287,7 @@ namespace SDAU.ZHCZ.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu ");
-            strSql.Append(" FROM LvYouGuiHuaXinXi order by BeiZhu desc ");
+            strSql.Append(" FROM LvYouGuiHuaXinXi order by BeiZhu asc ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);

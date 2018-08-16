@@ -81,7 +81,7 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
             string jieshu = jieshushijian.Text;
             if (kaishi.Length == 0 || jieshu.Length == 0)
             {
-                guihua.GuiHuaNianXian = null;
+                guihua.GuiHuaNianXian = "";
             }
             else
             {
