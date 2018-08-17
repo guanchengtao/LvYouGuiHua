@@ -12,17 +12,37 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
         BLL.LvYouJingDianXinXi JingDianXinXi = new BLL.LvYouJingDianXinXi();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["jwdu"] != null)
+            {
+                string jwdu = Request["jwdu"].Trim().ToString();
+                if (jwdu.Length == 0)
+                {
+                    Context.Response.Redirect("Map_JingDian.aspx");
+                }
+                else
+                {
+                    jingdu.Text = jwdu.Split(',')[0];
+                    weidu.Text = jwdu.Split(',')[1];
+                }
+
+            }
+            else
+            {
+                Context.Response.Redirect("Map_JingDian.aspx");
+            }
 
         }
         protected void btnSub_Click(object sender, EventArgs e)
         {
+           
             Model.LvYouJingDianXinXi model = new Model.LvYouJingDianXinXi()
             {
                 JDMingCheng = mingcheng.Text.ToString(),
                 JDWeiZhi = Request["JDWeiZhi"],
-                JingDu = Request["jingdu"],
-                WeiDu = Request["weidu"],
+                JingDu = jingdu.Text,
+                WeiDu = weidu.Text,
                 JDJieShao = Request["JDJieShao"],
+                TuPian=Request["JDTuPian"],
                 FBShiJian = DateTime.Now.ToLocalTime(),
                 LiuLanCiShu = 0,
                 BeiZhu=""

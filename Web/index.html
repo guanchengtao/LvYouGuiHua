@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
  <head>
   <title>王打卦镇旅游与管理系统</title>
@@ -47,9 +47,15 @@
                 {id: 'index', text: '首页', href: 'Admin/html/Home.html', closeable: false },
                 { id: 'gkxx', text: '公开信息', href:'Admin/aspx/GongKaiXinXi_List.aspx'},
                 { id: 'lygh', text: '旅游规划', href:'Admin/aspx/LvYouGuiHua_List.aspx'},
-                { id: 'lyjd', text: '旅游景点', href:'Admin/aspx/LvYouJingDian_List.aspx'},
+                //{ id: 'lyjd', text: '旅游景点', href:'Admin/aspx/LvYouJingDian_List.aspx'},
                 { id: 'lyb', text: '留言板', href:'Admin/aspx/LiuYanBan_List.aspx'}
               ]
+          }, {
+                  text: '旅游景点',
+                  items: [
+                      { id: 'lyjd', text: '表格', href: 'Admin/aspx/LvYouJingDian_List.aspx' },
+                      { id: 'map', text: '地图', href: 'Admin/aspx/Map_JingDian.aspx' }
+                  ]
               }] 
           }];
       new PageUtil.MainPage({

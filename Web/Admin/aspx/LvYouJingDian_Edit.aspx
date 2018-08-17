@@ -40,7 +40,7 @@
 
       
   <span class="input-group-addon" id="basic-addon4">景点介绍：</span>
-         <asp:TextBox ID="txtEditorContents" name="txtEditorContents" runat="server" TextMode="MultiLine" Height="380px" Width="900px" ClientIDMode="Static" ></asp:TextBox>
+         <asp:TextBox ID="txtEditorContents" name="txtEditorContents" runat="server" TextMode="MultiLine" Height="350px" Width="900px" ClientIDMode="Static" ></asp:TextBox>
         <asp:Button ID="Button2" runat="server" Text="返回" class="btn btn-default" OnClick="Button2_Click" />
         <asp:Button ID="Button1" runat="server" Text="提交" class="btn btn-primary" OnClick="Button1_Click" />
         <input type="hidden" name="mytext" id="mytext" value="<%=Model.JDJieShao %>" />

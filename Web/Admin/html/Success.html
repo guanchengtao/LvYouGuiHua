@@ -27,10 +27,12 @@
                     break;
                 case "jingdian":
                     xinxi.attr("href", "../aspx/LvYouJingDian_View.aspx");
-                    list.attr("href", "../aspx/LvYouJingDian_List.aspx");
-                    add.attr("href", "../aspx/LvYouJingDian_Add.aspx");
+                    list.attr("href", "../aspx/LvYouJingDian_List.aspx");                  
+                    add.attr("href", "../aspx/LvYouJingDian_Add.aspx?jwdu="+"");
+                    $("#dhList").append('<a class="page-action" data-type="setTitle" id="add" href="../aspx/Map_JingDian.aspx">返回到地图</a>');
                     break;
-                //jingdian
+                    //jingdian
+                   
                 //可拓展
                 //=======
             }
@@ -60,7 +62,7 @@
                         <p class="auxiliary-text">
                             你可以继续操作以下内容：
                         </p>
-                        <p>
+                        <p id="dhList">
                             <a class="page-action" data-type="setTitle" id="xinxi1" href="#">查看信息</a>
                             <a class="page-action" data-type="setTitle" id="list" href="#">返回信息列表</a>
                             <a class="page-action" data-type="setTitle" id="add" href="#">继续添加</a>

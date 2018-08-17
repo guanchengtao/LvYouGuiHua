@@ -81,7 +81,7 @@
         <div>
             <div>
                 <div class="form-group" style="margin-top: 15px;">
-                    <asp:Button ID="Add" runat="server" Text="添加" class="btn btn-primary btn-lg" Style="margin-left: 10px" OnClick="Add_Click" />
+                <%--    <asp:Button ID="Add" runat="server" Text="添加" class="btn btn-primary btn-lg" Style="margin-left: 10px" OnClick="Add_Click" />--%>
                     <input type="button" name="name" value="批量删除" class="btn btn-primary btn-lg" id="delete" data-toggle="modal" data-target="#myModal" />
                     &nbsp;          &nbsp;          &nbsp;        
             
@@ -107,8 +107,7 @@
                                 <input type="checkbox" value="" id="cheakalldata" /></th>
                             <th>景点名称</th>
                             <th>位置</th>
-                            <th>纬度</th>
-                            <th>经度</th>
+                            <th>经纬度</th>                           
                             <th>浏览次数</th>
                             <th>发布时间</th>
                             <th>操作</th>
@@ -127,8 +126,7 @@
                             </td>
                             <td><%=item.JDMingCheng %></td>
                             <td><%=item.JDWeiZhi %></td>
-                            <td><%=item.WeiDu %></td>
-                            <td><%=item.JingDu %></td>
+                            <td>(<%=item.JingDu %>,<%=item.WeiDu %>)</td>           
                             <td><%=item.LiuLanCiShu %></td>
                             <td><%=item.FBShiJian.ToString().Substring(0,item.FBShiJian.ToString().Length-9)%></td>
 

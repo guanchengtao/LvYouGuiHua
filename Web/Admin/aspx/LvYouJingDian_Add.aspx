@@ -16,11 +16,21 @@
     <script>
         $(function () {
             $("#btnSub").click(function () {
-                $("#JDJieShao").val(escape(UE.getEditor('txtEditorContents').getContent()));
+                var textPlus = UE.getEditor('txtEditorContents').getContent();
+              
+                var imgReg = /<img.*?(?:>|\/>)/gi;
+                var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+                var arr = textPlus.match(imgReg);
+                var src = arr[0].match(srcReg);
+          
+                 $("#JDTuPian").val(escape(src[0]));
+                $("#JDJieShao").val(escape(textPlus));
             });
             $("#calcelLink").click(function () {
                 window.location.href = "LvYouJingDian_List.aspx";
             })
+
+           
         })
     </script>
 </head>
@@ -57,16 +67,19 @@
                     </div>
                 </td>
                 <td>
-                    <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="jingdu" />&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="weidu" /></td>
+                    <asp:TextBox ID="jingdu" class="form-control" placeholder="" aria-describedby="basic-addon1" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="weidu" class="form-control" placeholder="" aria-describedby="basic-addon1" runat="server"></asp:TextBox>
+                 </td>
             </tr>
         </table>
         <span class="input-group-addon" id="basic-addon4">景点介绍：</span>
-        <asp:TextBox ID="txtEditorContents" name="txtEditorContents" runat="server" TextMode="MultiLine" Height="380px" Width="900px" ClientIDMode="Static"></asp:TextBox>
+        <asp:TextBox ID="txtEditorContents" name="txtEditorContents" runat="server" TextMode="MultiLine" Height="350px" Width="900px" ClientIDMode="Static"></asp:TextBox>
         <input type="button" id="calcelLink" name="name" value="返回" class="btn  btn-default" style="margin-left: 300px;" />
         &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; 
         <asp:Button ID="btnSub" runat="server" class="btn  btn-primary" Text="提交" OnClick="btnSub_Click"/>
-
+        
         <input type="hidden" name="JDJieShao" id="JDJieShao" value="" />
+             <input type="hidden" name="JDTuPian" id="JDTuPian" value="" />
     </form>
 </body>
 </html>

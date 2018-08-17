@@ -135,10 +135,10 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
 
         }
 
-        protected void Add_Click(object sender, EventArgs e)
-        {
-            Context.Response.Redirect("LvYouJingDian_Add.aspx");
-        }
+        //protected void Add_Click(object sender, EventArgs e)
+        //{
+        //    //Context.Response.Redirect("LvYouJingDian_Add.aspx");
+        //}
         public static string InsertSql()
         {
             StringBuilder strSql = new StringBuilder();
