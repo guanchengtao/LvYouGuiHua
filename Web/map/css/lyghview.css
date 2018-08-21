@@ -1,0 +1,41 @@
+﻿.auto-style1 {
+    width: 150px;
+}
+
+.auto-style3 {
+    height: 200px;
+}
+
+td {
+    border: solid #add9c0;
+    border-width: 0px 1px 1px 0px;
+}
+
+table {
+    border: solid #add9c0;
+    border-width: 1px 0px 0px 1px;
+}
+
+.auto-style4 {
+    width: 70px;
+    text-align: center;
+}
+
+.auto-style5 {
+    height: 198px;
+    text-align: center;
+}
+
+.auto-style6 {
+    height: 110px;
+    text-align: center;
+}
+
+.auto-style7 {
+    width: 126px
+}
+.info_input{
+    text-align:left;
+    width:280px;
+}
+

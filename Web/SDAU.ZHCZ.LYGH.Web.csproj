@@ -113,6 +113,7 @@
     <Content Include="Admin\html\Success.html" />
     <Content Include="Admin\html\text.html" />
     <Content Include="Admin\html\Demo.html" />
+    <Content Include="Admin\html\text2.html" />
     <Content Include="Admin\html\TianDiTu.html" />
     <Content Include="assets\build.xml" />
     <Content Include="assets\css\bui-min.css" />
@@ -711,6 +712,8 @@
     <Content Include="js\timer.js" />
     <Content Include="js\top.js" />
     <Content Include="Login.html" />
+    <Content Include="map\css\lyghview.css" />
+    <Content Include="map\css\gkxxview.css" />
     <Content Include="map\css\index.css" />
     <Content Include="map\images\cd.png" />
     <Content Include="map\images\close.png" />

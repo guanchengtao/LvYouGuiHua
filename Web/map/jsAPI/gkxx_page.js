@@ -31,7 +31,7 @@
                 var id = v.BianHao
                 str += "<tr><td>" + v.BiaoTi + "</td><td>" + v.LeiXing + "</td><td>" + ConvertTime(v.FaBuShiJian) + "</td><td>" + v.ZuoZe + "</td>"+
                    "<td> "+
-    "<a href='#' onclick='hdjllist(" + id+ ")'>查看</a>&nbsp;&nbsp;<span style='color: cornflowerblue'>|</span> &nbsp;&nbsp;"+
+    "<a href='#' onclick='gkxx_view(" + id+ ")'>了解更多</a>"+
                  /*   "<a href='#' onclick='JDedit(" + id + ")'>编辑</a>&nbsp;&nbsp;<span style='color: cornflowerblue'>|</span> &nbsp;&nbsp;" +
                     "<a href='#' onclick='JDdelete(" + id + ")'>删除</a>&nbsp;&nbsp;" +
 */

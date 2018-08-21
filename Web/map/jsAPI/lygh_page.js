@@ -27,11 +27,10 @@
             arr = pager.data.slice(pager.pageCount * pager.currentPage,
                 pager.data.length - pager.pageCount * (pager.currentPage + 1) > -1 ?
                     pager.pageCount * (pager.currentPage + 1) : pager.data.length);
-            arr.forEach(function (v) {
-                str += "<tr><td>" + v.GHXMBianHao + "</td><td>" + v.GHXMMingCheng + "</td><td>" + ConvertTime(v.GuiHuaShiJian) + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td>"+
-                    "<a href='#'>查看</a>&nbsp;&nbsp;<span style='color: cornflowerblue'>|</span> &nbsp;&nbsp;"+
-                    "<a href='#'>编辑</a>&nbsp;&nbsp;<span style='color: cornflowerblue'>|</span> &nbsp;&nbsp;" +
-                    "<a href='#'>删除</a>&nbsp;&nbsp;" +
+                    arr.forEach(function (v) {
+                        var id = v.GHXMBianHao.trim();
+                        str += "<tr><td>" + id + "</td><td>" + v.GHXMMingCheng + "</td><td>" + ConvertTime(v.GuiHuaShiJian) + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td>" +
+                            "<a href='#' onclick='lygh_view(" + id + ")'>了解更多</a>" +
                 "</td ></tr > ";
             });
                     $("#lvghbody").html(str);

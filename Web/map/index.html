@@ -9,6 +9,10 @@
     <script type="text/javascript" src="jsAPI/NewMap.js"></script>
     <script type="text/javascript" src="jsAPI/NExtWMTSLayer.js"></script>
     <script type="text/javascript" src="jsAPI/map.js"></script>
+
+    <link href="css/gkxxview.css" rel="stylesheet" />
+    <link href="css/lyghview.css" rel="stylesheet" />
+
 </head>
 <body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
     <div id="topDiv">
@@ -62,7 +66,6 @@
             <div id="moreImg"></div>
         </div>
     </div>
-
     <div id="toolDiv" class="transparent_toolbar">
         <ul style="margin:3px 0">
             <li id="btnExtent" class="btnToolbar" style="margin-right: 20px;">
@@ -140,6 +143,9 @@
                         <th>
                             发布人
                         </th>
+                        <th>
+                            查看
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="gkxxbody"></tbody>
@@ -190,45 +196,105 @@
             <script src="jsAPI/lygh_page.js"></script>
         </div>
     </div>
- 
+
     <div id="centerlist">
         <div id="closecenterlist">
             <img id="centerlistClosebtn" src="images/close.png" onclick="closecenterlist()" />
         </div>
         <div id="centertable">
-            <table class="table">
+            <div id="content">
+
+                <div id="title">
+                    <span id="Infotitle"></span>
+                    <br />
+                    <div id="titlesplit"></div>
+                </div>
+                <div id="author">
+                    <span id="">作者</span>:<span id="zuozhe"></span>&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;<span id="">类型</span>:<span id="LeiXing"></span>
+                    &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp; <span>发布时间</span>:<span id="fabushijian"></span>
+                </div>
+
+                <div id="mainneirong">
+                    <div id="neirong">
+
+                    </div>
+                </div>
+
+                <!--<div class="neirong" style="margin-left:0px;height:auto">
+                    <div class="n7" style="padding-top:10px">
+                        Copyright &copy; 山东农业大学智慧农业重点实验室 2018
+                        <br>
+                    </div>
+
+                </div>-->
+
+            </div>
+        </div>
+    </div>
+  
+    <div id="centerlist2">
+        <div id="closecenterList2">
+            <img id="centerlistClosebtn2" src="images/close.png" onclick="closecenterlist2()" />
+        </div>
+        <div id="lefttable">
+            <table style="height: 262px; width: 700px">
                 <caption>
                     <h1 style="font-size:16px">
                         旅游规划信息表
                     </h1>
                 </caption>
-                <thead>
-                    <tr>
-                        <th>
-                            编号
-                        </th>
-                        <th>
-                            规划项目名称
-                        </th>
-                        <th>
-                            规划时间
-                        </th>
-                        <th>
-                            规划单位
-                        </th>
-                        <th>
-                            负责人
-                        </th>
-                        <th>
-                            操作
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id=""></tbody>
+                <tr>
+                    <td class="auto-style4">项目编号</td>
+                    <td class="info_input">121212</td>
+                    <td class="auto-style4">项目名称</td>
+                    <td class="info_input">1212</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">负责人</td>
+                    <td class="info_input"></td>
+                    <td class="auto-style4">规划单位</td>
+                    <td class="info_input"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">规划时间</td>
+                    <td class="info_input"></td>
+                    <td class="auto-style4">规划年限</td>
+                    <td class="info_input"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">规划范围</td>
+                    <td class="info_input"></td>
+                    <td class="auto-style4">规划面积</td>
+                    <td class="info_input"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">规划目标</td>
+                    <td colspan="3">
+                        <textarea id="guihuamubiao" cols="20" rows="4" style="height:90px;width:600px;background-color:white;cursor:text"></textarea>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">规划任务</td>
+                    <td colspan="3">
+                        <textarea id="guihuarenwu" cols="20" rows="2" style="height:90px;width:600px;background-color:white;"></textarea>
+
+                    </td>
+                </tr>
+                <tr style="height:50px">
+                    <td class="auto-style5">规划项目介绍</td>
+                    <td colspan="3">
+                        <textarea id="jeishao" cols="200" rows="20" style="height:180px;width:600px;background-color:white;cursor:text"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">规划图</td>
+                    <td colspan="4">
+                        <div id="guihuatu" style="width: 100%; margin: 0 auto"></div>
+                    </td>
+                </tr>
             </table>
+            </div>      
         </div>
-    </div>
-
 </body>
 </html>

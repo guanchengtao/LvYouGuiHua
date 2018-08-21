@@ -8,7 +8,7 @@
 
 #content {
     height: auto;
-    width: 600px;
+    width: 740px;
     margin: auto;
     margin-top: 10px;
     background-color: white;
@@ -28,12 +28,21 @@
     height: 10px;
     width: 100%;
 }
+#Infotitle {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    /*font-weight: bold;*/
+    text-align: center;
+    font-size: 25px;
+    color: #1e1395;
+    font-family: 'Microsoft YaHei';
+}
 #titlesplit {
-    border: 1px solid #808080;
-    width: 600px;
-    /*margin: auto;
-    margin-bottom: 1px;*/
-    /*margin-top: 13px;*/
+    border: 1px solid #2388b9;
+    width: 720px;
+    margin: auto;
+    margin:5px;
 }
 #title {
     height: 40px;
@@ -50,15 +59,18 @@
 #author {
     background-color: white;
     height: 25px;
-    width: 100%;
+    width: 740px;
+    margin-top: 5px;
     text-align: center;
     font-size: small;
-    color:#636363;
+    color: #636363;
 }
 
 #neirong {
-    width: 600px;
+    width: 740px;
     margin: auto;
+    height: 470px;
+    overflow: scroll;
 }
 
 #mainneirong {

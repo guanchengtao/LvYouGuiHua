@@ -183,7 +183,7 @@ function showVector()
 	layer_label.visible = true;
 	layerraster_label.visible = false;
 }
-//===========================================
+//===========================listbegin================
 
 function gkxxlist(){
 	if ($("#bottomlist").is(":hidden")) {
@@ -206,15 +206,34 @@ function closeleftlist(){
 }
 
 
-function hdjllist(id) {
+function gkxx_view(id) {
+    $.getJSON("../Admin/ashx/GetgkxxInfo.ashx", { id: id }, function (data) {
+        $("#Infotitle").text(data.BiaoTi);
+        $("#zuozhe").text(data.ZuoZe);
+        $("#LeiXing").text(data.LeiXing);
+        $("#fabushijian").text(ConvertTime(data.FaBuShiJian));
+        $("#neirong").html(unescape(data.NeiRong));
+        $("title").text(data.BiaoTi);
+    })
     if ($("#centerlist").is(":hidden")) {
         $("#centerlist").show("slow");
     }
 }
+
+function lygh_view(id) {
+    if ($("#centerlist2").is(":hidden")) {
+        $("#centerlist2").show("slow");
+    }
+    alert(id);
+}
 function closecenterlist() {
     $("#centerlist").hide("slow");
 }
-
+function closecenterlist2() {
+    $("#centerlist2").hide("slow");
+}
+////===========================listend================
+//========================common=========
 function index() {
     window.location.reload();
 }
