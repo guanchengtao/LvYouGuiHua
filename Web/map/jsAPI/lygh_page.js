@@ -29,8 +29,10 @@
                     pager.pageCount * (pager.currentPage + 1) : pager.data.length);
                     arr.forEach(function (v) {
                         var id = v.GHXMBianHao.trim();
-                        str += "<tr><td>" + id + "</td><td>" + v.GHXMMingCheng + "</td><td>" + ConvertTime(v.GuiHuaShiJian) + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td>" +
-                            "<a href='#' onclick='lygh_view(" + id + ")'>了解更多</a>" +
+                        str += "<tr><td>" + id + "</td><td>" + v.GHXMMingCheng + "</td><td>" + (ConvertTime(v.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(v.GuiHuaShiJian) : "") + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td>" +
+                            //注意：当返回的name是包含数字字母组合、纯字母的时候就会出错，
+                            //有些浏览器错误还不太好定位，这里需要将name作为字符串传入
+                            '<a href="#" onclick="lygh_view(\'' + id + '\')">了解更多</a>' +
                 "</td ></tr > ";
             });
                     $("#lvghbody").html(str);

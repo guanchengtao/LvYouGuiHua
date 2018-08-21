@@ -128,16 +128,15 @@ function mapInit() {
         $.each(gisdata, function (index, n) {
             gisdata[index].JDJieShao = unescape(gisdata[index].JDJieShao);
             if (gisdata[index].JDJieShao.length < 60) {
-                gisdata[index].JDJieShao = gisdata[index].JDJieShao + "<a href='../aspx/LvYouJingDian_View.aspx?id=" + gisdata[index].JDBianHao + "'>查看详情</a>";
+                gisdata[index].JDJieShao = gisdata[index].JDJieShao + '<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
             }
             else {
-                gisdata[index].JDJieShao = gisdata[index].JDJieShao.substring(-1, 60) + "...<a href='../aspx/LvYouJingDian_View.aspx?id=" + gisdata[index].JDBianHao + "'>查看详情</a>";
-            }
+                gisdata[index].JDJieShao = gisdata[index].JDJieShao.substring(-1, 60) + '...<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
+            } 
             gisdata[index].TuPian = unescape(gisdata[index].TuPian);
         });
         for (var i = 0; i < data.jingdianCount; i++) {
             var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), { markerTitle: gisdata[i].JDMingCheng });
-  
             marker.setDialog("<div style ='margin:0px;' > " +
                 "<div style='margin:10px 10px; '>" +
                 "<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
@@ -221,17 +220,66 @@ function gkxx_view(id) {
 }
 
 function lygh_view(id) {
+    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
+        $("#GHXMBianHao").text(data.GHXMBianHao);
+        $("#GHXMMingCheng").text(data.GHXMMingCheng);
+        $("#FuZeRen").text(data.FuZeRen);
+        $("#GuiHuaDanWei").text(data.GuiHuaDanWei);
+        $("#GuiHuaShiJian").text(ConvertTime(data.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(data.GuiHuaShiJian ): "");
+        $("#GuiHuaNianXian").text(data.GuiHuaNianXian == "" ? "" : data.GuiHuaNianXian.split('|')[0] + "——" + data.GuiHuaNianXian.split('|')[1]);
+        $("#GuiHuaFanWei").text(data.GuiHuaFanWei);
+        $("#GuiHuaMianJi").text(data.GuiHuaMianJi);
+        $("#GuiHuaMuBiao").html(data.GuiHuaMuBiao);
+        $("#GuiHuaRenWu").html(data.GuiHuaRenWu);
+        $("#GHXMJieShao").html(data.GHXMJieShao);
+        //动态添加a标签
+        var html = '<a href=\"#\" style="font-size:15px;" id="guihuatu_a" onclick=\"ShowGuiHuaTu(\'' + id + '\')\">查看规划图</a>';
+        $(html).appendTo($("#guihautudiv")); 
+    })
     if ($("#centerlist2").is(":hidden")) {
         $("#centerlist2").show("slow");
     }
-    alert(id);
 }
+
+function lyjd_view(id) {
+    $.getJSON("../Admin/ashx/GetlyjdInfo.ashx", { id: id }, function (data) {
+        $("#jinddianjieshao").html(unescape(data.JDJieShao));
+
+    });
+
+    if ($("#centerlist4").is(":hidden")) {
+        $("#centerlist4").show("slow");
+    }
+}
+//公开信息详情页Div
 function closecenterlist() {
     $("#centerlist").hide("slow");
 }
+//规划详情页div
 function closecenterlist2() {
     $("#centerlist2").hide("slow");
+    $("#guihautudiv").children().remove();
 }
+//规划图div
+function closecenterlist3() {
+    $("#centerlist3").hide("slow");
+}
+function closecenterlist4() {
+    $("#centerlist4").hide("slow");
+}
+
+
+function ShowGuiHuaTu(id) {
+    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
+                var html = data.GuiHuaTu;
+        var text = unescape(html);
+        $("#guihuatu").html(text);
+    })
+    if ($("#centerlist3").is(":hidden")) {
+        $("#centerlist3").show("slow");
+    }
+}
+
 ////===========================listend================
 //========================common=========
 function index() {
@@ -239,4 +287,15 @@ function index() {
 }
 function gotoHomePage() {
     window.location.reload();
+}
+function formatDate(dt) {
+    var year = dt.getFullYear();
+    var month = dt.getMonth() + 1;
+    var date = dt.getDate();
+    return year + "-" + month + "-" + date;
+}
+function ConvertTime(time) {
+    var t = time.slice(6, 19)
+    var NewDtime = new Date(parseInt(t));
+    return formatDate(NewDtime);
 }

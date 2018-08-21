@@ -2791,6 +2791,12 @@
     <Compile Include="Admin\ashx\GetInfoId.ashx.cs">
       <DependentUpon>GetInfoId.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ashx\GetlyghInfo.ashx.cs">
+      <DependentUpon>GetlyghInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ashx\GetlyjdInfo.ashx.cs">
+      <DependentUpon>GetlyjdInfo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ashx\ghidIsexist.ashx.cs">
       <DependentUpon>ghidIsexist.ashx</DependentUpon>
     </Compile>
@@ -3155,6 +3161,12 @@
   <ItemGroup>
     <Content Include="map\jsAPI\images\_desktop.ini" />
     <Content Include="map\jsAPI\_desktop.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\GetlyghInfo.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\GetlyjdInfo.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
