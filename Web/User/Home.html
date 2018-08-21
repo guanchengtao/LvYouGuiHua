@@ -30,6 +30,7 @@
     <script type="text/javascript">
     $(function () {
         $.getJSON("../Admin/ashx/GongKaiXinXiList.ashx", {}, function (data) {
+            var data = data.list;
             var i = 0;
             var j = 1;
             while (i < 10) {
@@ -42,7 +43,7 @@
             var i = 0;
             var j = 1;
             while (i < 6) {
-                $("#lygh" + j + "").find("a").text(data[i].GHXMMingCheng).attr("href", "gkxx.html?id=" + data[i].GHXMBianHao).attr("target", "_blank");
+                $("#lygh" + j + "").find("a").text(data[i].GHXMMingCheng).attr("href", "").attr("target", "_blank");
                 $("#lygh" + j + "").find('td').eq(2).text(ConvertTime(data[i].GuiHuaShiJian));
                 i++; j++;
             }
@@ -52,7 +53,7 @@
             var i = 0;
             var j = 1;
             while (i < 6) {
-                $("#lyjd" + j + "").find("a").text(data[i].JDMingCheng).attr("href", "gkxx.html?id=" + data[i].JDBianHao).attr("target","_blank");
+                $("#lyjd" + j + "").find("a").text(data[i].JDMingCheng).attr("href", "").attr("target","_blank");
                 $("#lyjd" + j + "").find('td').eq(2).text(ConvertTime(data[i].FBShiJian));
                 i++; j++;
                 }
@@ -99,80 +100,82 @@
             </div>
         </div>
         <div class="n2">
-            <iframe allowtransparency="true" frameborder="0" width="530" height="100" scrolling="no" 
-                src="http://tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=385&h=96&align=center"></iframe>
-            <div class="n2-1">旅游景点<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = ''" /></div>
-           <div style="height:180px;width:550px; margin-bottom:10px" >
-               <table id="lyjd">
-                   <tr id="lyjd1">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:450px;"><a href="#">content</a></td>
-            
-                            <td style="width:30px"></td>
-                   </tr>
+            <iframe allowtransparency="true" frameborder="0" width="530" height="100" scrolling="no"
+                    src="http://tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=385&h=96&align=center"></iframe>
+            <div class="n2-1">旅游景点<input type="button" class="btn-info" value="更多>>" onclick="javascrtpt: window.location.href = 'gkxxList.html'" /></div>
+         
+            <div style="height:180px;width:550px; margin-bottom:10px">
+                <table id="lyjd">
+                    <tr id="lyjd1">
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:450px;"><a href="#">content</a></td>
+
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lyjd2">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                
-                            <td style="width:30px"></td>
-                   </tr >
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lyjd3">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lyjd4">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lyjd5">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lyjd6">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
-               </table>
-           </div>
-            <div class="n2-2">旅游规划<input type="button" class="btn-info" value="更多>>" />
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
+                </table>
             </div>
-            <div style="height:180px;width:550px; margin-bottom:10px" >
-               <table id="lygh">
-                   <tr id="lygh1">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:450px;"><a href="#">content</a></td>
-            
-                            <td style="width:30px"></td>
-                   </tr>
+            <div class="n2-2">
+                旅游规划<input type="button" class="btn-info" value="更多>>" />
+            </div>
+            <div style="height:180px;width:550px; margin-bottom:10px">
+                <table id="lygh">
+                    <tr id="lygh1">
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:450px;"><a href="#">content</a></td>
+
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lygh2">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                
-                            <td style="width:30px"></td>
-                   </tr >
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lygh3">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lygh4">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
                     <tr id="lygh5">
-                       <td><img src="../bootstrap/img/button1.gif" /></td>
-                            <td style="text-align:left;width:400px"><a href="#">content</a></td>
-                            <td style="width:30px"></td>
-                   </tr>
-                  
-               </table>
-           </div>
+                        <td><img src="../bootstrap/img/button1.gif" /></td>
+                        <td style="text-align:left;width:400px"><a href="#">content</a></td>
+                        <td style="width:30px"></td>
+                    </tr>
+
+                </table>
             </div>
+        </div>
         <div class="n3">
             <div class="n3-1">
                 <div class="n3-1-1">

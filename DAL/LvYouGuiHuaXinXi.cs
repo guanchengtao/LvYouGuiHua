@@ -36,7 +36,7 @@ namespace SDAU.ZHCZ.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into LvYouGuiHuaXinXi(");
-			strSql.Append("GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu)");
+			strSql.Append("GHXMBianHao,GHXMMingCheng,   GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu)");
 			strSql.Append(" values (");
 			strSql.Append("@GHXMBianHao,@GHXMMingCheng,@GHXMJieShao,@GuiHuaFanWei,@GuiHuaMianJi,@GuiHuaNianXian,@GuiHuaMuBiao,@GuiHuaRenWu,@GuiHuaTu,@GuiHuaShiJian,@GuiHuaDanWei,@FuZeRen,@BeiZhu)");
 			SqlParameter[] parameters = {

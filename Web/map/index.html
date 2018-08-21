@@ -1,0 +1,234 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>王打卦镇网格化事件管理系统</title>
+    <script src="jsAPI/jquery/jquery-3.3.1.min.js"></script>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="jsAPI/newmap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="jsAPI/NewMap.js"></script>
+    <script type="text/javascript" src="jsAPI/NExtWMTSLayer.js"></script>
+    <script type="text/javascript" src="jsAPI/map.js"></script>
+</head>
+<body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
+    <div id="topDiv">
+        <div id="D_Top" class="DIVtop">
+            <div id="D_left">
+                <div id="D_logo">
+                    <img src="jsAPI/images/logo.png" onclick="gotoHomePage()" />
+                </div>
+            </div>
+            <div id="D_right"></div>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="D_menu" class="TopSpan">
+            <ul id="nav">
+                <li id="line" class="line"></li>
+                <li onclick="hdjllist()">
+                    <div id="d_yy"></div>
+                    <a>互动交流</a>
+                </li>
+                <li id="line" class="line"></li>
+                <li onclick="lyghlist()">
+                    <div id="d_zy"></div>
+                    <a>旅游规划</a>
+                </li>
+                <li id="line" class="line"></li>
+                <li>
+                    <div id="d_zt"></div>
+                    <a>旅游景点</a>
+                </li>
+                <li id="line" class="line"></li>
+                <li onclick="gkxxlist()">
+                    <div id="d_map"></div>
+                    <a class="now">公开信息</a>
+                </li>
+                <li id="line" class="line"></li>
+                <li onclick="index()">
+                    <div></div>
+                    <a>网站首页</a>
+                </li>
+            </ul>
+        </div>
+        <div class="Top_User">
+            <a id="btnMobile" href="javascript:void(0)" onclick="locationMobile()" style="top: 1px;margin-right: 10px; color:#fff">手机端</a>
+            <div class="splitImg"></div>
+            <div id="userImg"></div>
+            <a id="login" href="#" onclick="locationLogin()">登录</a>
+            <a id="reg" href="#" onclick="locationReg()">注册</a>
+            <div class="splitImg"></div>
+            <a id="feedBack" href="#" style="top: 1px;margin-right: 15px; color:#fff">意见反馈</a>
+            <a id="portalManager" href="javascript:void(0)" style="display:none;height: 20px;">更多</a>
+            <div id="moreImg"></div>
+        </div>
+    </div>
+
+    <div id="toolDiv" class="transparent_toolbar">
+        <ul style="margin:3px 0">
+            <li id="btnExtent" class="btnToolbar" style="margin-right: 20px;">
+                <span class="btnToolbar-cont">
+                    <span class="btnToolbar-img" style="background-position: -128px 0;"></span>全屏
+                </span>
+            </li>
+            <li class="btnToolbar" id="btnMeasureLine">
+                <span class="btnToolbar-cont1">
+                    <span class="btnToolbar-img"></span>测距
+                </span>
+            </li>
+            <li class="btnToolbar" id="btnMeasurePolygon">
+                <span class="btnToolbar-cont1">
+                    <span class="btnToolbar-img" style="background-position:-22px 0;"></span>测面
+                </span>
+            </li>
+            <li class="btnToolbar" id="btnMarkDiv">
+                <span class="btnToolbar-cont1">
+                    <span class="btnToolbar-img" style="background-position: -40px 0;top:4px;width:20px;"></span>标绘
+                </span>
+            </li>
+            <li class="btnToolbar" id="btnPrintDiv">
+                <span class="btnToolbar-cont1">
+                    <span class="btnToolbar-img" style="background-position: -60px 0;top:3px;width:20px;"></span>打印
+                </span>
+            </li>
+            <li id="btnClear" class="btnToolbar">
+                <span class="btnToolbar-cont">
+                    <span class="btnToolbar-img" style="background-position: -158px 0;"></span>清除
+                </span>
+            </li>
+            <li id="btnExtentMap" class="btnToolbar">
+                <span class="btnToolbar-cont">
+                    <span class="btnToolbar-img" style="background-position: -111px 0;"></span>全图
+                </span>
+            </li>
+            <li id="btnImgCompare" class="btnToolbar">
+                <span class="btnToolbar-cont">
+                    <span class="btnToolbar-img" style="background-position: -96px 0;"></span>对比
+                </span>
+            </li>
+
+
+
+            <li id="vec_img">
+                <div id="vec_" title="地图" class="active"> 地 图</div>
+                <div id="img_" title="影像"> 影 像</div>
+            </li>
+        </ul>
+    </div>
+    <div id="map-canvas" style="top: 32px; height: 100%; -webkit-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;"></div>
+    <div id="bottomlist">
+        <div id="closeBottomList">
+            <img id="bottomlistClosebtn" src="images/close.png" onclick="closebottomlist()" />
+        </div>
+        <div id="bottomtable">
+            <table class="table">
+                <caption>
+                    <h1 style="font-size:16px">
+                        公开信息
+                    </h1>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>
+                            标题
+                        </th>
+                        <th>
+                            类型
+                        </th>
+                        <th>
+                            发布时间
+                        </th>
+                        <th>
+                            发布人
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="gkxxbody"></tbody>
+            </table>
+
+            <div class="pagination-nick" style="height:390px; float:right;margin:10px 200px 0 0 "></div>
+            <script src="jsAPI/gkxx_page.js"></script>
+        </div>
+    </div>
+
+    <div id="leftlist">
+        <div id="closeleftList">
+            <img id="leftlistClosebtn" src="images/close.png" onclick="closeleftlist()" />
+        </div>
+        <div id="lefttable">
+            <table class="table">
+                <caption>
+                    <h1 style="font-size:16px">
+                        旅游规划信息表
+                    </h1>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            规划项目名称
+                        </th>
+                        <th>
+                            规划时间
+                        </th>
+                        <th>
+                            规划单位
+                        </th>
+                        <th>
+                            负责人
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="lvghbody"></tbody>
+
+            </table>
+            <div class="pagination-nick1" style="height:390px; float:right;margin:10px 200px 0 0 "></div>
+            <script src="jsAPI/lygh_page.js"></script>
+        </div>
+    </div>
+ 
+    <div id="centerlist">
+        <div id="closecenterlist">
+            <img id="centerlistClosebtn" src="images/close.png" onclick="closecenterlist()" />
+        </div>
+        <div id="centertable">
+            <table class="table">
+                <caption>
+                    <h1 style="font-size:16px">
+                        旅游规划信息表
+                    </h1>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            规划项目名称
+                        </th>
+                        <th>
+                            规划时间
+                        </th>
+                        <th>
+                            规划单位
+                        </th>
+                        <th>
+                            负责人
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id=""></tbody>
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

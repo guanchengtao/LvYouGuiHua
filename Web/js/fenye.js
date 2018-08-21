@@ -22,7 +22,7 @@
         //obj为ajax请求数据
         //将展示的数据赋值给pager.data  (array)
         $.getJSON("../Admin/ashx/GongKaiXinXiList.ashx", {}, function (value) {
-            pager.data = value;
+            pager.data = value.list;
             var arr = [], str = " ";
             arr = pager.data.slice(pager.pageCount * pager.currentPage,
                 pager.data.length - pager.pageCount * (pager.currentPage + 1) > -1 ?

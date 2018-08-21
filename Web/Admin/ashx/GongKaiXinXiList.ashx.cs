@@ -14,8 +14,10 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
         public void ProcessRequest(HttpContext context)
         {
             BLL.GongKaiXinXi gongKaiXinXi = new BLL.GongKaiXinXi();
-            var list = gongKaiXinXi.GetModelList("");
-            string jsonstr = new JavaScriptSerializer().Serialize(list);
+            var list1 = gongKaiXinXi.GetModelList("");
+            int count = list1.Count();
+            var data = new { list=list1,Count=count };
+            string jsonstr = new JavaScriptSerializer().Serialize(data);
             context.Response.Write(jsonstr);
 
         }

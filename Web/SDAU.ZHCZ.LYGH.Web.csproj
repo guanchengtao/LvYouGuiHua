@@ -112,6 +112,8 @@
     <Content Include="Admin\html\Map_JingDian.html" />
     <Content Include="Admin\html\Success.html" />
     <Content Include="Admin\html\text.html" />
+    <Content Include="Admin\html\Demo.html" />
+    <Content Include="Admin\html\TianDiTu.html" />
     <Content Include="assets\build.xml" />
     <Content Include="assets\css\bui-min.css" />
     <Content Include="assets\css\build.xml" />
@@ -709,6 +711,76 @@
     <Content Include="js\timer.js" />
     <Content Include="js\top.js" />
     <Content Include="Login.html" />
+    <Content Include="map\css\index.css" />
+    <Content Include="map\images\cd.png" />
+    <Content Include="map\images\close.png" />
+    <Content Include="map\images\logo.png" />
+    <Content Include="map\images\logo2.png" />
+    <Content Include="map\images\toolbar.png" />
+    <Content Include="map\images\toolbar_bg.png" />
+    <Content Include="map\images\top_left.png" />
+    <Content Include="map\images\top_right.png" />
+    <Content Include="map\index.html" />
+    <Content Include="map\jsAPI\images\logo.png" />
+    <Content Include="map\jsAPI\lygh_page.js" />
+    <Content Include="map\jsAPI\gkxx_page.js" />
+    <Content Include="map\jsAPI\images\bd.png" />
+    <Content Include="map\jsAPI\images\close.gif" />
+    <Content Include="map\jsAPI\images\dialog-close.gif" />
+    <Content Include="map\jsAPI\images\dialog-close.png" />
+    <Content Include="map\jsAPI\images\m1.png" />
+    <Content Include="map\jsAPI\images\m2.png" />
+    <Content Include="map\jsAPI\images\m3.png" />
+    <Content Include="map\jsAPI\images\m4.png" />
+    <Content Include="map\jsAPI\images\m5.png" />
+    <Content Include="map\jsAPI\images\mapzoombarcontrol.png" />
+    <Content Include="map\jsAPI\images\marker-shadow.png" />
+    <Content Include="map\jsAPI\images\marker.png" />
+    <Content Include="map\jsAPI\images\markers_new.png" />
+    <Content Include="map\jsAPI\images\popup-close.png" />
+    <Content Include="map\jsAPI\images\qidian.gif" />
+    <Content Include="map\jsAPI\images\spotmkrs.png" />
+    <Content Include="map\jsAPI\images\tujingdian.gif" />
+    <Content Include="map\jsAPI\images\zhongdian.gif" />
+    <Content Include="map\jsAPI\images\zoom-in.png" />
+    <Content Include="map\jsAPI\images\zoom-out.png" />
+    <Content Include="map\jsAPI\jquery\jquery-3.3.1.min.js" />
+    <Content Include="map\jsAPI\jquery\jquery.min.1.9.0.js" />
+    <Content Include="map\jsAPI\map.js" />
+    <Content Include="map\jsAPI\mobile.css" />
+    <Content Include="map\jsAPI\newmap.css" />
+    <Content Include="map\jsAPI\newmap.ie.css" />
+    <Content Include="map\jsAPI\NewMap.js" />
+    <Content Include="map\jsAPI\NewMapJSRes\bd.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\blank.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\close.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\dialog-close.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\dialog-close.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\iw_close.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\iw_tail.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\layerListOff.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\layerListOn.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\layers.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\m1.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\m2.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\m3.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\m4.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\m5.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\marker-shadow.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\marker.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\markers_new.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\overview_replacement.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\popup-close.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\qidian.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\spotmkrs.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\tujingdian.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\zhongdian.gif" />
+    <Content Include="map\jsAPI\NewMapJSRes\zoom-in.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\zoom-out.png" />
+    <Content Include="map\jsAPI\NewMapJSRes\zoomdirect.gif" />
+    <Content Include="map\jsAPI\NExtWMTSLayer.js" />
+    <Content Include="map\jsAPI\Untitled-1.js" />
+    <Content Include="map\jsAPI\说明.txt" />
     <Content Include="static\js\jquery-1.7.2.js" />
     <Content Include="static\js\jquery.cookie.js" />
     <Content Include="static\js\jQuery.md5.js" />
@@ -3076,6 +3148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ashx\JingDianList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="map\jsAPI\images\_desktop.ini" />
+    <Content Include="map\jsAPI\_desktop.ini" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

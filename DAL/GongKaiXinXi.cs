@@ -384,7 +384,7 @@ namespace SDAU.ZHCZ.DAL
             }
             else
             {
-                strSql.Append("order by T.BianHao desc");
+                strSql.Append("order by T.FaBuShiJian desc");
             }
             strSql.Append(")AS Row, T.*  from GongKaiXinXi T ");
 
