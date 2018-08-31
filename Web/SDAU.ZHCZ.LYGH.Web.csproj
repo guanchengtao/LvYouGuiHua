@@ -790,6 +790,7 @@
     <Content Include="map\jsAPI\Untitled-1.js" />
     <Content Include="map\jsAPI\说明.txt" />
     <Content Include="map\NewMap_JingDian.html" />
+    <Content Include="sss.html" />
     <Content Include="static\js\jquery-1.7.2.js" />
     <Content Include="static\js\jquery.cookie.js" />
     <Content Include="static\js\jQuery.md5.js" />
