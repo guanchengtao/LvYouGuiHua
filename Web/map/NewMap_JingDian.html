@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>王打卦镇旅游规划展示与监管系统</title>
+    <script src="jsAPI/jquery/jquery-3.3.1.min.js"></script>
+    <link href="jsAPI/newmap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="jsAPI/NewMap.js"></script>
+    <script type="text/javascript" src="jsAPI/NExtWMTSLayer.js"></script>
+    <script src="../js/map2.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <!--<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
+    <div class="form-group" style="margin-top: 15px;">
+        <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px;" name="initMap" value="刷新地图" id="initMap" />
+        <!--<select id="select2" name="select" runat="server" style="margin-top: 11px; width: 100px;">
+            <option selected="selected">景点名称</option>
+            <option>位置</option>
+        </select>
+        <input style="margin-top: 11px" type="text" name="condition" value="" />
+        <input type="button" name="serach" value="搜索" class="btn btn-success" />-->
+        &nbsp; &nbsp; &nbsp;
+        <span>当前坐标点如下：</span>
+        <input type="text" name="jingweidu" value="" id="jingweidu"/>
+        <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px" name="name" value="添加景点" id="Add" />
+    </div>
+
+    <div id="map-canvas" style="top:5px; height: 90%; -webkit-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;"></div>
+
+</body>
+</html>
+<script>
+    $(function () {
+             $("#initMap").click(function () {
+                location.reload();
+                $("#jingweidu").val("");
+            })
+        $("#Add").click(function () {
+            window.location.href = "../Admin/aspx/LvYouJingDian_Add.aspx?jwdu=" + $("#jingweidu").val();
+        })
+
+       
+    })
+    
+</script>

@@ -120,7 +120,8 @@ function mapInit() {
 		mymap.addControl(new NPanZoomBarControl({useZoomBarTag:true}));  
     mymap.addControl(new NPositionControl());  
     mymap.addControl(new NScaleControl());  
-    mymap.setMode("dragzoom");  
+    mymap.setMode("dragzoom");
+    mymap.on("click", tip); 
     //添加比例尺到地图 
     $.getJSON("../Admin/ashx/JingDianList.ashx", {}, function (data) {
         var gisdata = data.jingdianList;
@@ -141,6 +142,9 @@ function mapInit() {
                 "<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
                 "  <div style='margin:0px 0px 0px 120px;width:170px;height:auto'>景点名称:" + gisdata[i].JDMingCheng + "<br>景点简介:" + gisdata[i].JDJieShao + "<span style='width:169px'></span></div>" +
                 "</div>" +
+
+                "<input type='button' name='delete' value ='编辑' id ='edit' onclick=edit(" + gisdata[i].JDBianHao + ") />" +
+                "<input type='button' name='delete' value ='删除' id ='delete' onclick=delete1(" + gisdata[i].JDBianHao + ") />" +
                 "</div>");
             //标注添加到地图  
             mymap.addOverlays(marker);  
@@ -181,112 +185,7 @@ function showVector()
 	layer_label.visible = true;
 	layerraster_label.visible = false;
 }
-//===========================listbegin================
 
-function gkxxlist(){
-	if ($("#bottomlist").is(":hidden")) {
-		$("#bottomlist").show("slow");
-	}
-}
-
-function closebottomlist(){
-	$("#bottomlist").hide("slow");
-}
-
-function lyghlist() {
-    if ($("#leftlist").is(":hidden")) {
-        $("#leftlist").show("slow");
-    }
-}
-
-function closeleftlist(){
-	$("#leftlist").hide("slow");
-}
-
-
-function gkxx_view(id) {
-    $.getJSON("../Admin/ashx/GetgkxxInfo.ashx", { id: id }, function (data) {
-        $("#Infotitle").text(data.BiaoTi);
-        $("#zuozhe").text(data.ZuoZe);
-        $("#LeiXing").text(data.LeiXing);
-        $("#fabushijian").text(ConvertTime(data.FaBuShiJian));
-        $("#neirong").html(unescape(data.NeiRong));
-        $("title").text(data.BiaoTi);
-    })
-    if ($("#centerlist").is(":hidden")) {
-        $("#centerlist").show("slow");
-    }
-}
-
-function lygh_view(id) {
-    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
-        $("#GHXMBianHao").text(data.GHXMBianHao);
-        $("#GHXMMingCheng").text(data.GHXMMingCheng);
-        $("#FuZeRen").text(data.FuZeRen);
-        $("#GuiHuaDanWei").text(data.GuiHuaDanWei);
-        $("#GuiHuaShiJian").text(ConvertTime(data.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(data.GuiHuaShiJian ): "");
-        $("#GuiHuaNianXian").text(data.GuiHuaNianXian == "" ? "" : data.GuiHuaNianXian.split('|')[0] + "——" + data.GuiHuaNianXian.split('|')[1]);
-        $("#GuiHuaFanWei").text(data.GuiHuaFanWei);
-        $("#GuiHuaMianJi").text(data.GuiHuaMianJi);
-        $("#GuiHuaMuBiao").html(data.GuiHuaMuBiao);
-        $("#GuiHuaRenWu").html(data.GuiHuaRenWu);
-        $("#GHXMJieShao").html(data.GHXMJieShao);
-        //动态添加a标签
-        var html = '<a href=\"#\" style="font-size:15px;" id="guihuatu_a" onclick=\"ShowGuiHuaTu(\'' + id + '\')\">查看规划图</a>';
-        $(html).appendTo($("#guihautudiv")); 
-    })
-    if ($("#centerlist2").is(":hidden")) {
-        $("#centerlist2").show("slow");
-    }
-}
-
-function lyjd_view(id) {
-    $.getJSON("../Admin/ashx/GetlyjdInfo.ashx", { id: id }, function (data) {
-        $("#jinddianjieshao").html(unescape(data.JDJieShao));
-
-    });
-
-    if ($("#centerlist4").is(":hidden")) {
-        $("#centerlist4").show("slow");
-    }
-}
-//公开信息详情页Div
-function closecenterlist() {
-    $("#centerlist").hide("slow");
-}
-//规划详情页div
-function closecenterlist2() {
-    $("#centerlist2").hide("slow");
-    $("#guihautudiv").children().remove();
-}
-//规划图div
-function closecenterlist3() {
-    $("#centerlist3").hide("slow");
-}
-function closecenterlist4() {
-    $("#centerlist4").hide("slow");
-}
-
-
-function ShowGuiHuaTu(id) {
-    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
-                var html = data.GuiHuaTu;
-        var text = unescape(html);
-        $("#guihuatu").html(text);
-    })
-    if ($("#centerlist3").is(":hidden")) {
-        $("#centerlist3").show("slow");
-    }
-}
-
-////===========================listend================
-//========================common=========
-function index() {
-    window.location.reload();
-}
-function gotoHomePage() {
-    window.location.reload();
-}
 function formatDate(dt) {
     var year = dt.getFullYear();
     var month = dt.getMonth() + 1;
@@ -298,3 +197,26 @@ function ConvertTime(time) {
     var NewDtime = new Date(parseInt(t));
     return formatDate(NewDtime);
 }
+// 
+//事件触发的函数  
+function tip(e) {
+    var jingdu = e.point.x;
+    var weidu = e.point.y;
+    //jingdu = jingdu.slice(0, 6);
+    //weidu = weidu.substring(0, 6);
+    $("#jingweidu").val(jingdu + "," + weidu);
+    //alert("该点的坐标为:" + e.point.x + ", " + e.point.y);
+}  
+function edit(id) {
+    window.location.href = "../Admin/aspx/LvYouJingDian_Edit.aspx?id=" + id;
+}
+function delete1(id) {
+    var r = confirm("确认删除此处景点？")
+    if (r == true) {
+        window.location.href = "../Admin/aspx/LvYouJingDianmap_Delete.aspx?id=" + id;
+    }
+    else {
+        return;
+    }
+
+} 

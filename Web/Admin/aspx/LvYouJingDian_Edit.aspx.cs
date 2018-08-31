@@ -13,8 +13,9 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
         BLL.LvYouJingDianXinXi JingDian = new BLL.LvYouJingDianXinXi();
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!IsPostBack)
-            {
+            {        
                 int id = Int32.Parse(Request["id"]);
                 Model = JingDian.GetModel(id);
                 biaoti.Text = Model.JDMingCheng;
@@ -36,7 +37,14 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Context.Response.Redirect("LvYouJingDian_List.aspx");
+
+
+            if (Request.UrlReferrer.LocalPath.Trim() != "/LvYouJingDian_List.aspx")
+            { Context.Response.Redirect("LvYouJingDian_List.aspx"); }
+            else
+            {
+                Response.Redirect("../../map/NewMap_JingDian.html");
+            }
         }
     }
 }

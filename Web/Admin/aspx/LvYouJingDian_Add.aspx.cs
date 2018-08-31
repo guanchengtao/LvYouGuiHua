@@ -21,8 +21,8 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
                 }
                 else
                 {
-                    jingdu.Text = jwdu.Split(',')[0];
-                    weidu.Text = jwdu.Split(',')[1];
+                    jingdu.Text = jwdu.Split(',')[0].Substring(0,10);
+                    weidu.Text = jwdu.Split(',')[1].Substring(0,9);
                 }
 
             }

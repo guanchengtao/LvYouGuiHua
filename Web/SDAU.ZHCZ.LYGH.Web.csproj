@@ -98,12 +98,14 @@
     <Content Include="Admin\aspx\LvYouGuiHua_Edit.aspx" />
     <Content Include="Admin\aspx\LvYouGuiHua_List.aspx" />
     <Content Include="Admin\aspx\LvYouGuiHua_View.aspx" />
+    <Content Include="Admin\aspx\LvYouJingDianmap_Delete.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_Add.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_Delete.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_Edit.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_List.aspx" />
     <Content Include="Admin\aspx\LvYouJingDian_View.aspx" />
     <Content Include="Admin\aspx\Map_JingDian.aspx" />
+    <Content Include="Admin\aspx\NewMap_JingDian.aspx" />
     <Content Include="Admin\aspx\Text.aspx" />
     <Content Include="Admin\aspx\VerifyCode.aspx" />
     <Content Include="Admin\html\Fail.html" />
@@ -707,6 +709,7 @@
     <Content Include="js\jquery.KinSlideshow-1.1.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jsrender.js" />
+    <Content Include="js\map2.js" />
     <Content Include="js\page.js" />
     <Content Include="js\script.js" />
     <Content Include="js\timer.js" />
@@ -725,6 +728,8 @@
     <Content Include="map\images\top_right.png" />
     <Content Include="map\index.html" />
     <Content Include="map\jsAPI\images\logo.png" />
+    <Content Include="map\jsAPI\images\logo1.png" />
+    <Content Include="map\jsAPI\images\logo3.png" />
     <Content Include="map\jsAPI\lygh_page.js" />
     <Content Include="map\jsAPI\gkxx_page.js" />
     <Content Include="map\jsAPI\images\bd.png" />
@@ -784,6 +789,7 @@
     <Content Include="map\jsAPI\NExtWMTSLayer.js" />
     <Content Include="map\jsAPI\Untitled-1.js" />
     <Content Include="map\jsAPI\说明.txt" />
+    <Content Include="map\NewMap_JingDian.html" />
     <Content Include="static\js\jquery-1.7.2.js" />
     <Content Include="static\js\jquery.cookie.js" />
     <Content Include="static\js\jQuery.md5.js" />
@@ -2909,6 +2915,13 @@
     <Compile Include="Admin\aspx\LvYouGuiHua_View.aspx.designer.cs">
       <DependentUpon>LvYouGuiHua_View.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDianmap_Delete.aspx.cs">
+      <DependentUpon>LvYouJingDianmap_Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\aspx\LvYouJingDianmap_Delete.aspx.designer.cs">
+      <DependentUpon>LvYouJingDianmap_Delete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\aspx\LvYouJingDian_Add.aspx.cs">
       <DependentUpon>LvYouJingDian_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2950,6 +2963,13 @@
     </Compile>
     <Compile Include="Admin\aspx\Map_JingDian.aspx.designer.cs">
       <DependentUpon>Map_JingDian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\aspx\NewMap_JingDian.aspx.cs">
+      <DependentUpon>NewMap_JingDian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\aspx\NewMap_JingDian.aspx.designer.cs">
+      <DependentUpon>NewMap_JingDian.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\aspx\Text.aspx.cs">
       <DependentUpon>Text.aspx</DependentUpon>
