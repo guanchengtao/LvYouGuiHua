@@ -386,3 +386,37 @@ table {
 #centerlistClosebtn4 {
     cursor: pointer;
 }
+
+
+
+#hudongjiaoliu {
+    position: absolute;
+    top: 140px;
+    right: 0px;
+    width: 500px;
+    height: 600px;
+    background-color: #ffffff;
+    opacity: 0.9;
+    border: 1px dotted;
+    border-color: #48ACFC;
+    border-radius: 15px 0px 0px 15px;
+    display: none;
+    /*text-align: center;*/
+
+}
+
+#closehudongjiaoliu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 32px;
+    background-color: #48ACFC;
+    text-align: right;
+    border-radius: 0px 15px 0px 0px;
+}
+
+#hudongjiaoliuClosebtn4 {
+    cursor: pointer;
+}
+

@@ -727,6 +727,7 @@
     <Content Include="map\images\top_left.png" />
     <Content Include="map\images\top_right.png" />
     <Content Include="map\index.html" />
+    <Content Include="map\jsAPI\comment_page.js" />
     <Content Include="map\jsAPI\images\logo.png" />
     <Content Include="map\jsAPI\images\logo1.png" />
     <Content Include="map\jsAPI\images\logo3.png" />
@@ -2726,6 +2727,7 @@
     <Content Include="utf8-net\UEditerFunction.js" />
     <Content Include="utf8-net\ueditor.all.js" />
     <Content Include="utf8-net\ueditor.all.min.js" />
+    <Content Include="utf8-net\ueditor.config.comment.js" />
     <Content Include="utf8-net\ueditor.config.uploadimg.js" />
     <Content Include="utf8-net\ueditor.config.js" />
     <Content Include="utf8-net\ueditor.parse.js" />
@@ -2785,11 +2787,17 @@
     <Content Include="wodetupian\4.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ashx\AddComment.ashx.cs">
+      <DependentUpon>AddComment.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ashx\DeleteData.ashx.cs">
       <DependentUpon>DeleteData.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ashx\FileOut.ashx.cs">
       <DependentUpon>FileOut.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ashx\GetCommentList.ashx.cs">
+      <DependentUpon>GetCommentList.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ashx\GetgkxxInfo.ashx.cs">
       <DependentUpon>GetgkxxInfo.ashx</DependentUpon>
@@ -3187,6 +3195,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ashx\GetlyjdInfo.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\AddComment.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\GetCommentList.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

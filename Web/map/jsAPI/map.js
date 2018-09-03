@@ -202,7 +202,15 @@ function lyghlist() {
 function closeleftlist(){
 	$("#leftlist").hide("slow");
 }
+function hdjllist() {
+    if ($("#hudongjiaoliu").is(":hidden")) {
+        $("#hudongjiaoliu").show("slow");
+    }
+}
 
+function closehudongjiaoliu() {
+    $("#hudongjiaoliu").hide("slow");
+}
 
 function gkxx_view(id) {
     $.getJSON("../Admin/ashx/GetgkxxInfo.ashx", { id: id }, function (data) {
@@ -278,6 +286,19 @@ function ShowGuiHuaTu(id) {
         $("#centerlist3").show("slow");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////===========================listend================
 //========================common=========

@@ -11,6 +11,39 @@
     <script type="text/javascript" src="jsAPI/map.js"></script>
     <link href="css/gkxxview.css" rel="stylesheet" />
     <link href="css/lyghview.css" rel="stylesheet" />
+    <!--<script src="../utf8-net/ueditor.config.comment.js"></script>
+    <script src="../utf8-net/ueditor.all.min.js"></script>
+    <script src="../utf8-net/lang/zh-cn/zh-cn.js"></script>
+    <script src="../utf8-net/UEditerFunction.js"></script>-->
+    <script>
+        $(function () {
+          $("#comment").val("");
+            $("#btnSub").click(function () {
+                var comm = escape($("#comment").val());
+                if (comm.length == 0) {
+                    alert("评论不能为空！！！");
+                    return;
+                }
+                else {
+                    $.post("../Admin/ashx/AddComment.ashx", { comment: comm }, function (data) {
+                        if (data == "ok") {
+                            $("#comment").val("");
+
+
+                        }
+                        else {
+                            alert("评论失败！！！");
+                        }
+                    })
+                }
+              
+            });
+        })
+        function LoadComment() {
+
+        }
+
+    </script>
 </head>
 <body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
     <div id="topDiv">
@@ -106,9 +139,6 @@
                     <span class="btnToolbar-img" style="background-position: -96px 0;"></span>对比
                 </span>
             </li>
-
-
-
             <li id="vec_img">
                 <div id="vec_" title="地图" class="active"> 地 图</div>
                 <div id="img_" title="影像"> 影 像</div>
@@ -305,5 +335,29 @@
     overflow: scroll;"></div>
     </div>
         </div>
+
+    <div id="hudongjiaoliu">
+        <div id="closehudongjiaoliu">
+    
+            <img id="hudongjiaoliuClosebtn4" src="images/close.png" onclick="closehudongjiaoliu()" />
+        </div>
+        <div style="width: 500px;
+    height: 600px;
+    margin:38px 0 0 10px;
+    overflow-y:scroll">
+
+            <!--<textarea placeholder="请在此留言..." id="txtEditorContents" name="txtEditorContents" rows="3" cols="15"></textare>-->
+
+            <textarea placeholder="请在此留言..." style="font-size:medium" id="comment" name="" rows="5" cols="58"></textarea>
+            <input type="button" name="btnSub" id="btnSub" value="提交" style="margin:3px 10px 0 0;float:right;width:100px;font-size:large;color:blue" />
+            <span style="float:left;margin:2px 0 0 2px">注：您的留言将以匿名的方式发表！</span>
+            <span style="float:left;margin:22px 0 0 -193px;font-size:large;color:black">留言区:</span>
+            <div id="commentList" style="margin:50px 0 0 0  ">
+            </div>
+
+            <div class="pagination-nick" style="height:390px; float:right;margin:10px 20px 0 0 "></div>
+            <script src="jsAPI/comment_page.js"></script>
+        </div>
+    </div>
 </body>
 </html>

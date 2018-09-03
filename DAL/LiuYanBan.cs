@@ -31,7 +31,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("select count(1) from LiuYanBan");
 			strSql.Append(" where BiaoTi=@BiaoTi and BianHao=@BianHao ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@BiaoTi", SqlDbType.NChar,10),
+					new SqlParameter("@BiaoTi", SqlDbType.NChar,20),
 					new SqlParameter("@BianHao", SqlDbType.Int,4)			};
 			parameters[0].Value = BiaoTi;
 			parameters[1].Value = BianHao;
@@ -52,8 +52,8 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("@BiaoTi,@NeiRong,@LiuYanRen,@EMail,@DianHua,@BiaoQing,@LiuYanShiJian,@HuiFuZhuangTai,@HuiFuNeiRong,@HuiFuShiJian,@HuiFuRen,@BeiZhu)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@BiaoTi", SqlDbType.NChar,10),
-					new SqlParameter("@NeiRong", SqlDbType.NVarChar,200),
+					new SqlParameter("@BiaoTi", SqlDbType.NChar,20),
+					new SqlParameter("@NeiRong", SqlDbType.NVarChar,1000),
 					new SqlParameter("@LiuYanRen", SqlDbType.NVarChar,12),
 					new SqlParameter("@EMail", SqlDbType.NVarChar,20),
 					new SqlParameter("@DianHua", SqlDbType.NVarChar,12),
@@ -107,7 +107,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("BeiZhu=@BeiZhu");
 			strSql.Append(" where BianHao=@BianHao");
 			SqlParameter[] parameters = {
-					new SqlParameter("@NeiRong", SqlDbType.NVarChar,200),
+					new SqlParameter("@NeiRong", SqlDbType.NVarChar,1000),
 					new SqlParameter("@LiuYanRen", SqlDbType.NVarChar,12),
 					new SqlParameter("@EMail", SqlDbType.NVarChar,20),
 					new SqlParameter("@DianHua", SqlDbType.NVarChar,12),
@@ -119,7 +119,7 @@ namespace SDAU.ZHCZ.DAL
 					new SqlParameter("@HuiFuRen", SqlDbType.NVarChar,12),
 					new SqlParameter("@BeiZhu", SqlDbType.NVarChar,200),
 					new SqlParameter("@BianHao", SqlDbType.Int,4),
-					new SqlParameter("@BiaoTi", SqlDbType.NChar,10)};
+					new SqlParameter("@BiaoTi", SqlDbType.NChar,20)};
 			parameters[0].Value = model.NeiRong;
 			parameters[1].Value = model.LiuYanRen;
 			parameters[2].Value = model.EMail;
@@ -179,7 +179,7 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append("delete from LiuYanBan ");
 			strSql.Append(" where BiaoTi=@BiaoTi and BianHao=@BianHao ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@BiaoTi", SqlDbType.NChar,10),
+					new SqlParameter("@BiaoTi", SqlDbType.NChar,20),
 					new SqlParameter("@BianHao", SqlDbType.Int,4)			};
 			parameters[0].Value = BiaoTi;
 			parameters[1].Value = BianHao;
@@ -312,7 +312,7 @@ namespace SDAU.ZHCZ.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select BianHao,BiaoTi,NeiRong,LiuYanRen,EMail,DianHua,BiaoQing,LiuYanShiJian,HuiFuZhuangTai,HuiFuNeiRong,HuiFuShiJian,HuiFuRen,BeiZhu ");
-			strSql.Append(" FROM LiuYanBan ");
+			strSql.Append(" FROM LiuYanBan order by LiuYanShiJian desc ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
