@@ -17,7 +17,7 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
                 string jwdu = Request["jwdu"].Trim().ToString();
                 if (jwdu.Length == 0)
                 {
-                    Context.Response.Redirect("Map_JingDian.aspx");
+                    Context.Response.Redirect("../../map/NewMap_JingDian.html");
                 }
                 else
                 {
@@ -28,7 +28,7 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
             }
             else
             {
-                Context.Response.Redirect("Map_JingDian.aspx");
+                Context.Response.Redirect("../../map/NewMap_JingDian.html");
             }
 
         }

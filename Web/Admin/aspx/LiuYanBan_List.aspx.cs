@@ -22,7 +22,7 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
 
             int pageIndex = int.Parse(Request["pageIndex"] ?? "1");
             pageindex = pageIndex;
-            int pageSize = 5;
+            int pageSize = 8;
             BLL.LiuYanBan mainService = new BLL.LiuYanBan();
             var ds = mainService.GetListByPage(string.Empty, " ", (pageIndex - 1) * pageSize + 1, pageSize * pageIndex);
             //取当前页的数据

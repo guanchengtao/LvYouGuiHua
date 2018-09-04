@@ -28,12 +28,18 @@
                 pager.data.length - pager.pageCount * (pager.currentPage + 1) > -1 ?
                     pager.pageCount * (pager.currentPage + 1) : pager.data.length);
             arr.forEach(function (v) {
-                //var id = v.BianHao
-                str += "<div style='margin-top:20px'>" 
-                    +"<span style='float:left;color:darkgray;font-size:15px'>[匿名用户]:发布于" + ConvertTime(v.LiuYanShiJian)+"</span>"
-                    +"<br />"
-                    +"<span style='float:left; margin:0 0 0 10px;font-size:13px'>" + unescape(v.NeiRong) + "</span>"
-                +"</div > ";
+                ////var id = v.BianHao
+                //str += "<div style='margin-top:20px'>" 
+                //    +"<span style='float:left;color:darkgray;font-size:15px'>[匿名用户]:发布于" + ConvertTime(v.LiuYanShiJian)+"</span>"
+                //    +"<br />"
+                //    +"<span style='float:left; margin:0 0 0 10px;font-size:13px'>" + unescape(v.NeiRong) + "</span>"
+                //    + "</div > ";
+
+                str += "<div style='margin-top:5px;'>"
+                    + "<span style='color:#2069b3;font-size:15px'>[匿名用户]: 发布于" + ConvertTime(v.LiuYanShiJian)+"</span>"
+                    + "<br />"
+                    + "<span style='margin:0 0 0 10px;font-size:13px'>" + unescape(v.NeiRong) + "</span>"
+                    + "</div> ";
             });
             $("#commentList").html(str);
         });

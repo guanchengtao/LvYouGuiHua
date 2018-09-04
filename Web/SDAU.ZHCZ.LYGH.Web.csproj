@@ -111,12 +111,10 @@
     <Content Include="Admin\html\Fail.html" />
     <Content Include="Admin\html\Fail2.html" />
     <Content Include="Admin\html\Home.html" />
-    <Content Include="Admin\html\Map_JingDian.html" />
     <Content Include="Admin\html\Success.html" />
     <Content Include="Admin\html\text.html" />
     <Content Include="Admin\html\Demo.html" />
     <Content Include="Admin\html\text2.html" />
-    <Content Include="Admin\html\TianDiTu.html" />
     <Content Include="assets\build.xml" />
     <Content Include="assets\css\bui-min.css" />
     <Content Include="assets\css\build.xml" />

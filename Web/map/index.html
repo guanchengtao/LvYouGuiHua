@@ -11,15 +11,11 @@
     <script type="text/javascript" src="jsAPI/map.js"></script>
     <link href="css/gkxxview.css" rel="stylesheet" />
     <link href="css/lyghview.css" rel="stylesheet" />
-    <!--<script src="../utf8-net/ueditor.config.comment.js"></script>
-    <script src="../utf8-net/ueditor.all.min.js"></script>
-    <script src="../utf8-net/lang/zh-cn/zh-cn.js"></script>
-    <script src="../utf8-net/UEditerFunction.js"></script>-->
     <script>
         $(function () {
           $("#comment").val("");
             $("#btnSub").click(function () {
-                var comm = escape($("#comment").val());
+                var comm =$("#comment").val();
                 if (comm.length == 0) {
                     alert("评论不能为空！！！");
                     return;
@@ -28,7 +24,16 @@
                     $.post("../Admin/ashx/AddComment.ashx", { comment: comm }, function (data) {
                         if (data == "ok") {
                             $("#comment").val("");
-
+                            //重新调用分页函数
+                            paginationNick({
+                                paginationBox: 'pagination-nick',//分页容器--必填
+                                mainBox: 'main-box-nick',//内容盒子--必填
+                                numBtnBox: 'num-box-nick',//数字按钮盒子-- 必填
+                                btnBox: 'btn-box-nick',//按钮盒子 --必填
+                                ipt: 'page-ipt-nick',//input class-- 必填
+                                goBtn: 'go-btn-nick',//go btn class --必填
+                                currentBtn: 'active-nick'//当前按钮class name --必填
+                            });
 
                         }
                         else {
@@ -39,13 +44,23 @@
               
             });
         })
-        function LoadComment() {
-
+        function FullSrceen() {
+            $("#topDiv").css("display", "none");
+            $("#toolDiv").css("display", "none");
+            $("#map-canvas").css("top", "0px").css("height", "100%");
+            $("#esc").css("display", "block");
+        }
+        function EscFullSrceen() {
+            $("#topDiv").css("display", "block");
+            $("#toolDiv").css("display", "block");
+            $("#map-canvas").css("top", "32px").css("height", "82%");
+            $("#esc").css("display", "none");
         }
 
     </script>
 </head>
 <body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
+    <input type="button" id="esc" name="name" value="退出全屏" style="display:none" onclick="EscFullSrceen()" />
     <div id="topDiv">
         <div id="D_Top" class="DIVtop">
             <div id="D_left">
@@ -92,7 +107,7 @@
             <a id="login" href="#" onclick="locationLogin()">登录</a>
             <a id="reg" href="#" onclick="locationReg()">注册</a>
             <div class="splitImg"></div>
-            <a id="feedBack" href="#" style="top: 1px;margin-right: 15px; color:#fff">意见反馈</a>
+            <a id="feedBack" href="#" style="top: 1px;margin-right: 15px; color:#fff" onclick="hdjllist()">意见反馈</a>
             <a id="portalManager" href="javascript:void(0)" style="display:none;height: 20px;">更多</a>
             <div id="moreImg"></div>
         </div>
@@ -100,11 +115,11 @@
     <div id="toolDiv" class="transparent_toolbar">
         <ul style="margin:3px 0">
             <li id="btnExtent" class="btnToolbar" style="margin-right: 20px;">
-                <span class="btnToolbar-cont">
+                <span class="btnToolbar-cont" onclick="FullSrceen()">
                     <span class="btnToolbar-img" style="background-position: -128px 0;"></span>全屏
                 </span>
             </li>
-            <li class="btnToolbar" id="btnMeasureLine">
+            <!--<li class="btnToolbar" id="btnMeasureLine">
                 <span class="btnToolbar-cont1">
                     <span class="btnToolbar-img"></span>测距
                 </span>
@@ -138,14 +153,14 @@
                 <span class="btnToolbar-cont">
                     <span class="btnToolbar-img" style="background-position: -96px 0;"></span>对比
                 </span>
-            </li>
+            </li>-->
             <li id="vec_img">
                 <div id="vec_" title="地图" class="active"> 地 图</div>
                 <div id="img_" title="影像"> 影 像</div>
             </li>
         </ul>
     </div>
-    <div id="map-canvas" style="top: 32px; height: 82%; -webkit-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;"></div>
+    <div id="map-canvas" style="top:32px; height: 82%; -webkit-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;"></div>
     <div id="bottomlist">
         <div id="closeBottomList">
             <img id="bottomlistClosebtn" src="images/close.png" onclick="closebottomlist()" />
@@ -353,8 +368,8 @@
             <span style="float:left;margin:2px 0 0 2px">注：您的留言将以匿名的方式发表！</span>
             <span style="float:left;margin:22px 0 0 -193px;font-size:large;color:black">留言区:</span>
             <div id="commentList" style="margin:50px 0 0 0  ">
-            </div>
 
+            </div>
             <div class="pagination-nick" style="height:390px; float:right;margin:10px 20px 0 0 "></div>
             <script src="jsAPI/comment_page.js"></script>
         </div>

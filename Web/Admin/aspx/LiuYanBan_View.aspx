@@ -12,10 +12,6 @@
 <body>
     <form id="form1" runat="server">
          <div class="input-group" style="margin-top:5px">
-               <span class="label label-info" style="font-size:16px;font-weight:600">标题:</span>
-               <span class="input-group-addon" id="basic-addon2"><%=model.BiaoTi %></span>               
-</div>
-         <div class="input-group" style="margin-top:5px">
                <span class="label label-info" style="font-size:16px;font-weight:600">评论时间:</span>
                <span class="input-group-addon" id="basic-addon3"><%=model.LiuYanShiJian %></span>               
 </div>
