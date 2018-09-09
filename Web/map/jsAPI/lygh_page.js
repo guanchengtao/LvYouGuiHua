@@ -29,10 +29,12 @@
                     pager.pageCount * (pager.currentPage + 1) : pager.data.length);
                     arr.forEach(function (v) {
                         var id = v.GHXMBianHao.trim();
-                        str += "<tr><td>" + id + "</td><td>" + v.GHXMMingCheng + "</td><td>" + (ConvertTime(v.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(v.GuiHuaShiJian) : "") + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td>" +
+                        str += "<tr><td>" + id + "</td><td>" + v.GHXMMingCheng + "</td><td>" + (ConvertTime(v.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(v.GuiHuaShiJian) : "") + "</td><td>" + v.GuiHuaDanWei + "</td><td>" + v.FuZeRen + "</td><td style='width:200px'>" +
                             //注意：当返回的name是包含数字字母组合、纯字母的时候就会出错，
                             //有些浏览器错误还不太好定位，这里需要将name作为字符串传入
-                            '<a href="#" onclick="lygh_view(\'' + id + '\')">了解更多</a>' +
+                            '<a href="#" onclick="lygh_view(\'' + id + '\')">了解更多</a>&nbsp;&nbsp;|&nbsp;&nbsp;' +
+                            '<a href="#" onclick="ghComment(\'' + id + '\')">意见反馈</a>&nbsp;&nbsp;|&nbsp;&nbsp;' +
+                            '<a href="#" onclick="dingwei(\'' + v.GHXMMingCheng + '\')">定位到</a>' +
                 "</td ></tr > ";
             });
                     $("#lvghbody").html(str);
@@ -203,4 +205,30 @@ function ConvertTime(time) {
     var t = time.slice(6, 19)
     var NewDtime = new Date(parseInt(t));
     return formatDate(NewDtime);
+}
+function dingwei(data) {
+    $.getJSON("../Admin/ashx/getLotandLngByName.ashx", { jingdianname: data }, function (data) {
+        //第一次点击
+        if (id == 0) {
+            var jingdu = data.JingDu;
+            var weidu = data.WeiDu;
+            var jingduint = Number(jingdu) + 0.0632;
+            mymap.moveTo(new NXY(jingduint, weidu), 6);
+                var marker1 = mymap.getOverlay(data.GHXMBianHao);
+                id = data.GHXMBianHao;
+                marker1.openDialog();
+        }
+        ////
+        else {
+            var marker = mymap.getOverlay(id);
+            marker.closeDialog();
+            var jingdu = data.JingDu;
+            var weidu = data.WeiDu;
+            var jingduint = Number(jingdu) + 0.0632;
+            mymap.moveTo(new NXY(jingduint, weidu), 6);
+                var marker1 = mymap.getOverlay(data.GHXMBianHao);
+                id = data.GHXMBianHao;
+                marker1.openDialog();
+        }
+    })
 }

@@ -247,7 +247,7 @@ table {
 
 
 
-#leftlist{position:absolute;top:140px;right:0px;width:800px;height:400px;background-color:#ffffff;opacity: 0.9; border:1px dotted; border-color:#48ACFC;   border-radius:15px 0px 0px 15px; display:none;  text-align: center;}
+#leftlist{position:absolute;top:140px;right:0px;width:700px;height:400px;background-color:#ffffff;opacity: 0.9; border:1px dotted; border-color:#48ACFC;   border-radius:15px 0px 0px 15px; display:none;  text-align: center;}
 #closeleftList{position:absolute;top:0px;left:0px;width:100%;height:32px;background-color:#48ACFC; text-align:left; border-radius:15px 0px 0px 0px;}
 #leftlistClosebtn{cursor: pointer;}
 #lefttable{position:absolute; top:32px;left:0px;width:100%;height:100%;}

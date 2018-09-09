@@ -226,10 +226,60 @@ namespace SDAU.ZHCZ.DAL
 		}
 
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public SDAU.ZHCZ.Model.LvYouJingDianXinXi DataRowToModel(DataRow row)
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouJingDianXinXi GetModel(string JDMingCheng)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 JDBianHao,JDMingCheng,JDJieShao,JDWeiZhi,JingDu,WeiDu,TuPian,LiuLanCiShu,FBShiJian,BeiZhu from LvYouJingDianXinXi ");
+            strSql.Append(" where JDMingCheng=@JDMingCheng");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@JDMingCheng", SqlDbType.NVarChar,50)
+            };
+            parameters[0].Value = JDMingCheng;
+
+            SDAU.ZHCZ.Model.LvYouJingDianXinXi model = new SDAU.ZHCZ.Model.LvYouJingDianXinXi();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouJingDianXinXi DataRowToModel(DataRow row)
 		{
 			SDAU.ZHCZ.Model.LvYouJingDianXinXi model=new SDAU.ZHCZ.Model.LvYouJingDianXinXi();
 			if (row != null)

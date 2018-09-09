@@ -19,15 +19,16 @@
     <div class="form-group" style="margin-top: 15px;">
         <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px;" name="initMap" value="刷新地图" id="initMap" />
         <!--<select id="select2" name="select" runat="server" style="margin-top: 11px; width: 100px;">
-            <option selected="selected">景点名称</option>
-            <option>位置</option>
-        </select>
-        <input style="margin-top: 11px" type="text" name="condition" value="" />
-        <input type="button" name="serach" value="搜索" class="btn btn-success" />-->
+        <option selected="selected">景点名称</option>
+        <option>位置</option>
+    </select>
+    <input style="margin-top: 11px" type="text" name="condition" value="" />
+    <input type="button" name="serach" value="搜索" class="btn btn-success" />-->
         &nbsp; &nbsp; &nbsp;
         <span>当前坐标点如下：</span>
-        <input type="text" name="jingweidu" value="" id="jingweidu"/>
-        <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px" name="name" value="添加景点" id="Add" />
+        <input type="text" name="jingweidu" value="" id="jingweidu" />
+        <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px" name="name" value="添加景点" id="Add" />&nbsp;&nbsp;&nbsp;
+        <input type="button" class="btn btn-primary btn-lg" style="margin-left: 10px" name="name" value="添加旅游规划" id="AddGuiHua" />
     </div>
 
     <div id="map-canvas" style="top:5px; height: 90%; -webkit-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;"></div>
@@ -43,6 +44,10 @@
         $("#Add").click(function () {
             window.location.href = "../Admin/aspx/LvYouJingDian_Add.aspx?jwdu=" + $("#jingweidu").val();
         })
+        $("#AddGuiHua").click(function () {
+            window.location.href = "../Admin/aspx/LvYouGuiHua_Add.aspx?jwdu=" + $("#jingweidu").val();
+        })
+
 
        
     })

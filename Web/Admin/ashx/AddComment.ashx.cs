@@ -19,6 +19,8 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
             {
                 LiuYanShiJian = DateTime.Now,
                 NeiRong = comment,
+                HuiFuNeiRong="",
+                HuiFuZhuangTai="未回复"
 
             };
 

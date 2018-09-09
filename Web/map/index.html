@@ -20,6 +20,7 @@
                     alert("评论不能为空！！！");
                     return;
                 }
+             
                 else {
                     $.post("../Admin/ashx/AddComment.ashx", { comment: comm }, function (data) {
                         if (data == "ok") {
@@ -71,6 +72,7 @@
             <div id="D_right"></div>
             <div style="clear:both;"></div>
         </div>
+
         <div id="D_menu" class="TopSpan">
             <ul id="nav">
                 <li id="line" class="line"></li>
@@ -198,6 +200,8 @@
             <script src="jsAPI/gkxx_page.js"></script>
         </div>
     </div>
+  
+    <!--旅游规划信息表-->
     <div id="leftlist">
         <div id="closeleftList">
             <img id="leftlistClosebtn" src="images/close.png" onclick="closeleftlist()" />
@@ -238,6 +242,8 @@
             <script src="jsAPI/lygh_page.js"></script>
         </div>
     </div>
+
+    <!--公开信息详情页-->
     <div id="centerlist">
         <div id="closecenterlist">
             <img id="centerlistClosebtn" src="images/close.png" onclick="closecenterlist()" />
@@ -272,7 +278,11 @@
             </div>
         </div>
     </div>
+
+
+    <!--旅游规划详情页-->
     <div id="centerlist2">
+
         <div id="closecenterList2">
             <img id="centerlistClosebtn2" src="images/close.png" onclick="closecenterlist2()" />
         </div>
@@ -330,30 +340,34 @@
                 </tr>
 
             </table>
-            <div id="guihautudiv"></div>          
+            <div id="guihautudiv"></div>
         </div>
     </div>
+
+   <!--规划图-->
     <div id="centerlist3">
         <div id="closecenterList3">
             <img id="centerlistClosebtn3" src="images/close.png" onclick="closecenterlist3()" />
-        </div>    
- <div id="guihuatu" style="height:550px;width:750px; overflow:scroll; margin:35px 0 0 30px"></div>
+        </div>
+        <div id="guihuatu" style="height:550px;width:750px; overflow:scroll; margin:35px 0 0 30px"></div>
     </div>
+
     <div id="centerlist4">
-        <div id="closecenterList4"><span style="margin:0 700px 0 0;color:blue">景点介绍</span>
+        <div id="closecenterList4">
+            <span style="margin:0 700px 0 0;color:blue">景点介绍</span>
             <img id="centerlistClosebtn4" src="images/close.png" onclick="closecenterlist4()" />
-        </div>   
+        </div>
         <div id="jingdianxinxi">
-    <div id="jinddianjieshao" style="width:740px;
+            <div id="jinddianjieshao" style="width:740px;
     margin:50px 0 0 30px;
     height: 550px;
     overflow: scroll;"></div>
-    </div>
         </div>
+    </div>
 
     <div id="hudongjiaoliu">
         <div id="closehudongjiaoliu">
-    
+
             <img id="hudongjiaoliuClosebtn4" src="images/close.png" onclick="closehudongjiaoliu()" />
         </div>
         <div style="width: 500px;
@@ -367,8 +381,7 @@
             <input type="button" name="btnSub" id="btnSub" value="提交" style="margin:3px 10px 0 0;float:right;width:100px;font-size:large;color:blue" />
             <span style="float:left;margin:2px 0 0 2px">注：您的留言将以匿名的方式发表！</span>
             <span style="float:left;margin:22px 0 0 -193px;font-size:large;color:black">留言区:</span>
-            <div id="commentList" style="margin:50px 0 0 0  ">
-
+            <div id="commentList" style="margin:50px 0 0 0">
             </div>
             <div class="pagination-nick" style="height:390px; float:right;margin:10px 20px 0 0 "></div>
             <script src="jsAPI/comment_page.js"></script>

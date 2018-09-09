@@ -58,35 +58,44 @@ namespace SDAU.ZHCZ.BLL
 			
 			return dal.GetModel(GHXMBianHao);
 		}
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi GetModel1(string GHXMBianHao)
+        {
 
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		//public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi GetModelByCache(string GHXMBianHao,string GHXMMingCheng,DateTime GuiHuaShiJian,string GuiHuaDanWei,string BeiZhu)
-		//{
-			
-		//	string CacheKey = "LvYouGuiHuaXinXiModel-" + GHXMBianHao+GHXMMingCheng+GuiHuaShiJian+GuiHuaDanWei+BeiZhu;
-		//	object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-		//	if (objModel == null)
-		//	{
-		//		try
-		//		{
-		//			objModel = dal.GetModel(GHXMBianHao,GHXMMingCheng,GuiHuaShiJian,GuiHuaDanWei,BeiZhu);
-		//			if (objModel != null)
-		//			{
-		//				int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-		//				Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-		//			}
-		//		}
-		//		catch{}
-		//	}
-		//	return (SDAU.ZHCZ.Model.LvYouGuiHuaXinXi)objModel;
-		//}
+            return dal.GetModel1(GHXMBianHao);
+        }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetList(string strWhere)
+
+        /// <summary>
+        /// 得到一个对象实体，从缓存中
+        /// </summary>
+        //public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi GetModelByCache(string GHXMBianHao,string GHXMMingCheng,DateTime GuiHuaShiJian,string GuiHuaDanWei,string BeiZhu)
+        //{
+
+        //	string CacheKey = "LvYouGuiHuaXinXiModel-" + GHXMBianHao+GHXMMingCheng+GuiHuaShiJian+GuiHuaDanWei+BeiZhu;
+        //	object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
+        //	if (objModel == null)
+        //	{
+        //		try
+        //		{
+        //			objModel = dal.GetModel(GHXMBianHao,GHXMMingCheng,GuiHuaShiJian,GuiHuaDanWei,BeiZhu);
+        //			if (objModel != null)
+        //			{
+        //				int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
+        //				Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
+        //			}
+        //		}
+        //		catch{}
+        //	}
+        //	return (SDAU.ZHCZ.Model.LvYouGuiHuaXinXi)objModel;
+        //}
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetList(string strWhere)
 		{
 			return dal.GetList(strWhere);
 		}

@@ -79,11 +79,16 @@ namespace SDAU.ZHCZ.BLL
 			
 			return dal.GetModel(JDBianHao);
 		}
+        public SDAU.ZHCZ.Model.LvYouJingDianXinXi GetModel(string JDMingCheng)
+        {
 
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		public SDAU.ZHCZ.Model.LvYouJingDianXinXi GetModelByCache(int JDBianHao)
+            return dal.GetModel(JDMingCheng);
+        }
+
+        /// <summary>
+        /// 得到一个对象实体，从缓存中
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouJingDianXinXi GetModelByCache(int JDBianHao)
 		{
 			
 			string CacheKey = "LvYouJingDianXinXiModel-" + JDBianHao;

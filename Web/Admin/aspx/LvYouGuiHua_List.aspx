@@ -80,6 +80,7 @@
     <form id="form1" runat="server">
         <div>
             <div>
+        
                 <div class="form-group" style="margin-top: 15px;">
                     <asp:Button ID="Button1" runat="server" Text="添加项目" class="btn btn-primary btn-lg" OnClick="Button1_Click" Style="margin-left: 10px" />
                     <input type="button" name="name" value="批量删除" class="btn btn-primary btn-lg" id="delete" data-toggle="modal" data-target="#myModal" />

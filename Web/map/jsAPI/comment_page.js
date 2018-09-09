@@ -28,18 +28,33 @@
                 pager.data.length - pager.pageCount * (pager.currentPage + 1) > -1 ?
                     pager.pageCount * (pager.currentPage + 1) : pager.data.length);
             arr.forEach(function (v) {
-                ////var id = v.BianHao
-                //str += "<div style='margin-top:20px'>" 
-                //    +"<span style='float:left;color:darkgray;font-size:15px'>[匿名用户]:发布于" + ConvertTime(v.LiuYanShiJian)+"</span>"
-                //    +"<br />"
-                //    +"<span style='float:left; margin:0 0 0 10px;font-size:13px'>" + unescape(v.NeiRong) + "</span>"
-                //    + "</div > ";
-
+                //
                 str += "<div style='margin-top:5px;'>"
-                    + "<span style='color:#2069b3;font-size:15px'>[匿名用户]: 发布于" + ConvertTime(v.LiuYanShiJian)+"</span>"
-                    + "<br />"
-                    + "<span style='margin:0 0 0 10px;font-size:13px'>" + unescape(v.NeiRong) + "</span>"
-                    + "</div> ";
+                    + "<span style='color:#2069b3;font-size:15px'>[匿名用户]: 发布于" + ConvertTime(v.LiuYanShiJian) + "</span>";
+                if (v.NeiRong.indexOf("@") != -1) {
+                    var jingdianmingcheng = "";
+                    var sss = v.NeiRong.substr(1);
+                    for (var i = 0; i < sss.length; i++) {
+                        if (sss.charAt(i) == '@') {
+                            break;
+                        }
+                        jingdianmingcheng += sss.charAt(i);
+                    }
+                    str += '<input style="margin: 0 0 0 10px;color:blue" type="button" name="dingwei" onclick="dingweijingdian(\'' + jingdianmingcheng + '\')" value="定位到" />';
+                }
+                    str+= "<br />"
+                    + "<span style='margin:0 0 0 10px;font-size:14px'>" + unescape(v.NeiRong) + "</span>"
+
+                if (v.HuiFuNeiRong.length!=0) {
+
+                    str += "<br />"
+                        + "管理员回复：<span style='font-size:13px'>" + v.HuiFuNeiRong + "</span>";
+                    
+                }
+            
+
+                str += "</div>";
+                  
             });
             $("#commentList").html(str);
         });
@@ -206,7 +221,52 @@ function formatDate(dt) {
     return year + "-" + month + "-" + date;
 }
 function ConvertTime(time) {
-    var t = time.slice(6, 19)
+    var t = time.slice(6, 19);
     var NewDtime = new Date(parseInt(t));
     return formatDate(NewDtime);
+}
+//通过景点名称或者旅游规划获取景点 的经纬度
+var id = 0;
+function dingweijingdian(data) {
+    $.getJSON("../Admin/ashx/getLotandLngByName.ashx", { jingdianname: data }, function (data) {
+        //第一次点击
+        if (id == 0) {
+            var jingdu = data.JingDu;
+            var weidu = data.WeiDu;
+            var jingduint = Number(jingdu) + 0.0432;
+            mymap.moveTo(new NXY(jingduint, weidu), 6);
+            var b = typeof (data.JDBianHao) == "undefined";
+            if (b) {
+                var marker1 = mymap.getOverlay(data.GHXMBianHao);
+                id = data.GHXMBianHao;
+                marker1.openDialog();
+            }
+            else {
+                var marker1 = mymap.getOverlay(data.JDBianHao);
+                id = data.JDBianHao;
+                marker1.openDialog();
+            }        
+        }
+        ////
+        else {
+           var marker = mymap.getOverlay(id);
+            marker.closeDialog();
+            var jingdu = data.JingDu;
+            var weidu = data.WeiDu;
+            var jingduint = Number(jingdu) + 0.0432;
+            mymap.moveTo(new NXY(jingduint, weidu), 6);
+            var ss = data.JDBianHao;
+            if (typeof (ss) == "undefined") {
+                var marker1 = mymap.getOverlay(data.GHXMBianHao);
+                id = data.GHXMBianHao;
+                marker1.openDialog();
+            }
+            else {
+                var marker1 = mymap.getOverlay(data.JDBianHao);
+                id = data.JDBianHao;
+                marker1.openDialog();
+            }      
+        }       
+    })
+  
 }

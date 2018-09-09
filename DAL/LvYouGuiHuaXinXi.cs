@@ -36,9 +36,9 @@ namespace SDAU.ZHCZ.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into LvYouGuiHuaXinXi(");
-			strSql.Append("GHXMBianHao,GHXMMingCheng,   GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu)");
+			strSql.Append("GHXMBianHao,GHXMMingCheng,   GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu,JingDu,WeiDu)");
 			strSql.Append(" values (");
-			strSql.Append("@GHXMBianHao,@GHXMMingCheng,@GHXMJieShao,@GuiHuaFanWei,@GuiHuaMianJi,@GuiHuaNianXian,@GuiHuaMuBiao,@GuiHuaRenWu,@GuiHuaTu,@GuiHuaShiJian,@GuiHuaDanWei,@FuZeRen,@BeiZhu)");
+			strSql.Append("@GHXMBianHao,@GHXMMingCheng,@GHXMJieShao,@GuiHuaFanWei,@GuiHuaMianJi,@GuiHuaNianXian,@GuiHuaMuBiao,@GuiHuaRenWu,@GuiHuaTu,@GuiHuaShiJian,@GuiHuaDanWei,@FuZeRen,@BeiZhu,@JingDu,@Weidu)");
 			SqlParameter[] parameters = {
 					new SqlParameter("@GHXMBianHao", SqlDbType.NChar,12),
 					new SqlParameter("@GHXMMingCheng", SqlDbType.NVarChar,50),
@@ -52,7 +52,9 @@ namespace SDAU.ZHCZ.DAL
 					new SqlParameter("@GuiHuaShiJian", SqlDbType.DateTime),
 					new SqlParameter("@GuiHuaDanWei", SqlDbType.NVarChar,20),
 					new SqlParameter("@FuZeRen", SqlDbType.NVarChar,20),
-					new SqlParameter("@BeiZhu", SqlDbType.NVarChar,200)};
+					new SqlParameter("@BeiZhu", SqlDbType.NVarChar,200),
+                        new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
+                    new SqlParameter("@WeiDu", SqlDbType.NVarChar,10)};
 			parameters[0].Value = model.GHXMBianHao;
 			parameters[1].Value = model.GHXMMingCheng;
 			parameters[2].Value = model.GHXMJieShao;
@@ -66,8 +68,9 @@ namespace SDAU.ZHCZ.DAL
 			parameters[10].Value = model.GuiHuaDanWei;
 			parameters[11].Value = model.FuZeRen;
 			parameters[12].Value = model.BeiZhu;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            parameters[13].Value = model.JingDu;
+            parameters[14].Value = model.WeiDu;
+            int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
 				return true;
@@ -96,6 +99,8 @@ namespace SDAU.ZHCZ.DAL
             strSql.Append("GHXMMingCheng=@GHXMMingCheng,");
             strSql.Append("GuiHuaShiJian=@GuiHuaShiJian,");
             strSql.Append("BeiZhu=@BeiZhu");
+            strSql.Append("JingDu=@JingDu");
+            strSql.Append("WeiDu=@WeiDu");
             strSql.Append(" where GHXMBianHao=@GHXMBianHao ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@GHXMJieShao", SqlDbType.NVarChar,500),
@@ -110,7 +115,9 @@ namespace SDAU.ZHCZ.DAL
 					new SqlParameter("@GHXMMingCheng", SqlDbType.NVarChar,50),
 					new SqlParameter("@GuiHuaShiJian", SqlDbType.DateTime),
 					new SqlParameter("@GuiHuaDanWei", SqlDbType.NVarChar,20),
-					new SqlParameter("@BeiZhu", SqlDbType.NVarChar,200),};
+					new SqlParameter("@BeiZhu", SqlDbType.NVarChar,200),
+                                new SqlParameter("@JingDu", SqlDbType.NVarChar,10),
+                    new SqlParameter("@WeiDu", SqlDbType.NVarChar,10)};
 			parameters[0].Value = model.GHXMJieShao;
 			parameters[1].Value = model.GuiHuaFanWei;
 			parameters[2].Value = model.GuiHuaMianJi;
@@ -124,7 +131,8 @@ namespace SDAU.ZHCZ.DAL
 			parameters[10].Value = model.GuiHuaShiJian;
 			parameters[11].Value = model.GuiHuaDanWei;
 			parameters[12].Value = model.BeiZhu;
-
+            parameters[13].Value = model.JingDu;
+            parameters[14].Value = model.WeiDu;
 
             int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -204,11 +212,35 @@ namespace SDAU.ZHCZ.DAL
 			}
 		}
 
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi GetModel1(string GHXMMingCheng)
+        {
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi DataRowToModel(DataRow row)
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 * from LvYouGuiHuaXinXi ");
+            strSql.Append(" where GHXMMingCheng=@GHXMMingCheng ");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@GHXMMingCheng", SqlDbType.NVarChar,50),   };
+            parameters[0].Value = GHXMMingCheng;
+            Model.LvYouGuiHuaXinXi model = new Model.LvYouGuiHuaXinXi();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public SDAU.ZHCZ.Model.LvYouGuiHuaXinXi DataRowToModel(DataRow row)
 		{
 			SDAU.ZHCZ.Model.LvYouGuiHuaXinXi model=new SDAU.ZHCZ.Model.LvYouGuiHuaXinXi();
 			if (row != null)
@@ -265,7 +297,15 @@ namespace SDAU.ZHCZ.DAL
 				{
 					model.BeiZhu=row["BeiZhu"].ToString();
 				}
-			}
+                if (row["JingDu"] != null)
+                {
+                    model.JingDu = row["JingDu"].ToString();
+                }
+                if (row["WeiDu"] != null)
+                {
+                    model.WeiDu = row["WeiDu"].ToString();
+                }
+            }
 			return model;
 		}
 
@@ -275,7 +315,7 @@ namespace SDAU.ZHCZ.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu ");
+			strSql.Append("select GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu,JingDu,WeiDu ");
 			strSql.Append(" FROM LvYouGuiHuaXinXi ");
 			if(strWhere.Trim()!="")
 			{
@@ -286,7 +326,7 @@ namespace SDAU.ZHCZ.DAL
         public DataSet GetList1(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu ");
+            strSql.Append("select GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu,JingDu,WeiDu ");
             strSql.Append(" FROM LvYouGuiHuaXinXi order by BeiZhu desc ");
             if (strWhere.Trim() != "")
             {
@@ -306,7 +346,7 @@ namespace SDAU.ZHCZ.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu ");
+			strSql.Append(" GHXMBianHao,GHXMMingCheng,GHXMJieShao,GuiHuaFanWei,GuiHuaMianJi,GuiHuaNianXian,GuiHuaMuBiao,GuiHuaRenWu,GuiHuaTu,GuiHuaShiJian,GuiHuaDanWei,FuZeRen,BeiZhu,JingDu,WeiDu ");
 			strSql.Append(" FROM LvYouGuiHuaXinXi ");
 			if(strWhere.Trim()!="")
 			{

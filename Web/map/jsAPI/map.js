@@ -117,8 +117,8 @@ function mapInit() {
 		//将当前地图缩放到指定的中心点和级别
       mymap.moveTo(new NXY(116.342268, 37.16564), 6);  
 		 
-		mymap.addControl(new NPanZoomBarControl({useZoomBarTag:true}));  
-    mymap.addControl(new NPositionControl());  
+	mymap.addControl(new NPanZoomBarControl({useZoomBarTag:true}));  
+    mymap.addControl(new NPositionControl());
     mymap.addControl(new NScaleControl());  
     mymap.setMode("dragzoom");  
     //添加比例尺到地图 
@@ -135,21 +135,100 @@ function mapInit() {
             gisdata[index].TuPian = unescape(gisdata[index].TuPian);
         });
         for (var i = 0; i < data.jingdianCount; i++) {
-            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), { markerTitle: gisdata[i].JDMingCheng });
+            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), { markerTitle: gisdata[i].JDMingCheng, assignId: gisdata[i].JDBianHao});
             marker.setDialog("<div style ='margin:0px;' > " +
                 "<div style='margin:10px 10px; '>" +
                 "<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
                 "  <div style='margin:0px 0px 0px 120px;width:170px;height:auto'>景点名称:" + gisdata[i].JDMingCheng + "<br>景点简介:" + gisdata[i].JDJieShao + "<span style='width:169px'></span></div>" +
                 "</div>" +
+                '<input type="button" value="景点反馈" onclick="jdComment(\'' + gisdata[i].JDBianHao + '\')"/>' +
                 "</div>");
             //标注添加到地图  
             mymap.addOverlays(marker);  
         }
     });
-		$("#vec_").click(showVector);
+
+    $.getJSON("../Admin/ashx/LvYouGuiHuaList.ashx", {}, function (data) {
+        var gisdata = data.list;
+        //$.each(gisdata, function (index, n) {
+        //    gisdata[index].JDJieShao = unescape(gisdata[index].JDJieShao);
+        //    if (gisdata[index].JDJieShao.length < 60) {
+        //        gisdata[index].JDJieShao = gisdata[index].JDJieShao + '<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
+        //    }
+        //    else {
+        //        gisdata[index].JDJieShao = gisdata[index].JDJieShao.substring(-1, 60) + '...<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
+        //    }
+        //    gisdata[index].TuPian = unescape(gisdata[index].TuPian);
+        //});
+        for (var i = 0; i < data.Count; i++) {
+            var markerOptions = {
+                imgUrl: "marker_red.png",
+                markerTitle: gisdata[i].GHXMMingCheng,
+                assignId: gisdata[i].GHXMBianHao
+            }
+            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), markerOptions);
+            marker.setDialog("<div style ='margin:0px;' > " +
+                "<div style='margin:10px 10px; '>" +
+                //"<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
+                "  <div style='margin:0px 0px 0px 120px;width:170px;height:auto'>规划编号:" + gisdata[i].GHXMBianHao + "<br>规划名称:" + gisdata[i].GHXMMingCheng + "<span style='width:169px'></span></div>" +
+                "</div>" +
+                '<input type="button" value="留言" onclick="ghComment(\'' + gisdata[i].GHXMBianHao + '\')"/>' +
+                '<input type="button" value="查看详情" onclick="ghView(\'' + gisdata[i].GHXMBianHao + '\')"/>' +
+         
+                //"<input type='button' name='delete' value ='删除' id ='delete' onclick=delete1(" + gisdata[i].JDBianHao + ") />" +
+                "</div>");
+            //标注添加到地图  
+            mymap.addOverlays(marker);
+        }
+    });
+
+
+
+    $("#vec_").click(showVector);
 		$("#img_").click(showRaster);
 };  
+function ghView(id) {
+    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
+        $("#GHXMBianHao").text(data.GHXMBianHao);
+        $("#GHXMMingCheng").text(data.GHXMMingCheng);
+        $("#FuZeRen").text(data.FuZeRen);
+        $("#GuiHuaDanWei").text(data.GuiHuaDanWei);
+        $("#GuiHuaShiJian").text(ConvertTime(data.GuiHuaShiJian) != "2000-1-1" ? ConvertTime(data.GuiHuaShiJian) : "");
+        $("#GuiHuaNianXian").text(data.GuiHuaNianXian == "" ? "" : data.GuiHuaNianXian.split('|')[0] + "——" + data.GuiHuaNianXian.split('|')[1]);
+        $("#GuiHuaFanWei").text(data.GuiHuaFanWei);
+        $("#GuiHuaMianJi").text(data.GuiHuaMianJi);
+        $("#GuiHuaMuBiao").html(data.GuiHuaMuBiao);
+        $("#GuiHuaRenWu").html(data.GuiHuaRenWu);
+        $("#GHXMJieShao").html(data.GHXMJieShao);
+        //动态添加a标签
+        var html = '<a href=\"#\" style="font-size:15px;" id="guihuatu_a" onclick=\"ShowGuiHuaTu(\'' + id + '\')\">查看规划图</a>';
+        $(html).appendTo($("#guihautudiv"));
+    })
+    if ($("#centerlist2").is(":hidden")) {
+        $("#centerlist2").show("slow");
+    }
+}
+function jdComment(id) {
+    $.getJSON("../Admin/ashx/GetlyjdInfo.ashx", { id: id }, function (data) {
+        //$("#jinddianjieshao").html(unescape(data.JDJieShao));
+        $("#comment").val("@" + data.JDMingCheng + "@    ");
+        //$("#comment").css("color", "red");
+        $("#comment").focus();
+    });
+    if ($("#hudongjiaoliu").is(":hidden")) {
+        $("#hudongjiaoliu").show("slow");
+    }
+}
 
+function ghComment(id) {
+    $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
+        $("#comment").val("@" + data.GHXMMingCheng + "@   ");
+        $("#comment").focus();
+    });
+    if ($("#hudongjiaoliu").is(":hidden")) {
+        $("#hudongjiaoliu").show("slow");
+    }
+}
 function JDedit(id) {
     alert("edit");
 }
@@ -194,6 +273,8 @@ function closebottomlist(){
 }
 
 function lyghlist() {
+
+
     if ($("#leftlist").is(":hidden")) {
         $("#leftlist").show("slow");
     }
@@ -219,7 +300,7 @@ function gkxx_view(id) {
         $("#LeiXing").text(data.LeiXing);
         $("#fabushijian").text(ConvertTime(data.FaBuShiJian));
         $("#neirong").html(unescape(data.NeiRong));
-        $("title").text(data.BiaoTi);
+        //$("title").text(data.BiaoTi);
     })
     if ($("#centerlist").is(":hidden")) {
         $("#centerlist").show("slow");

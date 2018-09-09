@@ -720,12 +720,14 @@
     <Content Include="map\images\close.png" />
     <Content Include="map\images\logo.png" />
     <Content Include="map\images\logo2.png" />
+    <Content Include="map\images\marker_red.png" />
     <Content Include="map\images\toolbar.png" />
     <Content Include="map\images\toolbar_bg.png" />
     <Content Include="map\images\top_left.png" />
     <Content Include="map\images\top_right.png" />
     <Content Include="map\index.html" />
     <Content Include="map\jsAPI\comment_page.js" />
+    <Content Include="map\jsAPI\HtmlPage1.html" />
     <Content Include="map\jsAPI\images\logo.png" />
     <Content Include="map\jsAPI\images\logo1.png" />
     <Content Include="map\jsAPI\images\logo3.png" />
@@ -754,6 +756,7 @@
     <Content Include="map\jsAPI\jquery\jquery-3.3.1.min.js" />
     <Content Include="map\jsAPI\jquery\jquery.min.1.9.0.js" />
     <Content Include="map\jsAPI\map.js" />
+    <Content Include="map\jsAPI\marker_red.png" />
     <Content Include="map\jsAPI\mobile.css" />
     <Content Include="map\jsAPI\newmap.css" />
     <Content Include="map\jsAPI\newmap.ie.css" />
@@ -2803,6 +2806,9 @@
     <Compile Include="Admin\ashx\GetInfoId.ashx.cs">
       <DependentUpon>GetInfoId.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ashx\getLotandLngByName.ashx.cs">
+      <DependentUpon>getLotandLngByName.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ashx\GetlyghInfo.ashx.cs">
       <DependentUpon>GetlyghInfo.ashx</DependentUpon>
     </Compile>
@@ -3199,6 +3205,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ashx\GetCommentList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ashx\getLotandLngByName.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

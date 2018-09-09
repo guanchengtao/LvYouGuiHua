@@ -123,6 +123,7 @@ function mapInit() {
     mymap.setMode("dragzoom");
     mymap.on("click", tip); 
     //添加比例尺到地图 
+    //添加景点
     $.getJSON("../Admin/ashx/JingDianList.ashx", {}, function (data) {
         var gisdata = data.jingdianList;
         $.each(gisdata, function (index, n) {
@@ -150,7 +151,58 @@ function mapInit() {
             mymap.addOverlays(marker);  
         }
     });
-		$("#vec_").click(showVector);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //添加旅游规划，，标注不一样的哦
+    $.getJSON("../Admin/ashx/LvYouGuiHuaList.ashx", {}, function (data) {
+        var gisdata = data.list;
+        //$.each(gisdata, function (index, n) {
+        //    gisdata[index].JDJieShao = unescape(gisdata[index].JDJieShao);
+        //    if (gisdata[index].JDJieShao.length < 60) {
+        //        gisdata[index].JDJieShao = gisdata[index].JDJieShao + '<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
+        //    }
+        //    else {
+        //        gisdata[index].JDJieShao = gisdata[index].JDJieShao.substring(-1, 60) + '...<a href="#" onclick="lyjd_view(\'' + gisdata[index].JDBianHao + '\')">了解更多</a>';
+        //    }
+        //    gisdata[index].TuPian = unescape(gisdata[index].TuPian);
+        //});
+        for (var i = 0; i < data.Count; i++) {
+            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), { markerTitle: gisdata[i].JDMingCheng });
+            marker.setDialog("<div style ='margin:0px;' > " +
+                "<div style='margin:10px 10px; '>" +
+                //"<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
+                "  <div style='margin:0px 0px 0px 120px;width:170px;height:auto'>规划编号:" + gisdata[i].GHXMBianHao + "<br>规划名称:" + gisdata[i].GHXMMingCheng + "<span style='width:169px'></span></div>" +
+                "</div>" +
+
+                //"<input type='button' name='delete' value ='编辑' id ='edit' onclick=edit(" + gisdata[i].JDBianHao + ") />" +
+                //"<input type='button' name='delete' value ='删除' id ='delete' onclick=delete1(" + gisdata[i].JDBianHao + ") />" +
+                "</div>");
+            //标注添加到地图  
+            mymap.addOverlays(marker);
+        }
+    });
+
+
+
+
+
+
+
+    $("#vec_").click(showVector);
 		$("#img_").click(showRaster);
 };  
 

@@ -91,6 +91,7 @@
                         <th style="width: 100px;">标题</th>
                         <th style="width:500px">内容</th>
                         <th>评论时间</th>
+                            <th>回复状态</th>
                         <th style="width: 400px">操作</th>
                     </tr>
                 </thead>
@@ -108,8 +109,10 @@
                         <td><%=item.BiaoTi %></td>
                         <td><%=item.NeiRong %></td>
                         <td><%=item.LiuYanShiJian %></td>
-
+                           <td><%=item.HuiFuZhuangTai=="未回复"?item.HuiFuZhuangTai:"已回复" %></td>
                         <td><a href="LiuYanBan_View.aspx?id=<%=item.BianHao %>">查看</a>&nbsp;&nbsp;
+                         <span style="color: cornflowerblue">|</span>
+                            &nbsp;&nbsp;&nbsp;<a href="LiuYanBan_View.aspx?id=<%=item.BianHao %>">回复</a>&nbsp;&nbsp;
                          <span style="color: cornflowerblue">|</span>
                             &nbsp;&nbsp;&nbsp;<a class="deletesingledate" href="LiuYanBan_Delete.aspx?id=<%=item.BianHao %>">删除</a>
                         </td>

@@ -11,8 +11,28 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
     public partial class LvYouGuiHua_Add : System.Web.UI.Page
     {
         LvYouGuiHuaXinXi LvYouGuiHuaXinXi = new LvYouGuiHuaXinXi();
+        public string jingdu { get; set; }
+        public string  weidu { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["jwdu"] != null)
+            {
+                string jwdu = Request["jwdu"].Trim().ToString();
+                if (jwdu.Length == 0)
+                {
+                    Context.Response.Redirect("../../map/NewMap_JingDian.html");
+                }
+                else
+                {
+                    jingdu = jwdu.Split(',')[0].Substring(0, 10);
+                    weidu = jwdu.Split(',')[1].Substring(0, 9);
+                }
+
+            }
+            else
+            {
+                Context.Response.Redirect("../../map/NewMap_JingDian.html");
+            }
         }
         protected void btnSub_Click(object sender, EventArgs e)
         {
@@ -51,6 +71,8 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
                 model.GuiHuaNianXian = kaishi + "|" + jieshu;
             }
             model.GuiHuaTu = Request["mytext"];
+            model.JingDu = jingdu;
+            model.WeiDu = weidu;
             bool b=  LvYouGuiHuaXinXi.Add(model);
             if(b)
             {
