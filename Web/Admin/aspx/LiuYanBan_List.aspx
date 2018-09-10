@@ -75,8 +75,13 @@
 
                 <input type="button" name="name" value="批量删除" class="btn btn-primary btn-lg" id="delete" data-toggle="modal" data-target="#myModal" />
                 &nbsp;&nbsp;&nbsp;        
-             
-                <input style="margin-top: 11px" type="text" name="condition" value="<%=PreSerach %>" placeholder="根据内容查询" />
+    <%--         
+                <input style="margin-top: 11px" type="text" name="condition" value="<%=PreSerach %>" placeholder="根据内容查询" />--%>
+                                 <select id="select2" name="select" runat="server" style="margin-top: 11px; width: 100px;">
+                             <option selected="selected">全部</option> 
+                             <option>已回复</option>
+                             <option>未回复</option>
+                         </select>
                 <asp:Button ID="Serachwithcondition" class="btn btn-success" runat="server" Text="搜索" OnClick="Serachwithcondition_Click"/>
                 &nbsp;  <span>共找到<%=DataCount %>条数据</span>
                 &nbsp; &nbsp; &nbsp;              

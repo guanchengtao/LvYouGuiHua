@@ -14,11 +14,13 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
         public void ProcessRequest(HttpContext context)
         {
             string comment = context.Request["comment"];
+            string id= context.Request["id"];
             BLL.LiuYanBan liuYanBan = new BLL.LiuYanBan();
             Model.LiuYanBan model = new Model.LiuYanBan()
             {
                 LiuYanShiJian = DateTime.Now,
                 NeiRong = comment,
+                BiaoTi = id.ToString(),
                 HuiFuNeiRong="",
                 HuiFuZhuangTai="未回复"
 

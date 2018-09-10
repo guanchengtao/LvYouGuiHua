@@ -58,10 +58,10 @@ namespace SDAU.ZHCZ.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(string BiaoTi,int BianHao)
+		public bool Delete(string BiaoTi)
 		{
 			
-			return dal.Delete(BiaoTi,BianHao);
+			return dal.Delete(BiaoTi);
 		}
 		/// <summary>
 		/// 删除一条数据

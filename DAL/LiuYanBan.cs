@@ -172,17 +172,15 @@ namespace SDAU.ZHCZ.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(string BiaoTi,int BianHao)
+		public bool Delete(string BiaoTi)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from LiuYanBan ");
-			strSql.Append(" where BiaoTi=@BiaoTi and BianHao=@BianHao ");
+			strSql.Append(" where BiaoTi=@BiaoTi ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@BiaoTi", SqlDbType.NChar,20),
-					new SqlParameter("@BianHao", SqlDbType.Int,4)			};
+					new SqlParameter("@BiaoTi", SqlDbType.NChar,20)	};
 			parameters[0].Value = BiaoTi;
-			parameters[1].Value = BianHao;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -352,7 +350,7 @@ namespace SDAU.ZHCZ.DAL
             {
                 string strdate = strWhere;
            
-                strSql.Append(" where NeiRong like '%" + strdate + "%' ");
+                strSql.Append(" where HuiFuZhuangTai='"+strdate+"'");
             }
             object obj = DbHelperSQL.GetSingle(strSql.ToString());
             if (obj == null)
@@ -383,7 +381,9 @@ namespace SDAU.ZHCZ.DAL
 			strSql.Append(")AS Row, T.*  from LiuYanBan T ");
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                strSql.Append(" where NeiRong like '%" + strWhere + "%' ");
+                //strSql.Append(" where NeiRong like '%" + strWhere + "%' ");
+                strSql.Append(" where HuiFuZhuangTai='" + strWhere + "'");
+
                 strSql.Append(" ) TT");
                 strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
                 return DbHelperSQL.Query(strSql.ToString());

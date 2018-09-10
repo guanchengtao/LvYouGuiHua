@@ -6,7 +6,10 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            new BLL.LvYouGuiHuaXinXi().Delete(Request["id"]);
+            string id =Request["id"].ToString();
+            new BLL.LvYouGuiHuaXinXi().Delete(id);
+
+            new BLL.LiuYanBan().Delete(id);
             Response.Redirect("LvYouGuiHua_List.aspx");
         }
     }

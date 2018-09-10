@@ -162,7 +162,7 @@ function mapInit() {
         //});
         for (var i = 0; i < data.Count; i++) {
             var markerOptions = {
-                imgUrl: "marker_red.png",
+                imgUrl: "../../wodetupian/marker_red.png",
                 markerTitle: gisdata[i].GHXMMingCheng,
                 assignId: gisdata[i].GHXMBianHao
             }
@@ -174,12 +174,10 @@ function mapInit() {
                 "</div>" +
                 '<input type="button" value="留言" onclick="ghComment(\'' + gisdata[i].GHXMBianHao + '\')"/>' +
                 '<input type="button" value="查看详情" onclick="ghView(\'' + gisdata[i].GHXMBianHao + '\')"/>' +
-         
-                //"<input type='button' name='delete' value ='删除' id ='delete' onclick=delete1(" + gisdata[i].JDBianHao + ") />" +
                 "</div>");
             //标注添加到地图  
             mymap.addOverlays(marker);
-        }
+        }        
     });
 
 
@@ -212,6 +210,7 @@ function jdComment(id) {
     $.getJSON("../Admin/ashx/GetlyjdInfo.ashx", { id: id }, function (data) {
         //$("#jinddianjieshao").html(unescape(data.JDJieShao));
         $("#comment").val("@" + data.JDMingCheng + "@    ");
+        $("#DeleteFlag").val(id);
         //$("#comment").css("color", "red");
         $("#comment").focus();
     });
@@ -223,6 +222,7 @@ function jdComment(id) {
 function ghComment(id) {
     $.getJSON("../Admin/ashx/GetlyghInfo.ashx", { id: id }, function (data) {
         $("#comment").val("@" + data.GHXMMingCheng + "@   ");
+        $("#DeleteFlag").val(id);
         $("#comment").focus();
     });
     if ($("#hudongjiaoliu").is(":hidden")) {

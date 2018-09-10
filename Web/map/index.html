@@ -22,7 +22,8 @@
                 }
              
                 else {
-                    $.post("../Admin/ashx/AddComment.ashx", { comment: comm }, function (data) {
+                    var iid = $("#DeleteFlag").val();
+                    $.post("../Admin/ashx/AddComment.ashx", { comment: comm, id: iid }, function (data) {
                         if (data == "ok") {
                             $("#comment").val("");
                             //重新调用分页函数
@@ -61,6 +62,7 @@
     </script>
 </head>
 <body style="position: absolute; overflow: hidden; height: 100%; width: 100%; zoom: 1;" oncontextmenu="return false;">
+    <input type="hidden" name="name" value="" id="DeleteFlag" />
     <input type="button" id="esc" name="name" value="退出全屏" style="display:none" onclick="EscFullSrceen()" />
     <div id="topDiv">
         <div id="D_Top" class="DIVtop">

@@ -38,12 +38,12 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
         protected void Serachwithcondition_Click(object sender, EventArgs e)
         {
             BLL.LiuYanBan mainService = new BLL.LiuYanBan();
-            string secondtype = Request["condition"];//根据name属性获取
-            if (secondtype == "")
+            string firsttype = select2.Items[select2.SelectedIndex].Value;
+            if (firsttype == ""||firsttype=="全部")
             {
                 int pageIndex = int.Parse(Request["pageIndex"] ?? "1");
                 pageindex = pageIndex;
-                int pageSize = 5;
+                int pageSize = 8;
                 var ds = mainService.GetListByPage(string.Empty, " ", (pageIndex - 1) * pageSize + 1, pageSize * pageIndex);
                 list = mainService.DataTableToList(ds.Tables[0]);
                 var allCount = mainService.GetRecordCount(string.Empty);
@@ -58,13 +58,13 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
                 int allCount = 0;
                 int pageSize = 0;
                 pageSize = 1000;
-                var ds = mainService.GetListByPage(secondtype, " ", (pageIndex - 1) * pageSize + 1, pageSize * pageIndex);
+                var ds = mainService.GetListByPage(firsttype, " ", (pageIndex - 1) * pageSize + 1, pageSize * pageIndex);
                 list = mainService.DataTableToList(ds.Tables[0]);
-                allCount = mainService.GetRecordCount(secondtype);
+                allCount = mainService.GetRecordCount(firsttype);
                 DataCount = allCount;
                 if (DataCount == 0) showinfo = "没有数据！";
                 PageCount = 1;
-                PreSerach = secondtype;
+                PreSerach = firsttype;
                 Navstring = Common.LaomaPager.ShowPageNavigate(pageSize, pageIndex, allCount);
             }
         }
