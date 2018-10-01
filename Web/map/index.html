@@ -11,16 +11,17 @@
     <script type="text/javascript" src="jsAPI/map.js"></script>
     <link href="css/gkxxview.css" rel="stylesheet" />
     <link href="css/lyghview.css" rel="stylesheet" />
+    <!--<link href="../css/MarkerMenu.css" rel="stylesheet" />-->
     <script>
         $(function () {
-          $("#comment").val("");
+            $("#comment").val("");
             $("#btnSub").click(function () {
-                var comm =$("#comment").val();
+                var comm = $("#comment").val();
                 if (comm.length == 0) {
                     alert("评论不能为空！！！");
                     return;
                 }
-             
+
                 else {
                     var iid = $("#DeleteFlag").val();
                     $.post("../Admin/ashx/AddComment.ashx", { comment: comm, id: iid }, function (data) {
@@ -43,7 +44,7 @@
                         }
                     })
                 }
-              
+
             });
         })
         function FullSrceen() {
@@ -202,7 +203,7 @@
             <script src="jsAPI/gkxx_page.js"></script>
         </div>
     </div>
-  
+
     <!--旅游规划信息表-->
     <div id="leftlist">
         <div id="closeleftList">
@@ -346,7 +347,7 @@
         </div>
     </div>
 
-   <!--规划图-->
+    <!--规划图-->
     <div id="centerlist3">
         <div id="closecenterList3">
             <img id="centerlistClosebtn3" src="images/close.png" onclick="closecenterlist3()" />
@@ -354,6 +355,8 @@
         <div id="guihuatu" style="height:550px;width:750px; overflow:scroll; margin:35px 0 0 30px"></div>
     </div>
 
+
+    <!--景点介绍-->
     <div id="centerlist4">
         <div id="closecenterList4">
             <span style="margin:0 700px 0 0;color:blue">景点介绍</span>
@@ -367,6 +370,7 @@
         </div>
     </div>
 
+    <!--互动交流-->
     <div id="hudongjiaoliu">
         <div id="closehudongjiaoliu">
 
@@ -376,9 +380,6 @@
     height: 600px;
     margin:38px 0 0 10px;
     overflow-y:scroll">
-
-            <!--<textarea placeholder="请在此留言..." id="txtEditorContents" name="txtEditorContents" rows="3" cols="15"></textare>-->
-
             <textarea placeholder="请在此留言..." style="font-size:medium" id="comment" name="" rows="5" cols="58"></textarea>
             <input type="button" name="btnSub" id="btnSub" value="提交" style="margin:3px 10px 0 0;float:right;width:100px;font-size:large;color:blue" />
             <span style="float:left;margin:2px 0 0 2px">注：您的留言将以匿名的方式发表！</span>
@@ -389,5 +390,16 @@
             <script src="jsAPI/comment_page.js"></script>
         </div>
     </div>
+
+    <!--小悬浮菜单div-->
+    <nav style="position: absolute; bottom:5px; left: 100px; opacity:1;" id="markerMenu">
+        <nav>
+            <img src="../wodetupian/marker_red.png" />
+            <span style="color:green;">旅游规划</span>
+            <img src="../wodetupian/marker.png" />
+            <span style="color:green">旅游景点</span>
+        </nav>
+    </nav>
+  
 </body>
 </html>

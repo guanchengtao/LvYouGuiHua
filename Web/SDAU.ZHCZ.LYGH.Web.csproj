@@ -225,7 +225,10 @@
     <Content Include="bootstrap\img\listlefbg1_1.gif" />
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="css\daohang.css" />
+    <Content Include="css\default.css" />
     <Content Include="css\gkxxview.css" />
+    <Content Include="css\MarkerMenu.css" />
+    <Content Include="css\sweetalert.css" />
     <Content Include="css\yangshi.css" />
     <Content Include="index.html" />
     <Content Include="Controls\checkright.ascx" />
@@ -714,6 +717,18 @@
     <Content Include="js\timer.js" />
     <Content Include="js\top.js" />
     <Content Include="Login.html" />
+    <Content Include="Login\css\login.css" />
+    <Content Include="Login\css\xgxt_login.css" />
+    <Content Include="Login\img\a.jpg" />
+    <Content Include="Login\img\btn-type2.png" />
+    <Content Include="Login\img\icon.png" />
+    <Content Include="Login\img\icon1.png" />
+    <Content Include="Login\img\pay-bg-3.jpg" />
+    <Content Include="Login\img\xgxt_login_bg.jpg" />
+    <Content Include="Login\js\jquery-1.7.1.min.js" />
+    <Content Include="Login\js\login-xin.js" />
+    <Content Include="Login\login.html" />
+    <Content Include="Login\看一下这个.txt" />
     <Content Include="map\css\lyghview.css" />
     <Content Include="map\css\gkxxview.css" />
     <Content Include="map\css\index.css" />
@@ -756,6 +771,7 @@
     <Content Include="map\jsAPI\jquery\jquery.min.1.9.0.js" />
     <Content Include="map\jsAPI\map.js" />
     <Content Include="map\NewMap_JingDian1.html" />
+    <Content Include="wodetupian\marker.png" />
     <Content Include="wodetupian\marker_red.png" />
     <Content Include="map\jsAPI\mobile.css" />
     <Content Include="map\jsAPI\newmap.css" />
@@ -2456,9 +2472,9 @@
     <Content Include="upload\image\20180721\6366776367959996558829393.png" />
     <Content Include="upload\image\20180727\6366828298741187083375529.jpg" />
     <Content Include="upload\image\20180727\6366831929286987495034320.jpg" />
-    <Content Include="User\gkxxList.html" />
-    <Content Include="User\Home.html" />
-    <Content Include="User\gkxx.html" />
+    <Content Include="OldUser\gkxxList.html" />
+    <Content Include="OldUser\Home.html" />
+    <Content Include="OldUser\gkxx.html" />
     <Content Include="utf8-net\dialogs\anchor\anchor.html" />
     <Content Include="utf8-net\dialogs\attachment\attachment.css" />
     <Content Include="utf8-net\dialogs\attachment\attachment.html" />
@@ -3077,14 +3093,8 @@
     <Content Include="MasterPage.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="obj\Debug\build.force" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\Web.csproj.CoreCompileInputs.cache" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ExcelFile\FileIn\" />
     <Folder Include="ExcelFile\FileOut\" />
-    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\Web.config" />
@@ -3215,6 +3225,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\ashx\getLotandLngByName.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Login\img\Thumbs.db" />
+    <Content Include="Login\img\Thumbs_1.db" />
+    <Content Include="Login\pay-bg-3.psd" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

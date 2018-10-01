@@ -115,11 +115,10 @@
                     <td class="biaotou">规划时间：
                     </td>
                     <td colspan="3">
-                        <asp:TextBox ID="shijian" runat="server" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="shijian" runat="server" TextMode="Date"></asp:TextBox><%--<asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>--%>
                     </td>
                 </tr>
                 <tr>
-
                     <td class="biaotou">项目年限:</td>
                     <td colspan="3">起始时间：
                         <asp:TextBox ID="kaishishijian" runat="server" TextMode="Date"></asp:TextBox>

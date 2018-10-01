@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>王打卦镇旅游规划展示与监管系统登陆</title>
+    <script src="../static/login/js/jquery-1.5.1.min.js"></script>
+    <!--<script src="../js/jquery-3.3.1.min.js"></script>-->
+    <!--<script src="js/jquery-1.7.1.min.js"></script>-->
+    <script src="js/login-xin.js"></script>
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(function () {
+            changeCookie();
+            changeImage();
+            var img = $("#imgValidateCode");
+            img.click(function () {
+                changeImage();
+            });
+            $("#ChangeCode").click(function () {
+                changeImage();
+            })
+        })
+
+        function severCheck() {
+
+            var loginname = $("#userName").val();
+            var password = $("#password").val();
+            var code = $("#userCode").val();
+            $.ajax({
+                type: "POST",
+                url: '../Admin/ashx/LoginProcess.ashx',
+                data: { loginname: loginname, password: password, code: code, tm: new Date().getTime() },
+                dataType: 'json',
+                cache: false,
+                success: function (data) {
+                    if ("success" == data) {
+                        saveCookie();
+                        window.location.href = "../index.html";
+                    } else if ("usererror" == data) {
+                        alert("用户名或密码有误");
+                        changeImage();
+                        $("#loginname").focus();
+                    } else if ("codeerror" == data) {
+                        alert("验证码输入有误");
+                        $("#userCode").val("");
+                        changeImage();
+                        $("#code").focus();
+                    } else {
+                        $("#loginname").focus();
+                    }
+                }
+            });
+        }
+        function saveCookie() {
+
+            $.cookie('loginname', $("#userName").val(), {
+                expires: 3
+            });
+            $.cookie('password', $("#password").val(), {
+                expires: 3
+            });
+        }
+        function changeCookie() {
+            var loginname = $.cookie('loginname');
+            var password = $.cookie('password');
+            if (typeof (loginname) != "undefined"
+                && typeof (password) != "undefined") {
+                $("#userName").val(loginname);
+                $("#password").val(password);
+                $("#userCode").focus();
+            }
+        }
+        function changeImage() {
+            var img = $("#imgValidateCode");
+            img.attr("src", "../Admin/aspx/VerifyCode.aspx?random=" + Math.random());
+        }
+    </script>
+</head>
+<body>
+    <noscript>
+        <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px;
+            width: 100%; background: white; text-align: center;">
+            <h1>
+                必须打开浏览器的javascript支持！！！
+            </h1>
+        </div>
+    </noscript>
+    <div class="login">
+        <div class="login-head">
+            <div class="login-head-a">
+                <img src="img/a.jpg" title="" alt="" />
+                <p>LOGO</p>
+            </div>
+            <div class="login-head-b">
+                王打卦镇旅游规划展示与监管系统
+            </div>
+        </div>
+        <div class="login-con">
+            <div class="login-a">
+                <form id="loginForm" method="post">
+                    <div class="login-b">
+                        <div class="login-b-a">用户登陆</div>
+                        <div class="login-b-b">
+                            <ul>
+                                <li>
+                                    <label for="userName">用户名：</label><input type="text" id="userName" name="userName" />
+                                    <h1 id="m-tip"></h1>
+                                </li>
+                                <li>
+                                    <label for="password">密 &nbsp;&nbsp;码：</label><input type="password" id="password" name="password" />
+                                    <h1 id="p-tip"></h1>
+                                </li>
+                                <li>
+                                    <label>验证码：</label><input type="text" id="userCode" />
+                             <img src="" alt="点击刷新" id="imgValidateCode" style="width: 65px; height: 30px; line-height: 30px; vertical-align: middle;" />
+                                    <a href="#" id="ChangeCode">看不清楚</a>
+                                    <h1 id="c-tip"></h1>
+                                </li>
+
+                                <li class="login-x">
+                                    <div class="login-x-a"><input type="button" name="登录" value="登陆" id="Button1" onClick="severCheck();" /><div class="x"></div></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="login-b-c">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="login-foot">
+            版权所有&copy;-2018-山东省国土资源厅智慧村镇重点实验室
+        </div>
+    </div>
+    <script src="../static/js/jquery.cookie.js"></script>
+</body>    
+</html>

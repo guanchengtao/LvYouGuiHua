@@ -40,7 +40,7 @@
             });
             $("#gkxxbody").html(str);
         });
-    //设置ajax请求数据分成的最大页码
+//    //设置ajax请求数据分成的最大页码
     pager.maxCount = pager.data.length % pager.pageCount ? parseInt(pager.data.length / pager.pageCount) + 1 :
                     pager.data.length / pager.pageCount;
 

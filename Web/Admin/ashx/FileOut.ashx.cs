@@ -216,7 +216,7 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
                                 int JDBianHao = reader.GetInt32(0);
                                 string JDMingCheng = reader.GetString(1);
                                 string JDJieShao = reader.GetString(2);
-                                string JDWeiZhi = reader.GetString(3);
+                                string JDWeiZhi = reader.GetString(3)??"无";
                                 string JingDu = reader.GetString(4);
                                 string WeiDu = reader.GetString(5);
                                 int LiuLanCiShu = reader.GetInt32(6);

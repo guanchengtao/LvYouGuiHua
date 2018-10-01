@@ -20,7 +20,7 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
             string jsonstr = new JavaScriptSerializer().Serialize(data);
             context.Response.Write(jsonstr);
 
-        }
+        }   
 
         public bool IsReusable
         {

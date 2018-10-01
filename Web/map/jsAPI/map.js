@@ -264,12 +264,14 @@ function showVector()
 
 function gkxxlist(){
 	if ($("#bottomlist").is(":hidden")) {
-		$("#bottomlist").show("slow");
+        $("#bottomlist").show("slow");
+        $("#markerMenu").css("display", "none");
 	}
 }
 
 function closebottomlist(){
-	$("#bottomlist").hide("slow");
+    $("#bottomlist").hide("slow");
+    $("#markerMenu").css("display", "block");
 }
 
 function lyghlist() {

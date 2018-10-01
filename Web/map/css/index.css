@@ -401,8 +401,6 @@ table {
     border-color: #48ACFC;
     border-radius: 15px 0px 0px 15px;
     display: none;
-    /*text-align: center;*/
-
 }
 
 #closehudongjiaoliu {
@@ -412,11 +410,10 @@ table {
     width: 100%;
     height: 32px;
     background-color: #48ACFC;
-    text-align: right;
-    border-radius: 0px 15px 0px 0px;
+    text-align: left;
+    border-radius: 15px 0px 0px 0px;
 }
 
 #hudongjiaoliuClosebtn4 {
     cursor: pointer;
 }
-

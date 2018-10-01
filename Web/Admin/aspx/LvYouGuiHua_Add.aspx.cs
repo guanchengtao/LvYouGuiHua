@@ -82,8 +82,19 @@ namespace SDAU.ZHCZ.Web.Admin.aspx
 
         protected void btncal_Click(object sender, EventArgs e)
         {
-                Response.Redirect("LvYouGuiHua_List.aspx");        
+                Response.Redirect("LvYouGuiHua_List.aspx");
+          
         }
+        //protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    shijian.Text = Calendar1.SelectedDate.ToShortDateString();
+
+        //    //// 隐藏日历
+        //    //calendar.Visible = false;
+
+        //    ////设置日历下textbox的焦点，方便用户输入。移除或改变下行代码设置为您自己的控件
+        //    //someTextBox.Focus();
+        //}
     }
 
 }
