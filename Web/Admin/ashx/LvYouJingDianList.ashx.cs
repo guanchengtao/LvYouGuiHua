@@ -14,6 +14,8 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
 
         public void ProcessRequest(HttpContext context)
         {
+            context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+           context.Response.AppendHeader("Content-type", "application/json");
             BLL.LvYouJingDianXinXi model = new BLL.LvYouJingDianXinXi();
             var list = model.GetModelList("");
             string jsonstr = new JavaScriptSerializer().Serialize(list);

@@ -14,6 +14,8 @@ namespace SDAU.ZHCZ.Web.Admin.ashx
 
         public void ProcessRequest(HttpContext context)
         {
+            context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AppendHeader("Content-type", "application/json");
             context.Response.ContentType = "text/plain";
             string sid = context.Request["id"].ToString();
             int id = Int32.Parse(sid);

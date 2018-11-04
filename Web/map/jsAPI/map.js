@@ -135,7 +135,8 @@ function mapInit() {
             gisdata[index].TuPian = unescape(gisdata[index].TuPian);
         });
         for (var i = 0; i < data.jingdianCount; i++) {
-            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu), { markerTitle: gisdata[i].JDMingCheng, assignId: gisdata[i].JDBianHao});
+            var marker = new NMarker(new NXY(gisdata[i].JingDu, gisdata[i].WeiDu),
+                { markerTitle: gisdata[i].JDMingCheng, assignId: gisdata[i].JDBianHao });
             marker.setDialog("<div style ='margin:0px;' > " +
                 "<div style='margin:10px 10px; '>" +
                 "<img style='float:left;margin:0px 10px' width='100' height='80' title='' " + gisdata[i].TuPian + "+/>" +
